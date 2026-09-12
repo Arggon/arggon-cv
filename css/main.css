@@ -149,6 +149,10 @@ body {
   transition: opacity var(--dur-med) var(--ease-out), transform var(--dur-med) var(--ease-out);
 }
 
+.scene.is-instant {
+  transition: none;
+}
+
 .scene.is-revealed {
   opacity: 1;
   transform: none;
