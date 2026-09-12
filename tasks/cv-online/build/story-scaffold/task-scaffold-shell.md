@@ -1,12 +1,16 @@
 ---
 type: task
-status: todo
+status: in_progress
 id: task-scaffold-shell
 title: index.html + reset CSS + scroll-observer engine
+assignee: Arggon
+branch: feat/task-scaffold-shell
 parent: story-scaffold
 labels: []
 created: "2026-09-12"
 updated: "2026-09-12"
+claimed_at: "2026-09-12T23:40:26.099Z"
+worktree_path: /home/arggon/Projects/arggon-cv-task-scaffold-shell
 ---
 <!--
   Placement (v0): tasks/cv-online/build/story-scaffold/task-scaffold-shell.md
