@@ -6,7 +6,7 @@ Instructions for humans and AI agents working on **arggon-cv**. Read this file b
 
 <!-- Describe the project in one or two sentences: what it does, for whom, and its core constraint. -->
 
-arggon-cv — <!-- TODO: one-sentence project description -->.
+arggon-cv — An animated, scroll-driven CV telling Gonzalo's story from CRT boot to senior AI engineering.
 
 ## Task workflow
 
