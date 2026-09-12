@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-scaffold-shell
 title: index.html + reset CSS + scroll-observer engine
 assignee: Arggon
@@ -9,7 +9,6 @@ parent: story-scaffold
 labels: []
 created: "2026-09-12"
 updated: "2026-09-12"
-claimed_at: "2026-09-12T23:40:26.099Z"
 worktree_path: /home/arggon/Projects/arggon-cv-task-scaffold-shell
 ---
 <!--
@@ -27,4 +26,4 @@ index.html with the seven section skeletons, reset CSS, and a ~50-line scroll-ob
 
 ## Acceptance
 
-- [ ] Works file:// and any static server; no build step required
+- [x] Works file:// and any static server; no build step required
