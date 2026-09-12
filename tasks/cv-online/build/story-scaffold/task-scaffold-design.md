@@ -1,12 +1,16 @@
 ---
 type: task
-status: todo
+status: in_progress
 id: task-scaffold-design
 title: "Visual identity: dark terminal aesthetic + type scale"
+assignee: Arggon
+branch: feat/task-scaffold-design
 parent: story-scaffold
 labels: []
 created: "2026-09-12"
 updated: "2026-09-12"
+claimed_at: "2026-09-12T23:47:43.221Z"
+worktree_path: /home/arggon/Projects/arggon-cv-task-scaffold-design
 ---
 <!--
   Placement (v0): tasks/cv-online/build/story-scaffold/task-scaffold-design.md
