@@ -1,6 +1,6 @@
 ---
 type: story
-status: todo
+status: done
 id: story-scaffold
 title: Static scaffold with scroll animation engine
 parent: build

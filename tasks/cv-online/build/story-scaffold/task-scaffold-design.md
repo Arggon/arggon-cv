@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-scaffold-design
 title: "Visual identity: dark terminal aesthetic + type scale"
 assignee: Arggon
@@ -9,7 +9,6 @@ parent: story-scaffold
 labels: []
 created: "2026-09-12"
 updated: "2026-09-12"
-claimed_at: "2026-09-12T23:47:43.221Z"
 worktree_path: /home/arggon/Projects/arggon-cv-task-scaffold-design
 ---
 <!--
@@ -27,4 +26,4 @@ Design tokens: dark terminal palette (phosphor green on near-black), monospace d
 
 ## Acceptance
 
-- [ ] Tokens in CSS custom properties; contrast AA-checked
+- [x] Tokens in CSS custom properties; contrast AA-checked
