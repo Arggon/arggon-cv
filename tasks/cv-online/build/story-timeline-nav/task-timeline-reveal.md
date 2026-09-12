@@ -1,13 +1,17 @@
 ---
 type: task
-status: todo
+status: in_progress
 id: task-timeline-reveal
 title: IntersectionObserver reveal orchestration
+assignee: Arggon
+branch: feat/task-timeline-reveal
 parent: story-timeline-nav
 labels: []
 created: "2026-09-12"
 updated: "2026-09-12"
+claimed_at: "2026-09-12T23:57:03.325Z"
 depends_on: [task-scaffold-shell]
+worktree_path: /home/arggon/Projects/arggon-cv-task-timeline-reveal
 ---
 <!--
   Placement (v0): tasks/cv-online/build/story-timeline-nav/task-timeline-reveal.md
