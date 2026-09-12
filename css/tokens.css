@@ -1,0 +1,56 @@
+/* Design tokens (task-scaffold-design) — dark terminal aesthetic.
+ *
+ * Palette: phosphor green on near-black, the CRT era as the design language.
+ * Every text/token pair used on --bg or --bg-raised is checked against
+ * WCAG AA (>= 4.5:1 body, >= 3:1 large text) by tests/contrast.test.cjs.
+ */
+
+:root {
+  /* Surfaces */
+  --bg: #0a0f0a;
+  --bg-raised: #101710;
+
+  /* Ink (text) */
+  --ink: #d8e8d8;        /* 15.2:1 on --bg */
+  --ink-dim: #93a893;    /* 7.6:1 on --bg  */
+
+  /* Phosphor accent */
+  --accent: #46f08a;     /* 13.0:1 on --bg */
+  --accent-ink: #05230f; /* 11.2:1 on --accent (text on accent fills) */
+
+  /* Lines & glows */
+  --line: #1d2b1d;
+  --glow: rgba(70, 240, 138, 0.35);
+
+  /* Type families: monospace display, humanist body (local stacks only) */
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Type scale — 1.25 major third, fluid at display sizes */
+  --step--1: 0.8rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.563rem;
+  --step-3: clamp(1.5rem, 1.2rem + 1.5vw, 1.953rem);
+  --step-4: clamp(1.8rem, 1.3rem + 2.5vw, 2.441rem);
+  --step-5: clamp(2.2rem, 1.4rem + 4vw, 3.052rem);
+
+  /* Spacing scale — 4px base */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --space-7: 4rem;
+  --space-8: 6rem;
+
+  /* Layout */
+  --content-max: 46rem;
+  --rail-width: 3rem;
+
+  /* Motion */
+  --dur-fast: 150ms;
+  --dur-med: 600ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
