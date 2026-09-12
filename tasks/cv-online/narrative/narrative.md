@@ -1,6 +1,6 @@
 ---
 type: epic
-status: todo
+status: done
 id: narrative
 title: Narrative chapters
 parent: cv-online
@@ -29,5 +29,5 @@ The story arc (from Gonzalo's own account + CV). Seven chapters, chronological, 
 
 ## Acceptance
 
-- [ ] All seven chapters written (EN), first person, honest about the crack era but tasteful — curiosity-driven framing
-- [ ] Each chapter <= 120 words with one hook line and one takeaway
+- [x] All seven chapters written (EN), first person, honest about the crack era but tasteful — curiosity-driven framing
+- [x] Each chapter <= 120 words with one hook line and one takeaway

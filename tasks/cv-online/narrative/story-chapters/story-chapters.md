@@ -1,6 +1,6 @@
 ---
 type: story
-status: todo
+status: done
 id: story-chapters
 title: Chapter copy from the real timeline
 parent: narrative
@@ -21,5 +21,5 @@ The copy is the product: seven chapters (see epic) written first person from the
 
 ## Acceptance
 
-- [ ] `content/chapters.md` with the seven chapters, each <= 120 words + hook + takeaway
-- [ ] Gonzalo signs off on the wording
+- [x] `content/chapters.md` with the seven chapters, each <= 120 words + hook + takeaway
+- [x] Gonzalo signs off on the wording
