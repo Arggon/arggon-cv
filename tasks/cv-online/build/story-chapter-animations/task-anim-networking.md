@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-anim-networking
 title: "Ch3 networking basics: ports, firewalls, packets"
 assignee: Arggon
@@ -9,7 +9,6 @@ parent: story-chapter-animations
 labels: []
 created: "2026-09-12"
 updated: "2026-09-13"
-claimed_at: "2026-09-13T00:12:43.080Z"
 depends_on: [task-scaffold-shell]
 worktree_path: /home/arggon/Projects/arggon-cv-task-anim-networking
 ---
@@ -28,4 +27,4 @@ Chapter 3 scene: animated packets traveling between nodes, a port-scanner aesthe
 
 ## Acceptance
 
-- [ ] Scene animates on scroll-enter; reduced-motion respected
+- [x] Scene animates on scroll-enter; reduced-motion respected
