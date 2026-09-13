@@ -24,4 +24,11 @@ assert.strictEqual(planPortScan(PORTS).steps[1].time, 280);
 assert.deepStrictEqual(planPortScan([]).steps, []);
 assert.strictEqual(planPortScan([]).totalMs, 0);
 
+// 5. Sparse arrays (new Array(n)) must still yield every step — regression:
+//    map/forEach silently skip holes, which would freeze dependent scenes.
+const sparse = planPortScan(new Array(7), 380);
+assert.strictEqual(sparse.steps.length, 7);
+sparse.steps.forEach((step, i) => assert.strictEqual(step.index, i));
+assert.strictEqual(sparse.steps[6].time, 6 * 380);
+
 console.log('port-scan tests: all green');
