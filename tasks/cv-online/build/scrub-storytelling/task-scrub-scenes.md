@@ -1,12 +1,16 @@
 ---
 type: task
-status: todo
+status: in_progress
 id: task-scrub-scenes
 title: Progress-driven scene renderers
+assignee: arggon
+branch: feat/task-scrub-scenes
 parent: scrub-storytelling
 labels: []
 created: "2026-09-13"
 updated: "2026-09-13"
+claimed_at: "2026-09-13T03:11:35.960Z"
+worktree_path: /home/arggon/Projects/arggon-cv-task-scrub-scenes
 ---
 <!--
   Placement (v0): tasks/cv-online/build/scrub-storytelling/task-scrub-scenes.md

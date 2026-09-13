@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-scrub-engine
 title: Sticky scenes with scroll-progress engine
 assignee: arggon
@@ -9,7 +9,6 @@ parent: scrub-storytelling
 labels: []
 created: "2026-09-13"
 updated: "2026-09-13"
-claimed_at: "2026-09-13T03:07:07.866Z"
 worktree_path: /home/arggon/Projects/arggon-cv-task-scrub-engine
 ---
 <!--

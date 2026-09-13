@@ -159,7 +159,9 @@
           function step(ts) {
             if (start === null) start = ts;
             var t = Math.min(1, (ts - start) / duration);
-            win.scrollTo(0, from + (to - from) * easeInOutCubic(t));
+            /* behavior:'instant' — this loop IS the easing; the html-level
+               smooth scroll would restart an animation on every frame. */
+            win.scrollTo({ top: from + (to - from) * easeInOutCubic(t), behavior: 'instant' });
             if (t < 1) {
               win.requestAnimationFrame(step);
             } else {
