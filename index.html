@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/rail.css">
   <link rel="stylesheet" href="css/scenes.css">
   <link rel="stylesheet" href="css/scenes-ch2.css">
+  <link rel="stylesheet" href="css/scenes-ch3.css">
 </head>
 <body>
   <a class="skip-link" href="#ch1">Skip to the story</a>
@@ -91,7 +92,26 @@
       <h2 class="chapter-title" id="ch3-title">How things actually work</h2>
       <p class="chapter-body">Every failed crack led to a better question: how do machines actually talk? Somewhere between failed patches and forum arguments, the questions got better than the games. Why does a game need a port open? What is a firewall actually blocking? What is a client, a server, a database? I started reading about TCP, ports, packets and protocols just to understand the things my searches kept bumping into. Networking stopped being jargon and became a map: my computer, a server somewhere, and rules about who may talk to whom.</p>
       <p class="chapter-takeaway">The games faded; the map behind them stayed.</p>
-      <div class="scene-stage" data-stage="ch3" aria-hidden="true"></div>
+      <div class="scene-stage" data-stage="ch3" aria-hidden="true">
+        <div class="network">
+          <div class="net-nodes">
+            <div class="net-node"><span class="net-box"></span><span>MY PC</span></div>
+            <div class="net-link"><span class="packet" style="--pd:0s"></span></div>
+            <div class="net-node"><span class="net-box"></span><span>ROUTER</span></div>
+            <div class="net-link"><span class="packet" style="--pd:.4s"></span></div>
+            <div class="net-node is-firewall"><span class="net-box"></span><span>FIREWALL</span></div>
+            <div class="net-link is-blocked"><span class="packet" style="--pd:.8s"></span></div>
+            <div class="net-node"><span class="net-box"></span><span>GAME SERVER</span></div>
+          </div>
+          <div class="port-panel">
+            <span class="port">:21 ftp</span>
+            <span class="port">:80 http</span>
+            <span class="port">:443 https</span>
+            <span class="port">:1433 mssql</span>
+            <span class="port">:6112 game</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="scene" id="ch4" data-scene="ch4" aria-labelledby="ch4-title">
@@ -139,6 +159,8 @@
   <script src="js/scenes/ch1-boot.js" defer></script>
   <script src="js/query-loop.js" defer></script>
   <script src="js/scenes/ch2-crack.js" defer></script>
+  <script src="js/port-scan.js" defer></script>
+  <script src="js/scenes/ch3-network.js" defer></script>
   <script src="js/scenes.js" defer></script>
   <script src="js/engine.js" defer></script>
 </body>
