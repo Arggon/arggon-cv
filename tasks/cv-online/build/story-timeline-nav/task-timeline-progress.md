@@ -1,13 +1,17 @@
 ---
 type: task
-status: todo
+status: in_progress
 id: task-timeline-progress
 title: Scroll progress rail with chapter jump links
+assignee: Arggon
+branch: feat/task-timeline-progress
 parent: story-timeline-nav
 labels: []
 created: "2026-09-12"
-updated: "2026-09-12"
+updated: "2026-09-13"
+claimed_at: "2026-09-13T00:00:58.544Z"
 depends_on: [task-scaffold-shell]
+worktree_path: /home/arggon/Projects/arggon-cv-task-timeline-progress
 ---
 <!--
   Placement (v0): tasks/cv-online/build/story-timeline-nav/task-timeline-progress.md
