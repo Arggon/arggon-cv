@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-timeline-reveal
 title: IntersectionObserver reveal orchestration
 assignee: Arggon
@@ -8,8 +8,7 @@ branch: feat/task-timeline-reveal
 parent: story-timeline-nav
 labels: []
 created: "2026-09-12"
-updated: "2026-09-12"
-claimed_at: "2026-09-12T23:57:03.325Z"
+updated: "2026-09-13"
 depends_on: [task-scaffold-shell]
 worktree_path: /home/arggon/Projects/arggon-cv-task-timeline-reveal
 ---
@@ -28,4 +27,4 @@ Reveal orchestration: scenes animate once, in document order, no re-trigger jank
 
 ## Acceptance
 
-- [ ] Reveal state machine tested with the observer events
+- [x] Reveal state machine tested with the observer events
