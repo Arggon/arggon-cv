@@ -3,11 +3,11 @@
 .terminal {
   width: min(28rem, 100%);
   margin-inline: auto;
-  background: #060a06;
+  background: #071322;
   border: 1px solid var(--line);
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5), 0 0 24px rgba(70, 240, 138, 0.06);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5), 0 0 24px rgba(100, 255, 218, 0.06);
 }
 
 .term-bar {
@@ -15,7 +15,7 @@
   align-items: center;
   gap: 0.4rem;
   padding: 0.5rem 0.8rem;
-  background: #101710;
+  background: #112240;
   border-bottom: 1px solid var(--line);
 }
 
@@ -23,7 +23,7 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: #2a332a;
+  background: #233554;
 }
 
 .term-dot:nth-child(1) { background: #b3544a; }
@@ -53,7 +53,7 @@
 }
 
 .term-input {
-  color: #eafff2;
+  color: #e6f1ff;
   text-shadow: 0 0 6px var(--glow);
 }
 
