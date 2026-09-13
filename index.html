@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/rail.css">
   <link rel="stylesheet" href="css/scenes.css">
+  <link rel="stylesheet" href="css/scenes-ch2.css">
 </head>
 <body>
   <a class="skip-link" href="#ch1">Skip to the story</a>
@@ -62,7 +63,27 @@
       <h2 class="chapter-title" id="ch2-title">The crack era</h2>
       <p class="chapter-body">Video games taught me strategy; hunting for free ones taught me everything else. Games were my first serious hobby — strategy games especially, the kind where you lose twenty times before you understand the system. Paid games were expensive where I grew up, so like a lot of kids I went looking for a free way in: cracks. The hunt itself became the skill — search operators, forum threads, readme files, the patient work of figuring out why a patch worked. I do not romanticize it today, but that is honestly where the researching reflex began.</p>
       <p class="chapter-takeaway">What looked like a shortcut was secretly a curriculum.</p>
-      <div class="scene-stage" data-stage="ch2" aria-hidden="true"></div>
+      <div class="scene-stage" data-stage="ch2" aria-hidden="true">
+        <div class="crack-era">
+          <div class="cover-shelf">
+            <span class="cover" style="--tilt:-4deg">MU<br>ONLINE</span>
+            <span class="cover" style="--tilt:2deg">LINEAGE<br>II</span>
+            <span class="cover" style="--tilt:-2deg">CASTLE<br>SIEGE</span>
+            <span class="cover" style="--tilt:3deg">STAR<br>COLONIES</span>
+            <span class="cover" style="--tilt:-3deg">AGE OF<br>TACTICS</span>
+          </div>
+          <div class="searchbar">
+            <span class="search-icon">&#8981;</span>
+            <span class="search-text"></span>
+            <span class="search-cursor"></span>
+          </div>
+          <div class="forum-cards">
+            <article class="forum-card"><span>why does the game check the disc?</span><span class="replies">42 replies</span></article>
+            <article class="forum-card"><span>no-cd patch, explained (long)</span><span class="replies">18 replies</span></article>
+            <article class="forum-card"><span>what is a checksum? (beginner)</span><span class="replies">7 replies</span></article>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="scene" id="ch3" data-scene="ch3" aria-labelledby="ch3-title">
@@ -116,6 +137,8 @@
   <script src="js/rail.js" defer></script>
   <script src="js/boot-schedule.js" defer></script>
   <script src="js/scenes/ch1-boot.js" defer></script>
+  <script src="js/query-loop.js" defer></script>
+  <script src="js/scenes/ch2-crack.js" defer></script>
   <script src="js/scenes.js" defer></script>
   <script src="js/engine.js" defer></script>
 </body>
