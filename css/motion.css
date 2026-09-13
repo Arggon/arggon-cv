@@ -1,0 +1,59 @@
+/* Motion polish (task-motion-polish) — the CSS half of the unseen-inspired
+ * layer. Everything animated here lives inside
+ * `@media (prefers-reduced-motion: no-preference)`; JS (js/motion.js) gates
+ * its transforms the same way, so the two layers stay in agreement.
+ */
+
+/* Ambient depth: two soft glows drift behind the whole story. ------------ */
+
+@media (prefers-reduced-motion: no-preference) {
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(42rem 42rem at 12% 8%, rgba(100, 255, 218, 0.05), transparent 65%),
+      radial-gradient(50rem 50rem at 88% 92%, rgba(35, 53, 84, 0.55), transparent 70%);
+    animation: ambient-drift 26s var(--ease-out) infinite alternate;
+  }
+}
+
+@keyframes ambient-drift {
+  from { transform: translate3d(-1.5%, -1%, 0) scale(1); }
+  to   { transform: translate3d(1.5%, 1.5%, 0) scale(1.04); }
+}
+
+/* JS-driven stages (velocity skew + depth parallax). --------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .scene-stage:not(:empty) {
+    will-change: transform;
+  }
+}
+
+/* Magnetic links: the transform itself is written by JS; this transition is
+ * what springs them back on pointerleave. -------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .chapter-contact a,
+  .site-footer a {
+    display: inline-block;
+    transition: transform 180ms var(--ease-out);
+  }
+
+  /* Hover lift on the tactile cards, so touch/keyboard users get feedback
+     even without a pointer-driven transform. ----------------------------- */
+  .forum-card,
+  .port,
+  .rung {
+    transition: transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
+  }
+
+  .forum-card:hover,
+  .port:hover,
+  .rung:hover {
+    transform: translateY(-2px);
+  }
+}

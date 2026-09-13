@@ -1,12 +1,16 @@
 ---
 type: task
-status: todo
+status: in_progress
 id: task-motion-polish
 title: "Motion polish: skew, parallax, magnetic CTAs"
+assignee: arggon
+branch: feat/task-motion-polish
 parent: visual-refresh
 labels: []
 created: "2026-09-13"
 updated: "2026-09-13"
+claimed_at: "2026-09-13T02:38:30.995Z"
+worktree_path: /home/arggon/Projects/arggon-cv-task-motion-polish
 ---
 <!--
   Placement (v0): tasks/cv-online/build/visual-refresh/task-motion-polish.md
