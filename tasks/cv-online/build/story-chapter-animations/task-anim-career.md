@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-anim-career
 title: Ch6 junior-to-senior ladder since 2021
 assignee: Arggon
@@ -9,7 +9,6 @@ parent: story-chapter-animations
 labels: []
 created: "2026-09-12"
 updated: "2026-09-13"
-claimed_at: "2026-09-13T00:22:34.603Z"
 depends_on: [task-scaffold-shell]
 worktree_path: /home/arggon/Projects/arggon-cv-task-anim-career
 ---
@@ -28,4 +27,4 @@ Chapter 6 scene: a ladder/timeline 2021-2026 — junior (e.tres/Lytx), consultan
 
 ## Acceptance
 
-- [ ] Scene animates on scroll-enter; real dates and roles from the CV
+- [x] Scene animates on scroll-enter; real dates and roles from the CV

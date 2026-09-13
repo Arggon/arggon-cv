@@ -1,12 +1,12 @@
 ---
 type: story
-status: todo
+status: done
 id: story-chapter-animations
 title: Per-chapter animated scenes
 parent: build
 labels: []
 created: "2026-09-12"
-updated: "2026-09-12"
+updated: "2026-09-13"
 depends_on: [story-scaffold]
 ---
 <!--
@@ -22,4 +22,4 @@ One animated scene per chapter, all CSS/JS vanilla: CRT boot flicker, game-cover
 
 ## Acceptance
 
-- [ ] Six animated scenes working, reduced-motion media query respected
+- [x] Six animated scenes working, reduced-motion media query respected
