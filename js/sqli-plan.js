@@ -41,10 +41,12 @@
     time += checkDelay;
     steps.push({ phase: 'check', time: time });
 
-    rows.forEach(function (_, index) {
+    /* Plain loop: callers may pass sparse arrays like `new Array(n)`. */
+    var count = rows.length;
+    for (var r = 0; r < count; r++) {
       time += rowDelay;
-      steps.push({ phase: 'row', time: time, index: index });
-    });
+      steps.push({ phase: 'row', time: time, index: r });
+    }
 
     time += lessonDelay;
     steps.push({ phase: 'lesson', time: time });
