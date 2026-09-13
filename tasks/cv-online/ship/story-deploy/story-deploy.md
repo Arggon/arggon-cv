@@ -1,12 +1,12 @@
 ---
 type: story
-status: todo
+status: done
 id: story-deploy
 title: Deploy and share cards
 parent: ship
 labels: []
 created: "2026-09-12"
-updated: "2026-09-12"
+updated: "2026-09-13"
 depends_on: [story-chapter-animations, story-timeline-nav, story-chapters]
 ---
 <!--
@@ -22,4 +22,4 @@ GitHub Pages + OG/meta so shared links preview with the CRT aesthetic; PDF CV li
 
 ## Acceptance
 
-- [ ] Deployed URL live; OG cards verified in a link-preview tool; PDF fallback linked
+- [x] Deployed URL live; OG cards verified in a link-preview tool; PDF fallback linked

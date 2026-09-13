@@ -1,12 +1,12 @@
 ---
 type: epic
-status: todo
+status: done
 id: ship
 title: Ship
 parent: cv-online
 labels: []
 created: "2026-09-12"
-updated: "2026-09-12"
+updated: "2026-09-13"
 ---
 <!--
   Placement (v0): tasks/cv-online/ship/ship.md (epic index; required).
@@ -21,4 +21,4 @@ GitHub Pages deployment with OG/meta cards so the link previews well when shared
 
 ## Acceptance
 
-- [ ] Deployed, preview cards correct, PDF CV linked as fallback
+- [x] Deployed, preview cards correct, PDF CV linked as fallback

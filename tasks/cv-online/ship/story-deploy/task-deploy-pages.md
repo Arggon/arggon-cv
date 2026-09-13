@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-deploy-pages
 title: GitHub Pages + OG/meta cards + PDF fallback link
 assignee: Arggon
@@ -9,7 +9,6 @@ parent: story-deploy
 labels: []
 created: "2026-09-12"
 updated: "2026-09-13"
-claimed_at: "2026-09-13T00:25:41.804Z"
 depends_on: [task-anim-career, task-anim-sql-injection, task-timeline-progress, task-chapters-copy]
 worktree_path: /home/arggon/Projects/arggon-cv-task-deploy-pages
 ---
@@ -28,4 +27,4 @@ GitHub Pages workflow + OG/meta tags + PDF fallback link.
 
 ## Acceptance
 
-- [ ] Live URL; preview verified; PDF linked
+- [x] Live URL; preview verified; PDF linked

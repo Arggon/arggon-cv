@@ -1,11 +1,11 @@
 ---
 type: initiative
-status: todo
+status: done
 id: cv-online
 title: Animated storytelling CV — how a gamer became a senior engineer
 labels: []
 created: "2026-09-12"
-updated: "2026-09-12"
+updated: "2026-09-13"
 ---
 <!--
   Placement (v0): tasks/cv-online/cv-online.md (initiative index; required).
@@ -22,5 +22,5 @@ Managed with ArggonManager itself — first real-world test of convention v3 (de
 
 ## Acceptance
 
-- [ ] Site deployed and shareable, telling the seven chapters with scroll animations
-- [ ] Every Arggon feature exercised at least once (deps, worktrees, comments, trend, TUI)
+- [x] Site deployed and shareable, telling the seven chapters with scroll animations (https://arggon.github.io/arggon-cv/)
+- [x] Every Arggon feature exercised at least once (deps, worktrees, comments, trend, TUI)

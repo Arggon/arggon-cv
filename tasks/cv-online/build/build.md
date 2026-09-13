@@ -21,4 +21,4 @@ Static, dependency-light site: dark terminal aesthetic, scroll-driven animations
 
 ## Acceptance
 
-- [ ] Scaffold + animation engine + per-chapter scenes + timeline rail, all vanilla (HTML/CSS/JS)
+- [x] Scaffold + animation engine + per-chapter scenes + timeline rail, all vanilla (HTML/CSS/JS)
