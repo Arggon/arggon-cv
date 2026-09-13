@@ -22,4 +22,4 @@ A vertical progress rail with chapter markers (click to jump) and reveal orchest
 
 ## Acceptance
 
-- [ ] Rail reflects scroll progress; jump links work; reveal orchestration consistent
+- [x] Rail reflects scroll progress; jump links work; reveal orchestration consistent
