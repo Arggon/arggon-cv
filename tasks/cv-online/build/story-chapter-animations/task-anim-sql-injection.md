@@ -1,13 +1,17 @@
 ---
 type: task
-status: todo
+status: in_progress
 id: task-anim-sql-injection
 title: Ch4 SQL injection terminal typing scene
+assignee: Arggon
+branch: feat/task-anim-sql-injection
 parent: story-chapter-animations
 labels: []
 created: "2026-09-12"
-updated: "2026-09-12"
+updated: "2026-09-13"
+claimed_at: "2026-09-13T00:16:09.167Z"
 depends_on: [task-scaffold-shell]
+worktree_path: /home/arggon/Projects/arggon-cv-task-anim-sql-injection
 ---
 <!--
   Placement (v0): tasks/cv-online/build/story-chapter-animations/task-anim-sql-injection.md
