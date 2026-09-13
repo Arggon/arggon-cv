@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-anim-crack-era
 title: "Ch2 crack era: game covers, search, forums"
 assignee: Arggon
@@ -9,7 +9,6 @@ parent: story-chapter-animations
 labels: []
 created: "2026-09-12"
 updated: "2026-09-13"
-claimed_at: "2026-09-13T00:09:15.313Z"
 depends_on: [task-scaffold-shell, task-scaffold-design]
 worktree_path: /home/arggon/Projects/arggon-cv-task-anim-crack-era
 ---
@@ -28,4 +27,4 @@ Chapter 2 scene: game-cover collage, a search cursor typing queries, forum-threa
 
 ## Acceptance
 
-- [ ] Scene animates on scroll-enter; tasteful, nostalgia not piracy-glam
+- [x] Scene animates on scroll-enter; tasteful, nostalgia not piracy-glam
