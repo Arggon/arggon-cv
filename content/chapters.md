@@ -8,7 +8,7 @@ takeaway. Built from Gonzalo's own account plus the English CV PDF.
 
 ## Chapter 1 — The first computer
 
-**Hook.** It started with static, a flicker, and a green cursor blinking on a curved glass screen.
+**Hook.** It started at three or four years old, with a Windows 98 machine and a green cursor blinking on a curved glass screen.
 
 My family's first computer was not much: a CRT monitor that hummed before it glowed, a boot screen that took its time, and a keyboard that felt like a machine's own language. I did not know a single technical term yet. I only knew that whatever lived inside that beige box obeyed the words I typed. That was the moment the questions started: what else can I make it do?
 
@@ -18,9 +18,9 @@ My family's first computer was not much: a CRT monitor that hummed before it glo
 
 ## Chapter 2 — The crack era
 
-**Hook.** Video games taught me strategy; hunting for free ones taught me everything else.
+**Hook.** I grew up playing video games — on the PC and on the Family Game and Sega consoles.
 
-Games were my first serious hobby — strategy games especially, the kind where you lose twenty times before you understand the system. Paid games were expensive where I grew up, so like a lot of kids I went looking for a free way in: cracks. The hunt itself became the skill — search operators, forum threads, readme files, the patient work of figuring out why a patch worked. I do not romanticize it today, but that is honestly where the researching reflex began.
+Strategy games especially: the kind where you lose twenty times before you understand the system. Paid games were expensive where I grew up, so like a lot of kids I went looking for a free way in: cracks. Mu Online, World of Warcraft, Counter Strike, Age of Empires — the hunt for them became the skill: search operators, forum threads, readme files, the patient work of figuring out why a patch worked. I do not romanticize it today, but that is honestly where the researching reflex began.
 
 **Takeaway.** What looked like a shortcut was secretly a curriculum.
 
@@ -60,7 +60,7 @@ University gave my self-taught instincts a grammar. I started a Software Enginee
 
 **Hook.** Four years from junior to senior — here is every rung.
 
-2021: junior Software Engineer at e.tres (later Lytx), untangling payment-gateway integrations. 2022–2025: Consultant — a bulk-data endpoint that cut client processing time by 80%, advanced filtering, cross-layer fixes across frontend, backend and database. Jul–Dec 2025: Senior Software Engineer with GlobalLogic (Coalfire) — critical endpoints migrated to a .NET 9 microservice, 30% faster under load, Angular v19 upgrades. Feb 2026: CQRS + Mediator patterns in a payment microservice. Since May 2026: Senior AI Software Engineer, building Spec-Driven Development with AI.
+2021: junior Software Developer at e.tres (later Lytx), untangling payment-gateway integrations. 2022–2025: Software Engineer II at GlobalLogic (Lytx) — a bulk-data endpoint that cut client processing time by 80%, advanced filtering, cross-layer fixes across frontend, backend and database. Jul–Dec 2025: Senior Software Engineer at GlobalLogic (Coalfire) — critical endpoints migrated to a .NET 9 microservice, 30% faster under load, Angular v19 upgrades. Feb 2026: Consultant — CQRS + Mediator patterns in a payment microservice for GreenDot. Since May 2026: Senior AI Software Engineer, building Spec-Driven Development with AI.
 
 **Takeaway.** Four years, five rungs, one direction: deeper systems, more ownership.
 
@@ -75,20 +75,19 @@ Today I design and operate scalable .NET systems, and I spend my days helping te
 **Takeaway.** Same curiosity, better tools. Let's build the next chapter.
 
 **Contact.** Córdoba, Argentina · [arggondev@gmail.com](mailto:arggondev@gmail.com) · [linkedin.com/in/arggon](https://www.linkedin.com/in/arggon/)
-# La historia — ES (task-i18n-toggle)
+# La historia — ES (task-i18n-toggle, task-story-refresh)
 
 Spanish mirror of the seven chapters. The English copy in this file stays
 the source of truth for index.html; the ES strings live in js/i18n.js
-(STRINGS.es) and are reproduced here for review. Each chapter: one hook,
-<= 120 words, one takeaway.
+(STRINGS.es) and are reproduced here for review.
 
 ---
 
 ## Capítulo 1 — La primera computadora
 
-**Gancho.** Todo arrancó con estática, un parpadeo y un cursor verde titilando en una pantalla curva.
+**Gancho.** Todo arrancó a mis tres o cuatro años, con una máquina con Windows 98 y un cursor verde titilando en una pantalla curva.
 
-Todo arrancó con estática, un parpadeo y un cursor verde titilando en una pantalla curva. La primera computadora de mi familia no era gran cosa: un monitor CRT que zumbaba antes de prender, una pantalla de arranque que se tomaba su tiempo, y un teclado que parecía el idioma propio de una máquina. Todavía no conocía ni un término técnico. Solo sabía que lo que vivía dentro de esa caja beige obedecía las palabras que yo escribía. Ahí empezaron las preguntas: ¿qué más puedo hacer con ella?
+Todo arrancó a mis tres o cuatro años, con una máquina con Windows 98 y un cursor verde titilando en una pantalla curva. La primera computadora de mi familia no era gran cosa: un monitor CRT que zumbaba antes de prender, una pantalla de arranque que se tomaba su tiempo, y un teclado que parecía el idioma propio de una máquina. Todavía no conocía ni un término técnico. Solo sabía que lo que vivía dentro de esa caja beige obedecía las palabras que yo escribía. Ahí empezaron las preguntas: ¿qué más puedo hacer con ella?
 
 **Takeaway.** La curiosidad, una vez encendida, nunca se apaga del todo.
 
@@ -96,9 +95,9 @@ Todo arrancó con estática, un parpadeo y un cursor verde titilando en una pant
 
 ## Capítulo 2 — La era de los cracks
 
-**Gancho.** Los videojuegos me enseñaron estrategia; buscarlos gratis me enseñó todo lo demás.
+**Gancho.** Crecí jugando videojuegos — en la PC y en las consolas: el Family Game y el Sega.
 
-Los videojuegos me enseñaron estrategia; buscarlos gratis me enseñó todo lo demás. Los juegos fueron mi primer hobby serio — los de estrategia sobre todo, de esos donde perdés veinte veces antes de entender el sistema. Los juegos pagos eran caros donde crecí, así que como muchos pibes salí a buscar la entrada gratis: cracks. La búsqueda en sí se volvió la habilidad — operadores de búsqueda, threads de foros, archivos readme, el trabajo paciente de entender por qué funcionaba un parche. Hoy no lo romantizo, pero ahí nació de verdad mi reflejo investigador.
+Crecí jugando videojuegos — en la PC y en las consolas: el Family Game y el Sega. Los de estrategia sobre todo: de esos donde perdés veinte veces antes de entender el sistema. Los juegos pagos eran caros donde crecí, así que como muchos pibes salí a buscar la entrada gratis: cracks. Mu Online, World of Warcraft, Counter Strike, Age of Empires — la caza se volvió la habilidad: operadores de búsqueda, threads de foros, archivos readme, el trabajo paciente de entender por qué funcionaba un parche. Hoy no lo romantizo, pero ahí nació de verdad mi reflejo investigador.
 
 **Takeaway.** Lo que parecía un atajo era, en secreto, un plan de estudio.
 
@@ -138,7 +137,7 @@ El estudio formal por fin le puso nombre a lo que ya sabía. La universidad le d
 
 **Gancho.** Cuatro años de junior a senior — cada peldaño.
 
-Cuatro años de junior a senior — cada peldaño. 2021: ingeniero de software junior en e.tres (luego Lytx), desenredando integraciones con pasarelas de pago. 2022–2025: Consultor — un endpoint de datos masivos que recortó 80% el tiempo de proceso de los clientes, filtros avanzados, fixes cross-layer entre frontend, backend y base de datos. Jul–Dic 2025: Ingeniero de Software Senior en GlobalLogic (Coalfire) — endpoints críticos migrados a un microservicio .NET 9, 30% más rápido bajo carga, upgrade a Angular v19. Feb 2026: patrones CQRS + Mediator en un microservicio de pagos. Desde mayo 2026: Ingeniero de Software Senior de AI, construyendo Spec-Driven Development con IA.
+Cuatro años de junior a senior — cada peldaño. 2021: desarrollador junior en e.tres (luego Lytx), desenredando integraciones con pasarelas de pago. 2022–2025: Software Engineer II en GlobalLogic (Lytx) — un endpoint de datos masivos que recortó 80% el tiempo de proceso de los clientes, filtros avanzados, fixes cross-layer entre frontend, backend y base de datos. Jul–Dic 2025: Ingeniero de Software Senior en GlobalLogic (Coalfire) — endpoints críticos migrados a un microservicio .NET 9, 30% más rápido bajo carga, upgrade a Angular v19. Feb 2026: Consultor — patrones CQRS + Mediator en un microservicio de pagos para GreenDot. Desde mayo 2026: Ingeniero de Software Senior de AI, construyendo Spec-Driven Development con IA.
 
 **Takeaway.** Cuatro años, cinco peldaños, una dirección: sistemas más profundos, más ownership.
 

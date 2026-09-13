@@ -1,12 +1,16 @@
 ---
 type: task
-status: todo
+status: in_progress
 id: task-story-refresh
 title: "Real story copy: win98, consoles, CV ladder"
+assignee: arggon
+branch: feat/task-story-refresh
 parent: scrub-storytelling
 labels: []
 created: "2026-09-13"
 updated: "2026-09-13"
+claimed_at: "2026-09-13T03:21:22.797Z"
+worktree_path: /home/arggon/Projects/arggon-cv-task-story-refresh
 ---
 <!--
   Placement (v0): tasks/cv-online/build/scrub-storytelling/task-story-refresh.md

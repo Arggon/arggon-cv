@@ -20,10 +20,10 @@ assert.strictEqual(rungs.length, 5, 'five rungs on the ladder');
 const text = (i) => rungs[i].replace(/<[^>]+>/g, ' ').replace(/&[a-z]+;/g, ' ');
 
 // 1. Real timeline, in order (from the English CV).
-assert.ok(/2021/.test(text(0)) && /junior software engineer/i.test(text(0)) && /e\.tres/.test(text(0)) && /Lytx/.test(text(0)), 'rung 1: 2021 junior at e.tres/Lytx');
-assert.ok(/2022/.test(text(1)) && /2025/.test(text(1)) && /consultant/i.test(text(1)), 'rung 2: consultant 2022-2025');
+assert.ok(/2021/.test(text(0)) && /junior software developer/i.test(text(0)) && /e\.tres/.test(text(0)) && /Lytx/.test(text(0)), 'rung 1: 2021-2022 junior developer at e.tres/Lytx');
+assert.ok(/2022/.test(text(1)) && /2025/.test(text(1)) && /software engineer II/i.test(text(1)) && /Lytx/.test(text(1)), 'rung 2: Software Engineer II at GlobalLogic/Lytx 2022-2025');
 assert.ok(/2025/.test(text(2)) && /senior software engineer/i.test(text(2)) && /GlobalLogic/.test(text(2)) && /Coalfire/.test(text(2)), 'rung 3: senior at GlobalLogic/Coalfire 2025');
-assert.ok(/2026/.test(text(3)) && /CQRS/i.test(text(3)) && /Mediator/i.test(text(3)), 'rung 4: CQRS + Mediator payment work, 2026');
+assert.ok(/2026/.test(text(3)) && /consultant/i.test(text(3)) && /GreenDot/.test(text(3)) && /CQRS/i.test(text(3)) && /Mediator/i.test(text(3)), 'rung 4: consultant at GreenDot, CQRS + Mediator, feb 2026');
 assert.ok(/2026/.test(text(4)) && /senior AI software engineer/i.test(text(4)) && /spec-driven development/i.test(text(4)), 'rung 5: senior AI SWE, SDD, 2026');
 
 // 2. The rungs light in document order (chronological) — data-rung order.
