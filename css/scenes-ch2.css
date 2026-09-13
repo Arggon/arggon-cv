@@ -30,7 +30,7 @@
   letter-spacing: 0.08em;
   line-height: 1.5;
   text-align: center;
-  color: #eafff2;
+  color: #e6f1ff;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
   opacity: 0;
   transform: translateY(14px) scale(0.7) rotate(var(--tilt, 0deg));
@@ -42,7 +42,7 @@
   transform: translateY(0) scale(1) rotate(var(--tilt, 0deg));
 }
 
-.cover:nth-child(5n + 1) { background: linear-gradient(165deg, #23412c, #0c1a10); }
+.cover:nth-child(5n + 1) { background: linear-gradient(165deg, #233d4c, #0c161f); }
 .cover:nth-child(5n + 2) { background: linear-gradient(165deg, #1d2f4a, #0a1220); }
 .cover:nth-child(5n + 3) { background: linear-gradient(165deg, #43263d, #170d16); }
 .cover:nth-child(5n + 4) { background: linear-gradient(165deg, #46351d, #191208); }

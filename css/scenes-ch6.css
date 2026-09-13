@@ -30,7 +30,7 @@
   opacity: 1;
   transform: none;
   border-left-color: var(--accent);
-  box-shadow: 0 0 14px rgba(70, 240, 138, 0.08);
+  box-shadow: 0 0 14px rgba(100, 255, 218, 0.08);
 }
 
 .rung:last-child.is-lit {

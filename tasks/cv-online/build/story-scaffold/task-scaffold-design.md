@@ -22,7 +22,7 @@ worktree_path: /home/arggon/Projects/arggon-cv-task-scaffold-design
 
 ## Context
 
-Design tokens: dark terminal palette (phosphor green on near-black), monospace display + humanist body, type scale, spacing.
+Design tokens: dark modern minimalist palette (deep navy background, single green accent, brittanychiang-inspired), mono font reserved for terminal-nod details, humanist body, type scale, spacing.
 
 ## Acceptance
 

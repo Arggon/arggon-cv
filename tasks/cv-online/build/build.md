@@ -17,7 +17,7 @@ updated: "2026-09-13"
 
 ## Context
 
-Static, dependency-light site: dark terminal aesthetic, scroll-driven animations (IntersectionObserver), no framework. Chapters as full-viewport scenes.
+Static, dependency-light site: dark modern minimalist (deep navy + green accent, per spec cv-001), scroll-driven storytelling (IntersectionObserver), no framework. Chapters as full-viewport scenes; subtle terminal nods only.
 
 ## Acceptance
 

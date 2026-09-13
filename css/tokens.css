@@ -1,26 +1,27 @@
-/* Design tokens (task-scaffold-design) — dark terminal aesthetic.
+/* Design tokens (task-scaffold-design) — dark modern minimalist.
  *
- * Palette: phosphor green on near-black, the CRT era as the design language.
+ * Palette: mint green on deep navy (brittanychiang-inspired; spec cv-001).
+ * The CRT era survives as subtle nods only: mono details, cursor blink.
  * Every text/token pair used on --bg or --bg-raised is checked against
  * WCAG AA (>= 4.5:1 body, >= 3:1 large text) by tests/contrast.test.cjs.
  */
 
 :root {
   /* Surfaces */
-  --bg: #0a0f0a;
-  --bg-raised: #101710;
+  --bg: #0a192f;
+  --bg-raised: #112240;
 
   /* Ink (text) */
-  --ink: #d8e8d8;        /* 15.2:1 on --bg */
-  --ink-dim: #93a893;    /* 7.6:1 on --bg  */
+  --ink: #ccd6f6;        /* 12.2:1 on --bg */
+  --ink-dim: #8892b0;    /* 5.1:1 on --bg  */
 
   /* Phosphor accent */
-  --accent: #46f08a;     /* 13.0:1 on --bg */
-  --accent-ink: #05230f; /* 11.2:1 on --accent (text on accent fills) */
+  --accent: #64ffda;     /* 14.1:1 on --bg */
+  --accent-ink: #0a192f; /* 14.1:1 on --accent (text on accent fills) */
 
   /* Lines & glows */
-  --line: #1d2b1d;
-  --glow: rgba(70, 240, 138, 0.35);
+  --line: #233554;
+  --glow: rgba(100, 255, 218, 0.35);
 
   /* Type families: monospace display, humanist body (local stacks only) */
   --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
