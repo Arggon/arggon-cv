@@ -1,0 +1,134 @@
+/* Chapter 3 — networking basics (task-anim-networking).
+ * Node graph with traveling packets, firewall absorption, port scan.
+ */
+
+.network {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  width: min(30rem, 100%);
+  margin-inline: auto;
+}
+
+.net-nodes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.net-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-dim);
+}
+
+.net-box {
+  width: 3.1rem;
+  height: 2.3rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--bg-raised);
+  transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.net-node.is-lit .net-box {
+  border-color: var(--accent);
+  box-shadow: 0 0 10px var(--glow);
+}
+
+.net-node.is-lit {
+  color: var(--ink);
+}
+
+.net-node.is-firewall .net-box {
+  border-left-width: 4px;
+}
+
+.net-link {
+  position: relative;
+  flex: 1;
+  height: 2px;
+  min-width: 2rem;
+  max-width: 5.5rem;
+  margin-inline: 0.35rem;
+  background: var(--line);
+}
+
+.net-link.is-live {
+  background: linear-gradient(to right, var(--accent) 0%, var(--line) 100%);
+}
+
+.packet {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--glow);
+  opacity: 0;
+}
+
+.net-link.is-live .packet {
+  animation: packet-travel 1.5s linear infinite;
+  animation-delay: var(--pd, 0s);
+}
+
+.net-link.is-live.is-blocked .packet {
+  animation-name: packet-absorbed;
+  background: #ff7b6b;
+  box-shadow: 0 0 8px rgba(255, 123, 107, 0.5);
+}
+
+@keyframes packet-travel {
+  0%   { left: 0; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { left: calc(100% - 6px); opacity: 0; }
+}
+
+@keyframes packet-absorbed {
+  0%   { left: 0; opacity: 0; }
+  12%  { opacity: 1; }
+  42%  { left: 42%; opacity: 1; }
+  52%  { left: 50%; opacity: 0; }
+  100% { left: 50%; opacity: 0; }
+}
+
+.port-panel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.port {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--bg-raised);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--ink-dim);
+  transition: color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.port.is-open {
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 8px var(--glow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .packet {
+    display: none;
+  }
+}

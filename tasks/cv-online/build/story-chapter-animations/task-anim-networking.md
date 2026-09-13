@@ -1,13 +1,17 @@
 ---
 type: task
-status: todo
+status: in_progress
 id: task-anim-networking
 title: "Ch3 networking basics: ports, firewalls, packets"
+assignee: Arggon
+branch: feat/task-anim-networking
 parent: story-chapter-animations
 labels: []
 created: "2026-09-12"
-updated: "2026-09-12"
+updated: "2026-09-13"
+claimed_at: "2026-09-13T00:12:43.080Z"
 depends_on: [task-scaffold-shell]
+worktree_path: /home/arggon/Projects/arggon-cv-task-anim-networking
 ---
 <!--
   Placement (v0): tasks/cv-online/build/story-chapter-animations/task-anim-networking.md
