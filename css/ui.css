@@ -1,0 +1,105 @@
+/* UI components (task-i18n-toggle): the language switch and the
+ * chapter-7 stack marquee. Everything animated respects
+ * prefers-reduced-motion; the switch itself is motion-free.
+ */
+
+/* Language switch — fixed top-right corner, above the rail. ------------- */
+
+.lang-switch {
+  position: fixed;
+  top: var(--space-4);
+  right: var(--space-4);
+  z-index: 20;
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+.lang-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--ink-dim);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  padding: var(--space-1) var(--space-3);
+  cursor: pointer;
+}
+
+.lang-btn[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+}
+
+.lang-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+/* Chapter 7 — stack marquee (the toolbox). ------------------------------ */
+
+.stack-kicker {
+  color: var(--ink-dim);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.stack-marquee {
+  overflow: hidden;
+  max-width: 100%;
+  border-block: 1px solid var(--line);
+  padding-block: var(--space-3);
+  /* fade the edges so the loop reads as endless, not cut */
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.stack-track {
+  display: inline-flex;
+  gap: var(--space-5);
+  width: max-content;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--step-0);
+  white-space: nowrap;
+}
+
+.stack-track span::after {
+  content: "·";
+  color: var(--accent);
+  margin-left: var(--space-5);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .stack-track {
+    animation: stack-scroll 36s linear infinite;
+  }
+}
+
+@keyframes stack-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stack-track {
+    flex-wrap: wrap;
+    white-space: normal;
+    justify-content: center;
+    row-gap: var(--space-2);
+  }
+
+  /* The duplicated half exists for the seamless loop; hide it when static. */
+  .stack-track span:nth-child(n + 19) {
+    display: none;
+  }
+}

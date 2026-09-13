@@ -3,17 +3,18 @@
  * Game covers pop in, a search cursor types curiosity-driven queries
  * (why the disc check, what a checksum is — the learning, not the
  * piracy), and forum-thread cards slide in. Nostalgia, not how-to.
- * Reduced motion: everything shown at once, static.
+ * Queries come from the i18n dictionary (js/i18n.js); a language
+ * switch cancels the pending timers and settles the search bar on the
+ * final query in the new language. Reduced motion: everything shown
+ * at once, static.
  */
 (function () {
   'use strict';
 
-  var QUERIES = [
-    'why does the game check the disc',
-    'no-cd patch explained',
-    'what is a checksum',
-    'how do forum searches work',
-  ];
+  function queries() {
+    return (window.cvI18n && window.cvI18n.t('ch2.queries')) ||
+      ['why does the game check the disc'];
+  }
 
   window.SceneFX = window.SceneFX || {};
 
@@ -24,19 +25,23 @@
     var cards = stage.querySelectorAll('.forum-card');
     if (!search || !searchWrap) return;
 
+    var timers = [];
+
     if (reducedMotion) {
-      search.textContent = QUERIES[QUERIES.length - 1];
+      var settled = queries();
+      search.textContent = settled[settled.length - 1];
       searchWrap.classList.add('is-settled');
       covers.forEach(function (c) { c.classList.add('is-shown'); });
       cards.forEach(function (c) { c.classList.add('is-shown'); });
       return;
     }
 
-    var plan = window.planQueryLoop(QUERIES, { charDelay: 45, hold: 1100, clearGap: 250 });
+    var list = queries();
+    var plan = window.planQueryLoop(list, { charDelay: 45, hold: 1100, clearGap: 250 });
     var current = -1;
 
     plan.steps.forEach(function (step) {
-      setTimeout(function () {
+      timers.push(setTimeout(function () {
         if (step.action === 'clear') {
           search.textContent = '';
           current = step.queryIndex;
@@ -46,19 +51,28 @@
             search.textContent = '';
           }
           search.textContent = step.text;
-        } else if (step.action === 'hold' && step.queryIndex === QUERIES.length - 1) {
+        } else if (step.action === 'hold' && step.queryIndex === list.length - 1) {
           searchWrap.classList.add('is-settled');
         }
-      }, step.time);
+      }, step.time));
     });
 
     covers.forEach(function (cover, i) {
-      setTimeout(function () { cover.classList.add('is-shown'); }, 200 + i * 160);
+      timers.push(setTimeout(function () { cover.classList.add('is-shown'); }, 200 + i * 160));
     });
 
     var cardsAt = plan.totalMs + 300;
     cards.forEach(function (card, i) {
-      setTimeout(function () { card.classList.add('is-shown'); }, cardsAt + i * 220);
+      timers.push(setTimeout(function () { card.classList.add('is-shown'); }, cardsAt + i * 220));
+    });
+
+    document.addEventListener('cv:langchange', function () {
+      timers.forEach(clearTimeout);
+      timers = [];
+      /* The hunt already played — settle on the final query, new language. */
+      var fresh = queries();
+      search.textContent = fresh[fresh.length - 1];
+      searchWrap.classList.add('is-settled');
     });
   };
 })();

@@ -23,7 +23,7 @@ assert.strictEqual(mdChapters.length, 7, 'chapters.md must have exactly seven ch
 assert.ok(!/Placeholder/.test(html), 'index.html must not contain placeholder copy');
 
 const blocks = [...html.matchAll(
-  /id="(ch\d)-title"[^>]*>([^<]*)<\/h2>\s*<p class="chapter-body">(.*?)<\/p>\s*<p class="chapter-takeaway">(.*?)<\/p>/gs
+  /id="(ch\d)-title"[^>]*>([^<]*)<\/h2>\s*<p class="chapter-body"[^>]*>(.*?)<\/p>\s*<p class="chapter-takeaway"[^>]*>(.*?)<\/p>/gs
 )].map((m) => ({ id: m[1], title: m[2].trim(), body: m[3], takeaway: m[4] }));
 
 assert.deepStrictEqual(blocks.map((b) => b.id), ['ch1', 'ch2', 'ch3', 'ch4', 'ch5', 'ch6', 'ch7'],
