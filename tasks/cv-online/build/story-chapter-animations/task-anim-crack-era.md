@@ -1,13 +1,17 @@
 ---
 type: task
-status: todo
+status: in_progress
 id: task-anim-crack-era
 title: "Ch2 crack era: game covers, search, forums"
+assignee: Arggon
+branch: feat/task-anim-crack-era
 parent: story-chapter-animations
 labels: []
 created: "2026-09-12"
-updated: "2026-09-12"
+updated: "2026-09-13"
+claimed_at: "2026-09-13T00:09:15.313Z"
 depends_on: [task-scaffold-shell, task-scaffold-design]
+worktree_path: /home/arggon/Projects/arggon-cv-task-anim-crack-era
 ---
 <!--
   Placement (v0): tasks/cv-online/build/story-chapter-animations/task-anim-crack-era.md
