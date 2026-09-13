@@ -1,4 +1,4 @@
-/* Scene FX registry (task-anim-crt-boot).
+/* Scene FX registry (task-anim-crt-boot, task-scrub-scenes).
  *
  * Per-chapter animation modules register themselves as
  *   SceneFX[sceneId] = function (stage, reducedMotion) {}
@@ -18,7 +18,16 @@
       var fx = window.SceneFX[id];
       var stage = scene.querySelector('[data-stage="' + id + '"]');
       if (typeof fx !== 'function' || !stage) return;
-      fx(stage, !!(event.detail && event.detail.reducedMotion));
+      var renderer = fx(stage, !!(event.detail && event.detail.reducedMotion));
+      /* Scrub-style scenes return a render(progress) function; the scrub
+         engine (js/scrub.js) drives it every frame, both directions. */
+      if (typeof renderer === 'function') {
+        window.SceneRenderers = window.SceneRenderers || {};
+        window.SceneRenderers[id] = renderer;
+        document.dispatchEvent(new CustomEvent('scene-renderer', {
+          detail: { id: id }
+        }));
+      }
     });
   });
 })();
