@@ -1,0 +1,139 @@
+/* Per-chapter scenes (task-anim-crt-boot onwards).
+ * All motion dies under prefers-reduced-motion; scenes also receive a
+ * reducedMotion flag in JS to paint their static frame.
+ */
+
+/* A filled stage drops its scaffold placeholder chrome. */
+.scene-stage:not(:empty) {
+  border: none;
+  display: block;
+  min-height: 0;
+  color: inherit;
+}
+
+.scene-stage:not(:empty)::after {
+  content: none;
+}
+
+/* Chapter 1 — CRT boot ---------------------------------------------------- */
+
+.crt {
+  width: min(30rem, 92%);
+  margin-inline: auto;
+}
+
+.crt-screen {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: radial-gradient(120% 120% at 50% 40%, #072013 0%, #031007 70%, #010502 100%);
+  border-radius: 7% / 9%;
+  box-shadow: inset 0 0 5rem rgba(70, 240, 138, 0.12), 0 0 0 2px var(--line);
+  transform: scaleY(0.006);
+  transform-origin: center;
+}
+
+.crt.is-on .crt-screen {
+  animation: crt-on 900ms var(--ease-out) forwards;
+}
+
+@keyframes crt-on {
+  0%   { transform: scaleY(0.006); filter: brightness(7); }
+  40%  { transform: scaleY(1.06);  filter: brightness(3); }
+  55%  { transform: scaleY(0.99);  filter: brightness(1.4); }
+  72%  { transform: scaleY(1);     filter: brightness(0.7); }
+  100% { transform: scaleY(1);     filter: brightness(1); }
+}
+
+.crt-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.28) 3px,
+    rgba(0, 0, 0, 0.28) 4px
+  );
+  pointer-events: none;
+}
+
+.crt-glass {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(216, 232, 216, 0.09) 0%, rgba(216, 232, 216, 0) 35%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.crt-boot {
+  position: absolute;
+  inset: 8% 9%;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  line-height: 1.7;
+  color: var(--accent);
+  text-shadow: 0 0 6px var(--glow);
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.crt-line::after {
+  content: "\2588"; /* block cursor */
+  margin-left: 2px;
+  visibility: hidden;
+}
+
+.crt-line.is-typing::after {
+  visibility: visible;
+  animation: crt-blink 1s steps(1) infinite;
+}
+
+@keyframes crt-blink {
+  50% { opacity: 0; }
+}
+
+.crt-chin {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: var(--space-2) var(--space-4);
+  background: #141a14;
+  border: 1px solid var(--line);
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+}
+
+.crt-led {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2a332a;
+  transition: background var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out);
+}
+
+.crt.is-on .crt-led {
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--glow);
+}
+
+.crt-stand {
+  width: 38%;
+  height: var(--space-4);
+  margin: 0 auto;
+  background: linear-gradient(#101510, #0a0f0a);
+  border: 1px solid var(--line);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crt-screen {
+    transform: none;
+    animation: none !important;
+  }
+
+  .crt-line.is-typing::after {
+    animation: none;
+  }
+}

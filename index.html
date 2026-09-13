@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/rail.css">
+  <link rel="stylesheet" href="css/scenes.css">
 </head>
 <body>
   <a class="skip-link" href="#ch1">Skip to the story</a>
@@ -43,7 +44,17 @@
       <h2 class="chapter-title" id="ch1-title">The first computer</h2>
       <p class="chapter-body">It started with static, a flicker, and a green cursor blinking on a curved glass screen. My family’s first computer was not much: a CRT monitor that hummed before it glowed, a boot screen that took its time, and a keyboard that felt like a machine’s own language. I did not know a single technical term yet. I only knew that whatever lived inside that beige box obeyed the words I typed. That was the moment the questions started: what else can I make it do?</p>
       <p class="chapter-takeaway">Curiosity, once booted, never really shuts down.</p>
-      <div class="scene-stage" data-stage="ch1" aria-hidden="true"></div>
+      <div class="scene-stage" data-stage="ch1" aria-hidden="true">
+        <figure class="crt">
+          <div class="crt-screen">
+            <pre class="crt-boot"></pre>
+            <div class="crt-scanlines"></div>
+            <span class="crt-glass"></span>
+          </div>
+          <div class="crt-chin"><span class="crt-led"></span></div>
+          <div class="crt-stand"></div>
+        </figure>
+      </div>
     </section>
 
     <section class="scene" id="ch2" data-scene="ch2" aria-labelledby="ch2-title">
@@ -103,6 +114,9 @@
 
   <script src="js/reveal.js" defer></script>
   <script src="js/rail.js" defer></script>
+  <script src="js/boot-schedule.js" defer></script>
+  <script src="js/scenes/ch1-boot.js" defer></script>
+  <script src="js/scenes.js" defer></script>
   <script src="js/engine.js" defer></script>
 </body>
 </html>
