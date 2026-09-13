@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-anim-university
 title: Ch5 university and tecnicatura path
 assignee: Arggon
@@ -9,7 +9,6 @@ parent: story-chapter-animations
 labels: []
 created: "2026-09-12"
 updated: "2026-09-13"
-claimed_at: "2026-09-13T00:19:51.820Z"
 depends_on: [task-scaffold-shell]
 worktree_path: /home/arggon/Projects/arggon-cv-task-anim-university
 ---
@@ -28,4 +27,4 @@ Chapter 5 scene: the path through Software Engineering to Tecnico Programador Un
 
 ## Acceptance
 
-- [ ] Scene animates on scroll-enter
+- [x] Scene animates on scroll-enter
