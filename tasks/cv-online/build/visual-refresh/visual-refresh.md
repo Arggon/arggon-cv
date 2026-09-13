@@ -1,6 +1,6 @@
 ---
 type: story
-status: todo
+status: done
 id: visual-refresh
 title: "Visual refresh: navy palette, motion, i18n"
 parent: build
