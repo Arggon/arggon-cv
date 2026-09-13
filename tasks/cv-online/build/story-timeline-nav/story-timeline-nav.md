@@ -1,12 +1,12 @@
 ---
 type: story
-status: todo
+status: done
 id: story-timeline-nav
 title: Timeline navigation and progress
 parent: build
 labels: []
 created: "2026-09-12"
-updated: "2026-09-12"
+updated: "2026-09-13"
 depends_on: [story-scaffold]
 ---
 <!--

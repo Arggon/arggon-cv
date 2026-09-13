@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-timeline-progress
 title: Scroll progress rail with chapter jump links
 assignee: Arggon
@@ -9,7 +9,6 @@ parent: story-timeline-nav
 labels: []
 created: "2026-09-12"
 updated: "2026-09-13"
-claimed_at: "2026-09-13T00:00:58.544Z"
 depends_on: [task-scaffold-shell]
 worktree_path: /home/arggon/Projects/arggon-cv-task-timeline-progress
 ---
@@ -28,4 +27,4 @@ Vertical rail: chapter dots, scroll progress fill, click-to-jump.
 
 ## Acceptance
 
-- [ ] Rail tracks progress; keyboard accessible jump links
+- [x] Rail tracks progress; keyboard accessible jump links
