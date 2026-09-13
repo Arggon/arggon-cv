@@ -1,0 +1,72 @@
+/* Chapter 6 — the career ladder (task-anim-career). */
+
+.ladder {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: min(30rem, 100%);
+  margin-inline: auto;
+  padding: 0;
+}
+
+.rung {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--line);
+  border-radius: 3px;
+  background: var(--bg-raised);
+  opacity: 0.3;
+  transform: translateX(-10px);
+  transition: opacity 450ms var(--ease-out),
+    transform 450ms var(--ease-out),
+    border-color 450ms var(--ease-out),
+    box-shadow 450ms var(--ease-out);
+}
+
+.rung.is-lit {
+  opacity: 1;
+  transform: none;
+  border-left-color: var(--accent);
+  box-shadow: 0 0 14px rgba(70, 240, 138, 0.08);
+}
+
+.rung:last-child.is-lit {
+  box-shadow: 0 0 18px var(--glow);
+}
+
+.rung-year {
+  flex: none;
+  min-width: 5.4rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--ink-dim);
+  transition: color 450ms var(--ease-out);
+}
+
+.rung.is-lit .rung-year {
+  color: var(--accent);
+}
+
+.rung-role {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.rung-role small {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--ink-dim);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rung {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
