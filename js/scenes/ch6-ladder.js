@@ -1,31 +1,32 @@
-/* Chapter 6 — the junior-to-senior ladder, 2021-2026 (task-anim-career).
+/* Chapter 6 — the junior-to-senior ladder (task-anim-career, task-scrub-scenes).
  *
- * Five rungs light bottom-of-ladder to top (chronological), one per
- * beat: e.tres/Lytx junior, consultant years, GlobalLogic/Coalfire
- * senior, the CQRS+Mediator payment work, and the SDD/AI era. Reduced
- * motion: the whole ladder lit, static.
+ * Scroll-scrubbed: rungs light one by one with scroll, forward and
+ * backward. Reduced motion: all rungs lit, static.
  */
 (function () {
   'use strict';
 
-  var STEP_DELAY = 550;
-
   window.SceneFX = window.SceneFX || {};
 
   window.SceneFX.ch6 = function (stage, reducedMotion) {
-    var rungs = stage.querySelectorAll('[data-rung]');
+    var scrub = window.scrubApi;
+    var rungs = stage.querySelectorAll('.rung');
     if (rungs.length === 0) return;
 
-    if (reducedMotion) {
-      rungs.forEach(function (rung) { rung.classList.add('is-lit'); });
+    function paintFinal() {
+      rungs.forEach(function (r) { r.classList.add('is-lit'); });
+    }
+
+    if (reducedMotion || !scrub) {
+      paintFinal();
       return;
     }
 
-    window.planPortScan(new Array(rungs.length), STEP_DELAY).steps.forEach(function (step) {
-      setTimeout(function () {
-        var rung = rungs[step.index];
-        if (rung) rung.classList.add('is-lit');
-      }, step.time);
-    });
+    return function render(p) {
+      rungs.forEach(function (rung, i) {
+        var lit = scrub.band(p, 0.08, 0.85) * rungs.length;
+        rung.classList.toggle('is-lit', i + 1 <= lit);
+      });
+    };
   };
 })();

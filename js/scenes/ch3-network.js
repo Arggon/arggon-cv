@@ -1,24 +1,17 @@
-/* Chapter 3 — networking basics (task-anim-networking).
+/* Chapter 3 — networking basics (task-anim-networking, task-scrub-scenes).
  *
- * Nodes wake up left to right (PC -> router -> firewall -> server),
- * packets start traveling the links (one gets absorbed by the
- * firewall), and the port panel scans open. Reduced motion: the whole
- * diagram lit and static, no packets, no timers.
+ * Scroll-scrubbed: nodes wake left to right as the chapter pins, their
+ * links go live (packets travel on CSS time once live), the firewall
+ * absorbs one packet, and the port panel scans open near the end.
+ * Reduced motion: whole diagram lit and static, no packets.
  */
 (function () {
   'use strict';
 
-  var PORTS = [
-    { port: 21, name: 'ftp' },
-    { port: 80, name: 'http' },
-    { port: 443, name: 'https' },
-    { port: 1433, name: 'mssql' },
-    { port: 6112, name: 'game' },
-  ];
-
   window.SceneFX = window.SceneFX || {};
 
   window.SceneFX.ch3 = function (stage, reducedMotion) {
+    var scrub = window.scrubApi;
     var network = stage.querySelector('.network');
     if (!network) return;
 
@@ -26,24 +19,32 @@
     var links = stage.querySelectorAll('.net-link');
     var ports = stage.querySelectorAll('.port');
 
-    if (reducedMotion) {
+    function paintFinal() {
       nodes.forEach(function (n) { n.classList.add('is-lit'); });
+      links.forEach(function (l) { l.classList.add('is-live'); });
       ports.forEach(function (p) { p.classList.add('is-open'); });
+    }
+
+    if (reducedMotion || !scrub) {
+      paintFinal();
       return;
     }
 
-    nodes.forEach(function (node, i) {
-      setTimeout(function () {
-        node.classList.add('is-lit');
-        var link = links[i]; // link i leaves node i
-        if (link) link.classList.add('is-live');
-      }, 350 + i * 380);
-    });
+    return function render(p) {
+      /* Node i lights at its own slice of the first half of the pin;
+         link i leaves node i, so it goes live with its source. */
+      nodes.forEach(function (node, i) {
+        var lit = scrub.band(p, 0.06 + i * 0.11, 0.14 + i * 0.11) >= 1;
+        node.classList.toggle('is-lit', lit);
+        var link = links[i];
+        if (link) link.classList.toggle('is-live', lit);
+      });
 
-    window.planPortScan(PORTS, 280).steps.forEach(function (step) {
-      setTimeout(function () {
-        ports[step.index].classList.add('is-open');
-      }, 2000 + step.time);
-    });
+      /* Port scan sweeps the second half. */
+      ports.forEach(function (port, i) {
+        var opened = scrub.band(p, 0.6, 0.92) * ports.length;
+        port.classList.toggle('is-open', i + 1 <= opened);
+      });
+    };
   };
 })();
