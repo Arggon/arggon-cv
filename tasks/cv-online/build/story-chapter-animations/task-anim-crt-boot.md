@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-anim-crt-boot
 title: "Ch1 CRT boot: first computer turns on"
 assignee: Arggon
@@ -9,7 +9,6 @@ parent: story-chapter-animations
 labels: []
 created: "2026-09-12"
 updated: "2026-09-13"
-claimed_at: "2026-09-13T00:05:49.882Z"
 depends_on: [task-scaffold-shell, task-scaffold-design]
 worktree_path: /home/arggon/Projects/arggon-cv-task-anim-crt-boot
 ---
@@ -28,4 +27,4 @@ Chapter 1 scene: a CRT monitor flickers on, phosphor glow, boot text — the fir
 
 ## Acceptance
 
-- [ ] Scene animates on scroll-enter; reduced-motion shows static frame
+- [x] Scene animates on scroll-enter; reduced-motion shows static frame
