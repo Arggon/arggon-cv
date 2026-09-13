@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-restyle-palette
 title: "Restyle palette: navy plus green accent"
 assignee: arggon
@@ -9,7 +9,6 @@ parent: visual-refresh
 labels: []
 created: "2026-09-13"
 updated: "2026-09-13"
-claimed_at: "2026-09-13T02:34:35.741Z"
 worktree_path: /home/arggon/Projects/arggon-cv-task-restyle-palette
 ---
 <!--
