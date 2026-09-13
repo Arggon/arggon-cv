@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="css/scenes.css">
   <link rel="stylesheet" href="css/scenes-ch2.css">
   <link rel="stylesheet" href="css/scenes-ch3.css">
+  <link rel="stylesheet" href="css/scenes-ch4.css">
 </head>
 <body>
   <a class="skip-link" href="#ch1">Skip to the story</a>
@@ -119,7 +120,25 @@
       <h2 class="chapter-title" id="ch4-title">Sixteen and one query string</h2>
       <p class="chapter-body">At sixteen, I met my first SQL injection on a Mu Online website — and understood it. Private-server websites for Mu Online and Lineage were my playground — as a reader, then as a curious tinkerer. That is where I first saw <code>’ OR 1=1 --</code>: a login box that trusted whatever it was given. I understood what the query was doing, why a crafted input changed it, and what the server handed back. It was a kid poking at hobby websites — small, local, long gone — and it is exactly why I care about validation and secure design today.</p>
       <p class="chapter-takeaway">Learning how things break is why I build them defensively.</p>
-      <div class="scene-stage" data-stage="ch4" aria-hidden="true"></div>
+      <div class="scene-stage" data-stage="ch4" aria-hidden="true">
+        <div class="terminal">
+          <div class="term-bar">
+            <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
+            <span class="term-title">mu-fan.hopto.org &mdash; login &mdash; circa 2005 (mock)</span>
+          </div>
+          <div class="term-body">
+            <div class="term-line"><span class="term-prompt">login&gt;</span> <span class="term-input"></span><span class="term-caret"></span></div>
+            <div class="term-check">&gt; checking ... rows returned: all of them</div>
+            <div class="term-rows">
+              <span class="term-row">[1] user_01 ********</span>
+              <span class="term-row">[2] user_02 ********</span>
+              <span class="term-row">[3] gm_darkelfo ********</span>
+              <span class="term-row">[4] user_04 ********</span>
+            </div>
+            <div class="term-lesson">2005: this looked like magic. today: unsanitized input.</div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="scene" id="ch5" data-scene="ch5" aria-labelledby="ch5-title">
@@ -161,6 +180,8 @@
   <script src="js/scenes/ch2-crack.js" defer></script>
   <script src="js/port-scan.js" defer></script>
   <script src="js/scenes/ch3-network.js" defer></script>
+  <script src="js/sqli-plan.js" defer></script>
+  <script src="js/scenes/ch4-sqli.js" defer></script>
   <script src="js/scenes.js" defer></script>
   <script src="js/engine.js" defer></script>
 </body>

@@ -1,0 +1,125 @@
+/* Chapter 4 — SQL injection terminal (task-anim-sql-injection). */
+
+.terminal {
+  width: min(28rem, 100%);
+  margin-inline: auto;
+  background: #060a06;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5), 0 0 24px rgba(70, 240, 138, 0.06);
+}
+
+.term-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.8rem;
+  background: #101710;
+  border-bottom: 1px solid var(--line);
+}
+
+.term-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #2a332a;
+}
+
+.term-dot:nth-child(1) { background: #b3544a; }
+.term-dot:nth-child(2) { background: #b39a4a; }
+.term-dot:nth-child(3) { background: #4ab36a; }
+
+.term-title {
+  margin-left: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--ink-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.term-body {
+  padding: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  line-height: 1.8;
+  color: var(--ink);
+}
+
+.term-prompt {
+  color: var(--accent);
+}
+
+.term-input {
+  color: #eafff2;
+  text-shadow: 0 0 6px var(--glow);
+}
+
+.term-caret {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  vertical-align: text-bottom;
+  background: var(--accent);
+  animation: caret-blink 1s steps(1) infinite;
+}
+
+@keyframes caret-blink {
+  50% { opacity: 0; }
+}
+
+.term-check,
+.term-rows,
+.term-lesson {
+  display: none;
+  margin-top: var(--space-3);
+}
+
+.term-check.is-shown,
+.term-rows.is-shown,
+.term-lesson.is-shown {
+  display: block;
+}
+
+.term-check {
+  color: var(--ink-dim);
+}
+
+.term-check.is-shown {
+  color: var(--accent);
+}
+
+.term-row {
+  display: block;
+  color: var(--ink-dim);
+  opacity: 0.35;
+  transform: translateX(-6px);
+  transition: opacity var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.term-row.is-lit {
+  opacity: 1;
+  transform: none;
+  color: var(--accent);
+  text-shadow: 0 0 6px var(--glow);
+}
+
+.term-lesson {
+  color: var(--ink-dim);
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .term-caret {
+    animation: none;
+  }
+
+  .term-row {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
