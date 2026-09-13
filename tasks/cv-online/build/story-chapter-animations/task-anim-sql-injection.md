@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-anim-sql-injection
 title: Ch4 SQL injection terminal typing scene
 assignee: Arggon
@@ -9,7 +9,6 @@ parent: story-chapter-animations
 labels: []
 created: "2026-09-12"
 updated: "2026-09-13"
-claimed_at: "2026-09-13T00:16:09.167Z"
 depends_on: [task-scaffold-shell]
 worktree_path: /home/arggon/Projects/arggon-cv-task-anim-sql-injection
 ---
@@ -28,4 +27,4 @@ Chapter 4 scene: a terminal typing `' OR 1=1 --` against a mock login, rows ligh
 
 ## Acceptance
 
-- [ ] Typing animation on scroll-enter; clearly framed as the past learning moment
+- [x] Typing animation on scroll-enter; clearly framed as the past learning moment
