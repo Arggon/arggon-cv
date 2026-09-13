@@ -1,13 +1,17 @@
 ---
 type: task
-status: todo
+status: in_progress
 id: task-anim-crt-boot
 title: "Ch1 CRT boot: first computer turns on"
+assignee: Arggon
+branch: feat/task-anim-crt-boot
 parent: story-chapter-animations
 labels: []
 created: "2026-09-12"
-updated: "2026-09-12"
+updated: "2026-09-13"
+claimed_at: "2026-09-13T00:05:49.882Z"
 depends_on: [task-scaffold-shell, task-scaffold-design]
+worktree_path: /home/arggon/Projects/arggon-cv-task-anim-crt-boot
 ---
 <!--
   Placement (v0): tasks/cv-online/build/story-chapter-animations/task-anim-crt-boot.md
