@@ -1,13 +1,17 @@
 ---
 type: task
-status: todo
+status: in_progress
 id: task-anim-university
 title: Ch5 university and tecnicatura path
+assignee: Arggon
+branch: feat/task-anim-university
 parent: story-chapter-animations
 labels: []
 created: "2026-09-12"
-updated: "2026-09-12"
+updated: "2026-09-13"
+claimed_at: "2026-09-13T00:19:51.820Z"
 depends_on: [task-scaffold-shell]
+worktree_path: /home/arggon/Projects/arggon-cv-task-anim-university
 ---
 <!--
   Placement (v0): tasks/cv-online/build/story-chapter-animations/task-anim-university.md
