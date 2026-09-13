@@ -75,3 +75,81 @@ Today I design and operate scalable .NET systems, and I spend my days helping te
 **Takeaway.** Same curiosity, better tools. Let's build the next chapter.
 
 **Contact.** Córdoba, Argentina · [arggondev@gmail.com](mailto:arggondev@gmail.com) · [linkedin.com/in/arggon](https://www.linkedin.com/in/arggon/)
+# La historia — ES (task-i18n-toggle)
+
+Spanish mirror of the seven chapters. The English copy in this file stays
+the source of truth for index.html; the ES strings live in js/i18n.js
+(STRINGS.es) and are reproduced here for review. Each chapter: one hook,
+<= 120 words, one takeaway.
+
+---
+
+## Capítulo 1 — La primera computadora
+
+**Gancho.** Todo arrancó con estática, un parpadeo y un cursor verde titilando en una pantalla curva.
+
+Todo arrancó con estática, un parpadeo y un cursor verde titilando en una pantalla curva. La primera computadora de mi familia no era gran cosa: un monitor CRT que zumbaba antes de prender, una pantalla de arranque que se tomaba su tiempo, y un teclado que parecía el idioma propio de una máquina. Todavía no conocía ni un término técnico. Solo sabía que lo que vivía dentro de esa caja beige obedecía las palabras que yo escribía. Ahí empezaron las preguntas: ¿qué más puedo hacer con ella?
+
+**Takeaway.** La curiosidad, una vez encendida, nunca se apaga del todo.
+
+---
+
+## Capítulo 2 — La era de los cracks
+
+**Gancho.** Los videojuegos me enseñaron estrategia; buscarlos gratis me enseñó todo lo demás.
+
+Los videojuegos me enseñaron estrategia; buscarlos gratis me enseñó todo lo demás. Los juegos fueron mi primer hobby serio — los de estrategia sobre todo, de esos donde perdés veinte veces antes de entender el sistema. Los juegos pagos eran caros donde crecí, así que como muchos pibes salí a buscar la entrada gratis: cracks. La búsqueda en sí se volvió la habilidad — operadores de búsqueda, threads de foros, archivos readme, el trabajo paciente de entender por qué funcionaba un parche. Hoy no lo romantizo, pero ahí nació de verdad mi reflejo investigador.
+
+**Takeaway.** Lo que parecía un atajo era, en secreto, un plan de estudio.
+
+---
+
+## Capítulo 3 — Cómo funcionan de verdad las cosas
+
+**Gancho.** Cada crack fallido dejaba una mejor pregunta: ¿cómo se hablan las máquinas, en realidad? En algún punto entre parches fallidos y discusiones de foro, las preguntas se volvieron mejores que los juegos.
+
+Cada crack fallido dejaba una mejor pregunta: ¿cómo se hablan las máquinas, en realidad? En algún punto entre parches fallidos y discusiones de foro, las preguntas se volvieron mejores que los juegos. ¿Por qué un juego necesita un puerto abierto? ¿Qué bloquea exactamente un firewall? ¿Qué es un cliente, un servidor, una base de datos? Empecé a leer sobre TCP, puertos, paquetes y protocolos solo para entender con lo que mis búsquedas se topaban. Las redes dejaron de ser jerga y se volvieron un mapa: mi computadora, un servidor en algún lado, y reglas sobre quién puede hablar con quién.
+
+**Takeaway.** Los juegos se apagaron; el mapa que había detrás quedó.
+
+---
+
+## Capítulo 4 — Dieciséis y una query string
+
+**Gancho.** A los dieciséis conocí mi primera inyección SQL en una web de Mu Online — y la entendí.
+
+A los dieciséis conocí mi primera inyección SQL en una web de Mu Online — y la entendí. Las webs de servidores privados de Mu Online y Lineage eran mi patio de juegos — primero como lector, después como curioso experimentalista. Ahí vi por primera vez `’ OR 1=1 --`: un login que se confiaba de lo que fuera que le entregaran. Entendía qué hacía la query, por qué un input armado a mano la cambiaba, y qué devolvía el servidor. Era un pibe molestando webs de hobby — pequeñas, locales, desaparecidas hace largo — y es exactamente la razón por la que hoy me importa la validación y el diseño seguro.
+
+**Takeaway.** Entender cómo se rompen las cosas es por lo que las construyo a prueba de rotura.
+
+---
+
+## Capítulo 5 — El camino formal
+
+**Gancho.** El estudio formal por fin le puso nombre a lo que ya sabía.
+
+El estudio formal por fin le puso nombre a lo que ya sabía. La universidad le dio gramática a mi instinto autodidacta. Empecé Ingeniería en Software y aprendí a programar en serio: estructuras de datos, algoritmos, el razonamiento detrás de los trucos que venía improvisando hace años. La vida pedía un camino más rápido al trabajo profesional, así que completé el Técnico Programador Universitario en la UTN (FRT) y me recibí en 2021 — fundamentos más una credencial, y la sensación de que la educación formal confirmaba lo que la curiosidad ya había dibujado.
+
+**Takeaway.** La teoría se encontró con el instinto, y ambos afilaron al otro.
+
+---
+
+## Capítulo 6 — La escalera, 2021–2026
+
+**Gancho.** Cuatro años de junior a senior — cada peldaño.
+
+Cuatro años de junior a senior — cada peldaño. 2021: ingeniero de software junior en e.tres (luego Lytx), desenredando integraciones con pasarelas de pago. 2022–2025: Consultor — un endpoint de datos masivos que recortó 80% el tiempo de proceso de los clientes, filtros avanzados, fixes cross-layer entre frontend, backend y base de datos. Jul–Dic 2025: Ingeniero de Software Senior en GlobalLogic (Coalfire) — endpoints críticos migrados a un microservicio .NET 9, 30% más rápido bajo carga, upgrade a Angular v19. Feb 2026: patrones CQRS + Mediator en un microservicio de pagos. Desde mayo 2026: Ingeniero de Software Senior de AI, construyendo Spec-Driven Development con IA.
+
+**Takeaway.** Cuatro años, cinco peldaños, una dirección: sistemas más profundos, más ownership.
+
+---
+
+## Capítulo 7 — Ahora
+
+**Gancho.** El pibe que cazaba juegos gratis se volvió un ingeniero que caza mejores sistemas.
+
+El pibe que cazaba juegos gratis se volvió un ingeniero que caza mejores sistemas. Hoy diseño y opero sistemas .NET escalables, y paso mis días ayudando a equipos a construir software con IA mediante Spec-Driven Development — el reflejo documentador de los años de foros, ahora mi trabajo diario. Sigo jugando juegos de estrategia. Sigo leyendo artículos técnicos por diversión. Y sigo arrancando de la misma pregunta que encendió un CRT hace tantos años: ¿qué más puedo hacer con esta máquina?
+
+**Takeaway.** Misma curiosidad, mejores herramientas. Construyamos el próximo capítulo.
+
+---
