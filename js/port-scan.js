@@ -20,9 +20,14 @@
    */
   function planPortScan(ports, stepDelay) {
     var delay = typeof stepDelay === 'number' ? stepDelay : 280;
-    var steps = ports.map(function (_, index) {
-      return { time: index * delay, index: index };
-    });
+
+    /* Plain loop: callers may pass sparse arrays like `new Array(n)`,
+       which forEach/map would silently skip. */
+    var count = ports.length;
+    var steps = [];
+    for (var i = 0; i < count; i++) {
+      steps.push({ time: i * delay, index: i });
+    }
     return { steps: steps, totalMs: steps.length ? steps[steps.length - 1].time + delay : 0 };
   }
 

@@ -1,0 +1,110 @@
+/* Chapter 5 — the degree path (task-anim-university). */
+
+.deg-path {
+  display: flex;
+  flex-direction: column;
+  width: min(24rem, 100%);
+  margin-inline: auto;
+}
+
+.deg-step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.deg-dot {
+  flex: none;
+  width: 11px;
+  height: 11px;
+  margin-top: 5px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: var(--bg);
+  transition: background var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.deg-step.is-lit .deg-dot {
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--glow);
+}
+
+.deg-label {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  line-height: 1.5;
+  color: var(--ink-dim);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.deg-label small {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--ink-dim);
+  opacity: 0.8;
+}
+
+.deg-step.is-lit .deg-label {
+  color: var(--ink);
+}
+
+.deg-seg {
+  flex: none;
+  width: 2px;
+  height: 2.1rem;
+  margin-left: 5px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 350ms var(--ease-out);
+}
+
+.deg-seg.is-lit {
+  transform: scaleY(1);
+}
+
+.deg-diploma {
+  margin: var(--space-4) 0 0 1.6rem;
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  background: var(--bg-raised);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--ink);
+  opacity: 0;
+  transform: rotateX(-70deg);
+  transform-origin: top;
+  transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+}
+
+.deg-diploma.is-lit {
+  opacity: 1;
+  transform: rotateX(0);
+}
+
+.deg-seal {
+  flex: none;
+  width: 2.6rem;
+  height: 2.6rem;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  color: var(--accent);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  box-shadow: 0 0 10px var(--glow);
+  transform: rotate(-8deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deg-seg,
+  .deg-diploma {
+    transform: none;
+    transition: none;
+  }
+}
