@@ -42,11 +42,12 @@
   transform: translateY(0) scale(1) rotate(var(--tilt, 0deg));
 }
 
-.cover:nth-child(5n + 1) { background: linear-gradient(165deg, #233d4c, #0c161f); }
-.cover:nth-child(5n + 2) { background: linear-gradient(165deg, #1d2f4a, #0a1220); }
-.cover:nth-child(5n + 3) { background: linear-gradient(165deg, #43263d, #170d16); }
-.cover:nth-child(5n + 4) { background: linear-gradient(165deg, #46351d, #191208); }
-.cover:nth-child(5n + 5) { background: linear-gradient(165deg, #1f4044, #0a1618); }
+.cover:nth-child(6n + 1) { background: linear-gradient(165deg, #233d4c, #0c161f); }
+.cover:nth-child(6n + 2) { background: linear-gradient(165deg, #2b2347, #100c1f); }
+.cover:nth-child(6n + 3) { background: linear-gradient(165deg, #1d2f4a, #0a1220); }
+.cover:nth-child(6n + 4) { background: linear-gradient(165deg, #46351d, #191208); }
+.cover:nth-child(6n + 5) { background: linear-gradient(165deg, #43263d, #170d16); }
+.cover:nth-child(6n + 6) { background: linear-gradient(165deg, #1f4044, #0a1618); }
 
 .searchbar {
   display: flex;
