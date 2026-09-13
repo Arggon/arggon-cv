@@ -8,9 +8,26 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/rail.css">
 </head>
 <body>
   <a class="skip-link" href="#ch1">Skip to the story</a>
+
+  <nav class="rail" aria-label="Chapters">
+    <div class="rail-track" role="progressbar" aria-label="Story progress"
+         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-hidden="false">
+      <div class="rail-fill"></div>
+    </div>
+    <ol class="rail-list" role="list">
+      <li><a class="rail-link" href="#ch1" data-rail-link="ch1"><span class="rail-dot" aria-hidden="true"></span><span class="rail-label">01 Boot</span><span class="visually-hidden">Jump to 01 Boot</span></a></li>
+      <li><a class="rail-link" href="#ch2" data-rail-link="ch2"><span class="rail-dot" aria-hidden="true"></span><span class="rail-label">02 Crack era</span><span class="visually-hidden">Jump to 02 Crack era</span></a></li>
+      <li><a class="rail-link" href="#ch3" data-rail-link="ch3"><span class="rail-dot" aria-hidden="true"></span><span class="rail-label">03 Networks</span><span class="visually-hidden">Jump to 03 Networks</span></a></li>
+      <li><a class="rail-link" href="#ch4" data-rail-link="ch4"><span class="rail-dot" aria-hidden="true"></span><span class="rail-label">04 SQL injection</span><span class="visually-hidden">Jump to 04 SQL injection</span></a></li>
+      <li><a class="rail-link" href="#ch5" data-rail-link="ch5"><span class="rail-dot" aria-hidden="true"></span><span class="rail-label">05 Degree</span><span class="visually-hidden">Jump to 05 Degree</span></a></li>
+      <li><a class="rail-link" href="#ch6" data-rail-link="ch6"><span class="rail-dot" aria-hidden="true"></span><span class="rail-label">06 The ladder</span><span class="visually-hidden">Jump to 06 The ladder</span></a></li>
+      <li><a class="rail-link" href="#ch7" data-rail-link="ch7"><span class="rail-dot" aria-hidden="true"></span><span class="rail-label">07 Now</span><span class="visually-hidden">Jump to 07 Now</span></a></li>
+    </ol>
+  </nav>
 
   <header class="site-header">
     <p class="site-kicker">The story of</p>
@@ -85,6 +102,7 @@
   </footer>
 
   <script src="js/reveal.js" defer></script>
+  <script src="js/rail.js" defer></script>
   <script src="js/engine.js" defer></script>
 </body>
 </html>
