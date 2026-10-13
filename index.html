@@ -63,21 +63,25 @@
 
   <header class="site-header hero">
     <p class="hero-status"><span class="status-dot" aria-hidden="true"></span><span data-i18n="hero.status">Open to work · remote · Córdoba, AR (UTC-3)</span></p>
-    <p class="site-kicker" data-i18n="header.kicker">Hi, I'm</p>
-    <h1 class="site-title" data-i18n="header.name">Gonzalo Argañaraz</h1>
-    <p class="hero-role" data-i18n="hero.role">Backend developer · C# and .NET · AI agents · learning Rust</p>
-    <p class="site-subtitle" data-i18n="header.subtitle">I'm a backend developer from Córdoba, Argentina. I've been writing .NET professionally since 2021, and lately I spend a lot of my time figuring out how to work well with AI agents. This is how I got here.</p>
-    <ul class="metrics" role="list" aria-label="Impact">
-      <li class="metric"><span class="metric-num" data-count="80">80%</span><span class="metric-label" data-i18n="hero.m1">less processing time for our clients, after I built a bulk-data endpoint at Lytx</span></li>
-      <li class="metric"><span class="metric-num" data-count="30">30%</span><span class="metric-label" data-i18n="hero.m2">faster under load once we moved critical endpoints to a .NET 9 microservice</span></li>
-      <li class="metric"><span class="metric-num" data-count="22">22%</span><span class="metric-label" data-i18n="hero.m3">faster page loads after we upgraded the app to Angular v19</span></li>
-    </ul>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="mailto:arggondev@gmail.com" data-i18n="cta.email">Write me</a>
-      <a class="btn" href="#contact" data-i18n="cta.hire">Let's work together</a>
-      <a class="btn btn-ghost" href="assets/Gonzalo-Arganaraz-CV.pdf" data-i18n="cta.pdf">Download my CV (PDF)</a>
+    <h1 class="hero-name"><span class="site-kicker" data-i18n="header.kicker">Hi, I'm</span> <span class="hero-name-text" data-i18n="header.name">Gonzalo Argañaraz</span></h1>
+    <p class="hero-hook" data-i18n="hero.hook">I cut client processing time by 80% with one endpoint.</p>
+    <p class="site-subtitle hero-who" data-i18n="header.subtitle">Senior .NET backend developer from Argentina. I ship code with AI agents, spec first. Open to remote roles.</p>
+    <div class="cta-row hero-cta">
+      <a class="btn btn-primary btn-lg" href="mailto:arggondev@gmail.com?subject=Hi%20Gonzalo" data-i18n="cta.email">Hire me · Email</a>
+      <a class="btn btn-lg" href="assets/Gonzalo-Arganaraz-CV.pdf" download data-i18n="cta.pdf">Download CV</a>
     </div>
-    <p class="site-hint" data-i18n="header.hint">Scroll down. It starts in the 90s.</p>
+    <ul class="metrics" role="list" aria-label="Impact">
+      <li class="metric"><span class="metric-num" data-count="80">80%</span><span class="metric-label" data-i18n="hero.m1">less client processing time, bulk endpoint I built (Lytx)</span></li>
+      <li class="metric"><span class="metric-num" data-count="30">30%</span><span class="metric-label" data-i18n="hero.m2">faster under load, .NET 9 microservice (Coalfire)</span></li>
+      <li class="metric"><span class="metric-num" data-count="22">22%</span><span class="metric-label" data-i18n="hero.m3">faster page loads, Angular v19 upgrade</span></li>
+    </ul>
+    <dl class="skim" aria-label="At a glance">
+      <div><dt data-i18n="skim.expK">Experience</dt><dd data-i18n="skim.expV">5 years, since 2021</dd></div>
+      <div><dt data-i18n="skim.stackK">Stack</dt><dd data-i18n="skim.stackV">C#, .NET, SQL Server, AWS, Angular</dd></div>
+      <div><dt data-i18n="skim.focusK">Focus</dt><dd data-i18n="skim.focusV">AI agent workflows, learning Rust</dd></div>
+      <div><dt data-i18n="skim.whereK">Where</dt><dd data-i18n="skim.whereV">Córdoba, AR · remote · English C1</dd></div>
+    </dl>
+    <p class="site-hint" data-i18n="header.hint">Got a minute? Scroll for the story.</p>
   </header>
 
   <main id="story">
@@ -85,9 +89,9 @@
     <section class="scene" id="ch1" data-scene="ch1" aria-labelledby="ch1-title">
       <div class="scene-inner">
       <p class="chapter-kicker" data-i18n="ch1.kicker">Chapter 01</p>
-      <h2 class="chapter-title" id="ch1-title" data-i18n="ch1.title">Windows 98, age four or so</h2>
-      <p class="chapter-body" data-i18n="ch1.body">I was three or four when we got our first computer at home. Windows 98, a CRT monitor that buzzed before the picture showed up, and a beige tower that took forever to boot. I had no idea what anything was called. I remember sitting way too close to the screen, clicking on everything, amazed that the thing actually did what I asked. Sometimes it didn't. That was even more interesting, because I wanted to know why.</p>
-      <p class="chapter-takeaway" data-i18n="ch1.takeaway">I'm still that kid poking at the machine. The tools just got better.</p>
+      <h2 class="chapter-title" id="ch1-title" data-i18n="ch1.title">Windows 98, age four</h2>
+      <p class="chapter-body" data-i18n="ch1.body">I was three or four when we got a Windows 98 PC at home. A buzzing CRT, a beige tower, a slow boot. I clicked everything, and when it didn't obey, I wanted to know why.</p>
+      <p class="chapter-takeaway" data-i18n="ch1.takeaway">I'm still poking at machines. Better tools now.</p>
       <div class="scene-stage" data-stage="ch1" aria-hidden="true">
         <figure class="crt">
           <div class="crt-screen">
@@ -105,9 +109,9 @@
     <section class="scene" id="ch2" data-scene="ch2" aria-labelledby="ch2-title">
       <div class="scene-inner">
       <p class="chapter-kicker" data-i18n="ch2.kicker">Chapter 02</p>
-      <h2 class="chapter-title" id="ch2-title" data-i18n="ch2.title">Cracked games and forum threads</h2>
-      <p class="chapter-body" data-i18n="ch2.body">I grew up on games. The PC, a Family Game, a Sega. I loved strategy games, the ones you lose twenty times before they click. Games were expensive in Argentina, so like a lot of kids I went looking for cracks for Mu Online, World of Warcraft, Counter Strike and Age of Empires. Half of them didn't work. So I read forum threads, readme files and very long posts from people who knew way more than me, trying to figure out why one patch worked and the next one didn't. I'm not proud of the piracy. I am grateful for the habit: when something breaks, go find out why.</p>
-      <p class="chapter-takeaway" data-i18n="ch2.takeaway">That's still how I debug.</p>
+      <h2 class="chapter-title" id="ch2-title" data-i18n="ch2.title">Cracks and forum threads</h2>
+      <p class="chapter-body" data-i18n="ch2.body">Games were expensive in Argentina, so I hunted cracks for Mu Online, WoW, Counter Strike and Age of Empires. Half of them failed. Reading forums to find out why taught me more than the games.</p>
+      <p class="chapter-takeaway" data-i18n="ch2.takeaway">When something breaks, I go find out why.</p>
       <div class="scene-stage" data-stage="ch2" aria-hidden="true">
         <div class="crack-era">
           <div class="cover-shelf">
@@ -136,8 +140,8 @@
     <section class="scene" id="ch3" data-scene="ch3" aria-labelledby="ch3-title">
       <div class="scene-inner">
       <p class="chapter-kicker" data-i18n="ch3.kicker">Chapter 03</p>
-      <h2 class="chapter-title" id="ch3-title" data-i18n="ch3.title">Ports, routers and a lot of questions</h2>
-      <p class="chapter-body" data-i18n="ch3.body">The more cracks failed, the more I wanted to know how games talked to their servers. Why did this one need a port open? What was my firewall blocking? What even is a server? I started reading about TCP, packets and protocols, mostly to understand words I kept seeing on forums. At some point the questions got more interesting than the games. I could picture my PC, the router, the firewall and some server far away, and how a message traveled between them.</p>
+      <h2 class="chapter-title" id="ch3-title" data-i18n="ch3.title">Ports and routers</h2>
+      <p class="chapter-body" data-i18n="ch3.body">Failed cracks led to better questions. Why does this game need an open port? What is my firewall blocking? I read about TCP until I could picture the whole path from my PC to the server.</p>
       <p class="chapter-takeaway" data-i18n="ch3.takeaway">I came for the games and stayed for the plumbing.</p>
       <div class="scene-stage" data-stage="ch3" aria-hidden="true">
         <div class="network">
@@ -165,9 +169,9 @@
     <section class="scene" id="ch4" data-scene="ch4" aria-labelledby="ch4-title">
       <div class="scene-inner">
       <p class="chapter-kicker" data-i18n="ch4.kicker">Chapter 04</p>
-      <h2 class="chapter-title" id="ch4-title" data-i18n="ch4.title">Sixteen, and one weird login</h2>
-      <p class="chapter-body" data-i18n="ch4.body" data-i18n-html>At sixteen I spent hours on Mu Online and Lineage private server sites. On one of them I found <code>’ OR 1=1 --</code> in a forum post. I copied it, pasted it into the login box, and I was in. Then I started changing it myself, and soon I was getting the in-game items I wanted. I'm not proud of that part. But I didn't stop until I understood why it worked: the site pasted whatever you typed straight into its SQL query, and 1=1 is always true. That stuck with me. Today I validate every input.</p>
-      <p class="chapter-takeaway" data-i18n="ch4.takeaway">I write code assuming a sixteen-year-old me is on the other side.</p>
+      <h2 class="chapter-title" id="ch4-title" data-i18n="ch4.title">Sixteen, and ' OR 1=1</h2>
+      <p class="chapter-body" data-i18n="ch4.body" data-i18n-html>At sixteen I found <code>’ OR 1=1 --</code> on a forum and pasted it into a Mu Online private server login. I was in. I tweaked it to grab items I wanted, not my proudest moment, then dug in until I understood the SQL behind it.</p>
+      <p class="chapter-takeaway" data-i18n="ch4.takeaway">That's why I validate every input today.</p>
       <div class="scene-stage" data-stage="ch4" aria-hidden="true">
         <div class="terminal">
           <div class="term-bar">
@@ -194,8 +198,8 @@
       <div class="scene-inner">
       <p class="chapter-kicker" data-i18n="ch5.kicker">Chapter 05</p>
       <h2 class="chapter-title" id="ch5-title" data-i18n="ch5.title">UTN</h2>
-      <p class="chapter-body" data-i18n="ch5.body">After years of learning things out of order, I wanted the basics done properly. I started Software Engineering and finally studied data structures and algorithms instead of guessing. A lot of tricks I'd been using for years suddenly had names. Then I needed to start working sooner, so I switched to the Técnico Programador Universitario at UTN FRT and finished it in 2021. A shorter degree, the same fundamentals, and the door to my first job.</p>
-      <p class="chapter-takeaway" data-i18n="ch5.takeaway">Studying put names on things I'd been doing by ear.</p>
+      <p class="chapter-body" data-i18n="ch5.body">I started Software Engineering to learn the basics properly. Then I switched to the shorter Técnico Programador Universitario at UTN FRT so I could start working sooner, and graduated in 2021.</p>
+      <p class="chapter-takeaway" data-i18n="ch5.takeaway">Tricks I'd been using for years finally had names.</p>
       <div class="scene-stage" data-stage="ch5" aria-hidden="true">
         <div class="deg-path">
           <div class="deg-step" data-deg>
@@ -225,8 +229,8 @@
       <div class="scene-inner">
       <p class="chapter-kicker" data-i18n="ch6.kicker">Chapter 06</p>
       <h2 class="chapter-title" id="ch6-title" data-i18n="ch6.title">Work, 2021 to 2026</h2>
-      <p class="chapter-body" data-i18n="ch6.body">My first job was at e.tres in 2021, fixing payment gateway integrations. In 2022 I joined GlobalLogic and spent three years on the Lytx account. What I'm proudest of from that time is a bulk-data endpoint that cut our clients' processing time by 80%. In 2025 I went senior on the Coalfire account. We moved critical endpoints to a .NET 9 microservice and got 30% faster under load, and the Angular v19 upgrade made pages load 22% faster. In early 2026 I consulted for GreenDot on a payment microservice using CQRS and Mediator. From May to August I built a spec-driven framework for shipping code with AI agents.</p>
-      <p class="chapter-takeaway" data-i18n="ch6.takeaway">Every step meant owning a bigger piece of the system.</p>
+      <p class="chapter-body" data-i18n="ch6.body">Five years, from junior at e.tres to senior at GlobalLogic. I built a bulk endpoint that cut client processing time by 80%, moved endpoints to a .NET 9 microservice that ran 30% faster under load, and did CQRS work on payments for GreenDot.</p>
+      <p class="chapter-takeaway" data-i18n="ch6.takeaway">Every step, a bigger piece of the system.</p>
       <div class="scene-stage" data-stage="ch6" aria-hidden="true">
         <ol class="ladder" role="list">
           <li class="rung" data-rung>
@@ -257,9 +261,9 @@
     <section class="scene" id="ch7" data-scene="ch7" aria-labelledby="ch7-title">
       <div class="scene-inner">
       <p class="chapter-kicker" data-i18n="ch7.kicker">Chapter 07</p>
-      <h2 class="chapter-title" id="ch7-title" data-i18n="ch7.title">Today</h2>
-      <p class="chapter-body" data-i18n="ch7.body">My last role taught me something I keep repeating: AI agents do much better work when they get a spec and tests before writing any code. So I built ArggonManager around that idea. Tasks live as Markdown files in the repo, and agents pick them up, code them and review each other through git, the same way people do. I keep the decisions you can't undo, like accepting a feature or cutting a release. I try it on small side projects, and this site is one of them. On weekends I'm learning Rust. Coming from C#, the compiler is strict with me, and I like that.</p>
-      <p class="chapter-takeaway" data-i18n="ch7.takeaway">If you want to see how I work, the code is on GitHub.</p>
+      <h2 class="chapter-title" id="ch7-title" data-i18n="ch7.title">Now</h2>
+      <p class="chapter-body" data-i18n="ch7.body">Last role: a spec-first framework for shipping code with AI agents. On my own time, ArggonManager, where tasks are Markdown in the repo and agents code and review them. I keep the calls you can't undo. Weekends, I'm learning Rust.</p>
+      <p class="chapter-takeaway" data-i18n="ch7.takeaway">The code is on GitHub.</p>
       <div class="now-grid">
         <article class="now-card now-card--main">
           <p class="now-tag" data-i18n="ch7.p1tag">main project · TypeScript</p>
@@ -304,7 +308,7 @@
   <section class="contact" id="contact" aria-labelledby="contact-title">
     <p class="chapter-kicker" data-i18n="contact.kicker">Chapter 08 · not written yet</p>
     <h2 class="contact-title" id="contact-title" data-i18n="contact.title">Looking for a backend developer?</h2>
-    <p class="contact-body" data-i18n="contact.body">I'm looking for a remote senior role in backend, .NET or AI engineering, and I'm open to freelance projects too. I like getting the business rules right and checking the numbers after a release. If that sounds useful for your team, send me an email.</p>
+    <p class="contact-body" data-i18n="contact.body">Remote senior role in backend, .NET or AI engineering, or a freelance project. If that fits your team, send me an email.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="mailto:arggondev@gmail.com?subject=Hi%20Gonzalo">arggondev@gmail.com</a>
       <a class="btn" href="https://www.linkedin.com/in/arggon/" rel="noopener">LinkedIn</a>

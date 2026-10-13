@@ -29,7 +29,7 @@ const blocks = [...html.matchAll(
 assert.deepStrictEqual(blocks.map((b) => b.id), ['ch1', 'ch2', 'ch3', 'ch4', 'ch5', 'ch6', 'ch7'],
   'index.html must carry the seven chapters in order');
 
-// 3. Per-chapter word budget: <= 120 words across hook + body + takeaway.
+// 3. Per-chapter word budget: <= 60 words across hook + body + takeaway.
 function words(fragment) {
   return fragment
     .replace(/<[^>]+>/g, ' ')
@@ -40,7 +40,7 @@ function words(fragment) {
 
 for (const b of blocks) {
   const total = words(b.body) + words(b.takeaway);
-  assert.ok(total <= 120, `${b.id} is ${total} words (budget 120)`);
+  assert.ok(total <= 60, `${b.id} is ${total} words (budget 60)`);
   assert.ok(total >= 40, `${b.id} is only ${total} words — too thin for a chapter`);
   assert.ok(b.takeaway.length > 0 && !/^\s*$/.test(b.takeaway), `${b.id} needs a takeaway`);
   console.log(`${b.id}  ${String(total).padStart(3)} words  ${b.title}`);
