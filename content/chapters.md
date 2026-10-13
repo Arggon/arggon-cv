@@ -38,7 +38,7 @@ Why did this one need a port open? What was my firewall blocking? What even is a
 
 **Hook.** At sixteen I spent hours on Mu Online and Lineage private server sites.
 
-On one of them I saw someone type ’ OR 1=1 -- into the login box. And it let them in. I stayed with it until I understood why: the site pasted whatever you typed straight into its SQL query, and 1=1 is always true. Those were tiny hobby sites and they're long gone. That login box stayed with me, though. Every time I validate an input today, I think about it.
+On one of them I found ’ OR 1=1 -- in a forum post. I copied it, pasted it into the login box, and I was in. Then I started changing it myself, and soon I was getting the in-game items I wanted. I'm not proud of that part. But I didn't stop until I understood why it worked: the site pasted whatever you typed straight into its SQL query, and 1=1 is always true. That stuck with me. Today I validate every input.
 
 **Takeaway.** I write code assuming a sixteen-year-old me is on the other side.
 
@@ -114,7 +114,7 @@ En la PC, en el Family Game, en la Sega. Me encantaban los de estrategia, esos q
 
 **Gancho.** A los dieciséis pasaba horas en sitios de servidores privados de Mu Online y Lineage.
 
-En uno vi a alguien escribir ’ OR 1=1 -- en el login. Y entró. No lo solté hasta entender por qué: el sitio metía lo que escribías directo en la consulta SQL, y 1=1 siempre da verdadero. Eran sitios chiquitos de aficionados y ya no existen. Pero ese login me quedó grabado. Hoy, cada vez que valido un input, me acuerdo de él.
+En un foro encontré ’ OR 1=1 --. Lo copié, lo pegué en el login y entré. Después empecé a modificarlo yo, y al rato me estaba dando los ítems que quería en el juego. De eso no me enorgullezco. Pero no paré hasta entender por qué andaba: el sitio metía lo que escribías directo en la consulta SQL, y 1=1 siempre da verdadero. Eso me quedó grabado. Hoy valido cada input.
 
 **Cierre.** Programo pensando que del otro lado puede haber un pibe de dieciséis como yo.
 
