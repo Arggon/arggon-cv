@@ -1,0 +1,48 @@
+/* Work chapters (05 Lytx, 06 Coalfire, 07 agents): static diagrams that
+ * read at rest; motion only via transform/opacity under no-preference. */
+
+.batch { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: var(--space-2);
+  margin-bottom: var(--space-4); font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink); }
+.batch-calls { display: grid; grid-template-columns: repeat(3, 10px); gap: 4px; }
+.batch-calls span { width: 10px; height: 10px; border-radius: 2px; background: #a8b2d1; }
+.batch-arrow { color: var(--accent); }
+.batch-one, .batch-db { padding: 0.3rem 0.7rem; border: 1px solid var(--accent); border-radius: 6px; color: var(--accent); background: var(--bg-raised); }
+.batch-db { border-radius: 50% / 18%; }
+.batch-result { font-weight: 700; color: var(--accent); font-size: var(--step-1); }
+
+.lockflow { display: grid; gap: var(--space-3); width: 100%; justify-items: center; }
+.lf-row { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; justify-content: center; }
+.lf-box { display: inline-flex; flex-direction: column; padding: 0.5rem 0.8rem; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--bg-raised); color: var(--ink); font-family: var(--font-mono); font-size: var(--step--1); }
+.lf-box small { color: #a8b2d1; font-size: 0.72rem; }
+.lf-old { color: #a8b2d1; border-style: dashed; }
+.lf-new { border-color: var(--accent); color: var(--accent); }
+.lf-lock::before { content: "🔒 "; }
+.lf-arrow { color: var(--accent); font-family: var(--font-mono); }
+
+.pipeline { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2);
+  counter-reset: agent; }
+.pipeline li { counter-increment: agent; position: relative; padding: 0.45rem 0.8rem; border: 1px solid var(--accent); border-radius: 999px;
+  background: var(--bg-raised); color: var(--ink); font-family: var(--font-mono); font-size: var(--step--1); }
+.pipeline li::before { content: counter(agent) " "; color: var(--accent); font-weight: 700; }
+.pipeline li:not(:last-child)::after { content: "→"; position: absolute; right: -0.85rem; top: 50%; transform: translateY(-50%); color: var(--accent); }
+.pipeline-back { margin: var(--space-3) 0 0; text-align: center; font-family: var(--font-mono); font-size: var(--step--1); color: #ff9e8a; }
+
+.case-card { margin-top: var(--space-4); padding: var(--space-4); border: 1px solid var(--line); border-left: 3px solid var(--accent);
+  border-radius: 0.75rem; background: color-mix(in srgb, var(--bg-raised) 85%, transparent); font-size: var(--step--1); color: var(--ink-dim); line-height: 1.6; }
+.case-card p { margin: 0; }
+.case-card p + p { margin-top: var(--space-2); }
+.case-card a { color: var(--accent); }
+
+.labs-note { grid-column: 1 / -1; margin: var(--space-2) 0 0; font-family: var(--font-mono); font-size: var(--step--1); color: #a8b2d1; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .polish .scene.is-revealed .pipeline li { animation: rise 500ms var(--ease-out) both; }
+  .polish .scene.is-revealed .pipeline li:nth-child(2) { animation-delay: 120ms; }
+  .polish .scene.is-revealed .pipeline li:nth-child(3) { animation-delay: 240ms; }
+  .polish .scene.is-revealed .pipeline li:nth-child(4) { animation-delay: 360ms; }
+  .polish .scene.is-revealed .pipeline li:nth-child(5) { animation-delay: 480ms; }
+  .polish .scene.is-revealed .batch-calls span { animation: collapse 900ms var(--ease-out) 200ms both; }
+  .polish .scene.is-revealed .batch-result { animation: rise 500ms var(--ease-out) 900ms both; }
+}
+@keyframes collapse { from { opacity: 1; transform: none; } to { opacity: 0.35; transform: scale(0.6); } }

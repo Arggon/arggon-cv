@@ -1,4 +1,4 @@
-/* Chapter 5 — the degree path (task-anim-university, task-scrub-scenes).
+/* Chapter 4 — the degree path (task-anim-university, task-scrub-scenes).
  *
  * Scroll-scrubbed: the path draws with scroll — dots light, the
  * connecting segments grow (inline scaleY, so they scrub smoothly both
@@ -10,7 +10,7 @@
 
   window.SceneFX = window.SceneFX || {};
 
-  window.SceneFX.ch5 = function (stage, reducedMotion) {
+  window.SceneFX.ch4 = function (stage, reducedMotion) {
     var scrub = window.scrubApi;
     var steps = stage.querySelectorAll('.deg-step');
     var segs = stage.querySelectorAll('.deg-seg');

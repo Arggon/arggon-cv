@@ -1,4 +1,4 @@
-/* Chapter 6 — the junior-to-senior ladder (task-anim-career, task-scrub-scenes).
+/* Chapter 5 — the junior-to-senior ladder (task-anim-career, task-scrub-scenes).
  *
  * Scroll-scrubbed: rungs light one by one with scroll, forward and
  * backward. Reduced motion: all rungs lit, static.
@@ -8,7 +8,7 @@
 
   window.SceneFX = window.SceneFX || {};
 
-  window.SceneFX.ch6 = function (stage, reducedMotion) {
+  window.SceneFX.ch5 = function (stage, reducedMotion) {
     var scrub = window.scrubApi;
     var rungs = stage.querySelectorAll('.rung');
     if (rungs.length === 0) return;

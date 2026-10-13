@@ -10,7 +10,7 @@
     function step(ts) {
       if (start === null) start = ts;
       var p = Math.min((ts - start) / dur, 1), e = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(target * e) + '%';
+      el.textContent = Math.round(target * e) + (el.getAttribute('data-suffix') || '');
       if (p < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
