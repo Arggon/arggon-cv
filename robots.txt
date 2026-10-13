@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arggon.github.io/arggon-cv/sitemap.xml
