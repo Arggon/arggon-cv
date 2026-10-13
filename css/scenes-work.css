@@ -46,3 +46,5 @@
   .polish .scene.is-revealed .batch-result { animation: rise 500ms var(--ease-out) 900ms both; }
 }
 @keyframes collapse { from { opacity: 1; transform: none; } to { opacity: 0.35; transform: scale(0.6); } }
+.card-cta { margin-top: var(--space-3) !important; }
+.card-cta .btn { color: var(--accent-ink); }

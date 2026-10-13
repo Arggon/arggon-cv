@@ -74,15 +74,15 @@ Transcript agent: meeting to specs. Backlog agent: specs to tasks. Developer age
 
 ---
 
-## Chapter 8: Now
+## Chapter 8: Now: ArggonManager
 
 **Hook.** My last project at GlobalLogic wrapped in August 2026.
 
-Since then I've been building ArggonManager, my project tracker run by agents, and learning Rust. Next up: a small C# microservices repo, built with the same method.
+Since then I've been building ArggonManager, my own methodology for AI agents. Specs and acceptance criteria live in the repo, agents claim, build, review and verify the work, and there's a done gate they can't skip. Next: a C# microservices repo built with it.
 
-**Takeaway.** The code is on GitHub.
+**Takeaway.** The irreversible calls stay human.
 
-Chapter 7 card: A one-month project on a team of three. Our project manager presented the proposal to the client, a co-worker tested the agents against the method, and I owned the agent design and the methodology. I drafted the method with Claude Sonnet and ran the proofs of concept in GitHub Copilot (GPT-4o). The method, spec-driven development plus test-first TDD for AI agents, is open source: openspec-tdd-schema (https://github.com/Arggon/openspec-tdd-schema).
+ArggonManager card: A work methodology for AI agents that lives in git. Four agent roles: delivery lead, standards reviewer, maker and verifier. Work is sized by risk, from a plain task up to spec, exploration and ADR. Reviews leave evidence on the item, and nothing closes with an unticked acceptance criterion. Waivers, claim takeovers, reopening and releases are human-only, and the tool enforces it. Runs on OpenCode, ZCode and Claude Code. 27 ADRs. This site is tracked with it.
 
 ---
 
@@ -162,15 +162,15 @@ Transcripción: de la reunión a specs. Backlog: de specs a tareas. Developer: a
 
 ---
 
-## Capítulo 8: Ahora
+## Capítulo 8: Ahora: ArggonManager
 
 **Gancho.** Mi último proyecto en GlobalLogic terminó en agosto de 2026.
 
-Desde entonces construyo ArggonManager, mi gestor de proyectos que manejan agentes, y aprendo Rust. Lo próximo: un repo chico de microservicios en C#, hecho con el mismo método.
+Desde entonces construyo ArggonManager, mi metodología para agentes de IA. Las specs y los criterios viven en el repo, los agentes toman, construyen, revisan y verifican el trabajo, y hay un done gate que no se saltean. Lo próximo: microservicios en C#.
 
-**Cierre.** El código está en GitHub.
+**Cierre.** Lo irreversible sigue siendo humano.
 
-Tarjeta del capítulo 7: Un proyecto de un mes, en un equipo de tres. Nuestro project manager le presentó la propuesta al cliente, un compañero probó los agentes contra el método, y yo me encargué del diseño de los agentes y de la metodología. Armé el método con Claude Sonnet e hice las pruebas de concepto en GitHub Copilot (GPT-4o). El método, spec-driven development más TDD test-first para agentes de IA, es open source: openspec-tdd-schema.
+Tarjeta de ArggonManager: Una metodología de trabajo para agentes de IA que vive en git. Cuatro roles de agente: delivery lead, revisor de estándares, maker y verifier. El trabajo se dimensiona por riesgo, desde una tarea simple hasta spec, exploración y ADR. Las revisiones dejan evidencia en el ítem, y nada se cierra con un criterio de aceptación sin tildar. Los waivers, tomar un claim ajeno, reabrir y los releases son solo para humanos, y la herramienta lo hace cumplir. Corre en OpenCode, ZCode y Claude Code. 27 ADRs. Este sitio se gestiona con ella.
 
 ---
 
