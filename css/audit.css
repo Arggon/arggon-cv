@@ -1,0 +1,41 @@
+/* Audit quick wins: contrast at rest, tap targets, small-screen overflow,
+ * hero link row. */
+
+/* Scenes that have not been reached yet are fully hidden (not dimmed), so no
+   text ever sits at low contrast; once revealed everything is full opacity. */
+.scene:not(.is-revealed) .scene-inner { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .scene-inner, .scene:not(.is-revealed) .scene-inner { opacity: 1; transform: none; }
+}
+/* Resting colors for the decorative scene text: all >= 4.5:1 on their bg. */
+.port { color: #a8b2d1; }               /* 7.4:1 on #112240 */
+.term-title { color: #a8b2d1; font-size: 0.75rem; }
+.term-prompt { color: var(--accent); }
+
+/* Tap targets >= 44px. */
+.rail-link { width: 44px; height: 44px; }
+.lang-btn { min-height: 44px; min-width: 44px; }
+.site-footer a, .chapter-contact a, .now-card h3 a, .hero-links a {
+  display: inline-flex; align-items: center; min-height: 44px;
+}
+.btn { min-height: 44px; }
+
+/* Hero links row. */
+.hero-links { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); margin: 0; padding: 0; list-style: none;
+  font-family: var(--font-mono); font-size: var(--step--1); }
+.hero-links a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+.hero-links a:hover, .hero-links a:focus-visible { border-bottom-color: var(--accent); }
+.skim-role dd { color: var(--accent); font-weight: 600; }
+
+/* 320px: nothing may push the page wider than the viewport. */
+html, body { overflow-x: clip; }
+.hero-status { max-width: 100%; flex-wrap: wrap; }
+.stack-marquee, .now-grid, .metrics, .skim { max-width: 100%; }
+@media (max-width: 22rem) {
+  .hero-cta .btn { flex: 1 1 100%; }
+  .hero .metrics { grid-template-columns: 1fr 1fr 1fr; gap: 0.35rem; }
+  .hero .metric { padding: 0.4rem; }
+  .hero .metric-num { font-size: 1.2rem; }
+  .skim { grid-template-columns: 1fr; }
+  .contact { margin-inline: var(--space-2); }
+}
