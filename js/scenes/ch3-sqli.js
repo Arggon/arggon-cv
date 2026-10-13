@@ -1,4 +1,4 @@
-/* Chapter 4 — SQL injection at 16 (task-anim-sql-injection, task-scrub-scenes).
+/* Chapter 3 — SQL injection at 16 (task-anim-sql-injection, task-scrub-scenes).
  *
  * Scroll-scrubbed: the login types `' OR 1=1 --` with scroll, the check
  * line lands, rows light one by one, and the lesson closes the chapter.
@@ -12,7 +12,7 @@
 
   window.SceneFX = window.SceneFX || {};
 
-  window.SceneFX.ch4 = function (stage, reducedMotion) {
+  window.SceneFX.ch3 = function (stage, reducedMotion) {
     var scrub = window.scrubApi;
     var input = stage.querySelector('.term-input');
     var check = stage.querySelector('.term-check');

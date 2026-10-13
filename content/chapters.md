@@ -1,12 +1,12 @@
-# The story, in seven chapters
+# The story, in eight chapters
 
-Source of truth for the site copy (spec cv-001). First person, written in Gonzalo's own voice. Each chapter is 40 to 60 words including the takeaway, so a recruiter can skim it in seconds. The site strings live in js/i18n.js; keep both in sync.
+Source of truth for the site copy (spec cv-001), in line with the CV in assets/Gonzalo-Arganaraz-CV.pdf. First person, in Gonzalo's own voice. Each chapter is 40 to 60 words including the takeaway, so a recruiter can skim it in seconds. The site strings live in js/i18n.js; keep both in sync.
 
 ---
 
 ## Chapter 1: Windows 98, age four
 
-**Hook.** I was three or four when we got a Windows 98 PC at home.
+**Hook.** I was three or four when a Windows 98 PC showed up at home.
 
 A buzzing CRT, a beige tower, a slow boot. I clicked everything, and when it didn't obey, I wanted to know why.
 
@@ -14,63 +14,75 @@ A buzzing CRT, a beige tower, a slow boot. I clicked everything, and when it did
 
 ---
 
-## Chapter 2: Cracks and forum threads
+## Chapter 2: Cracks, forums and ports
 
 **Hook.** Games were expensive in Argentina, so I hunted cracks for Mu Online, WoW, Counter Strike and Age of Empires.
 
-Half of them failed. Reading forums to find out why taught me more than the games.
-
-**Takeaway.** When something breaks, I go find out why.
-
----
-
-## Chapter 3: Ports and routers
-
-**Hook.** Failed cracks led to better questions.
-
-Why does this game need an open port? What is my firewall blocking? I read about TCP until I could picture the whole path from my PC to the server.
+Half failed. The forums explained why, and then I had better questions: why does this game need an open port? What is my firewall blocking?
 
 **Takeaway.** I came for the games and stayed for the plumbing.
 
 ---
 
-## Chapter 4: Sixteen, and ' OR 1=1
+## Chapter 3: Sixteen, and ' OR 1=1
 
-**Hook.** At sixteen I found ’ OR 1=1 -- on a forum and pasted it into a Mu Online private server login.
+**Hook.** At sixteen I found ' OR 1=1 -- on a forum and pasted it into a Mu Online private server login.
 
-I was in. I tweaked it to grab items I wanted, not my proudest moment, then dug in until I understood the SQL behind it.
+It worked. I changed it myself to grab items I wanted, not my proudest moment, and kept digging until I understood the SQL behind it.
 
-**Takeaway.** That's why I validate every input today.
+**Takeaway.** Today I write the parameterized query that would have stopped me.
 
 ---
 
-## Chapter 5: UTN
+## Chapter 4: UTN
 
-**Hook.** I started Software Engineering to learn the basics properly.
+**Hook.** After that, breaking things wasn't enough.
 
-Then I switched to the shorter Técnico Programador Universitario at UTN FRT so I could start working sooner, and graduated in 2021.
+I wanted to build them. I started Software Engineering, then switched to the shorter Técnico Programador Universitario at UTN FRT so I could start working sooner. I graduated in 2021.
 
 **Takeaway.** Tricks I'd been using for years finally had names.
 
 ---
 
-## Chapter 6: Work, 2021 to 2026
+## Chapter 5: The 80% endpoint (Lytx)
 
-**Hook.** Five years, from junior at e.tres to senior at GlobalLogic.
+**Hook.** At Lytx (video telematics, through GlobalLogic), clients pulled data one record per call.
 
-I built a bulk endpoint that cut client processing time by 80%, moved endpoints to a .NET 9 microservice that ran 30% faster under load, and did CQRS work on payments for GreenDot.
+I designed a bulk endpoint: one batch request, handed to a new SQL Server stored procedure that processes the whole set inside the database. Client processing time dropped 80%.
 
-**Takeaway.** Every step, a bigger piece of the system.
+**Takeaway.** Most performance wins are about the shape of the API.
 
 ---
 
-## Chapter 7: Now
+## Chapter 6: From breaking logins to selling access (Coalfire)
 
-**Hook.** Last role: a spec-first framework for shipping code with AI agents.
+**Hook.** Coalfire is a cybersecurity company.
 
-On my own time, ArggonManager, where tasks are Markdown in the repo and agents code and review them. I keep the calls you can't undo. Weekends, I'm learning Rust.
+I designed the access role, with its permissions and restrictions, that let them sell through AWS Marketplace, and moved critical endpoints from a monolith to a .NET 9 microservice that responds 30% faster under load. The kid from chapter 03 now builds the locks.
+
+**Takeaway.** I know how logins break, so I build them carefully.
+
+---
+
+## Chapter 7: A team of agents, one human
+
+**Hook.** At Coalfire, in May 2026, I designed a five-agent pipeline.
+
+Transcript agent: meeting to specs. Backlog agent: specs to tasks. Developer agent: opens the PR. QA agent: tests it with Playwright. Tech-lead agent: reviews it. Any failed check sends the work back.
+
+**Takeaway.** Agents do the work. I keep the calls you can't undo.
+
+---
+
+## Chapter 8: Now
+
+**Hook.** My last project at GlobalLogic wrapped in August 2026.
+
+Since then I've been building ArggonManager, my project tracker run by agents, and learning Rust. Next up: a small C# microservices repo, built with the same method.
 
 **Takeaway.** The code is on GitHub.
+
+Chapter 7 card: A one-month project on a team of three. Our project manager presented the proposal to the client, a co-worker tested the agents against the method, and I owned the agent design and the methodology. I drafted the method with Claude Sonnet and ran the proofs of concept in GitHub Copilot (GPT-4o). The method, spec-driven development plus test-first TDD for AI agents, is open source: openspec-tdd-schema (https://github.com/Arggon/openspec-tdd-schema).
 
 ---
 
@@ -90,67 +102,79 @@ Un CRT que zumbaba, un gabinete beige, un arranque eterno. Clickeaba todo, y cua
 
 ---
 
-## Capítulo 2: Cracks y foros
+## Capítulo 2: Cracks, foros y puertos
 
 **Gancho.** Los juegos eran caros, así que salía a buscar cracks para Mu Online, WoW, Counter Strike y Age of Empires.
 
-La mitad no andaba. Leer foros para entender por qué me enseñó más que los juegos.
-
-**Cierre.** Si algo se rompe, voy a ver por qué.
-
----
-
-## Capítulo 3: Puertos y routers
-
-**Gancho.** Los cracks que fallaban me dejaban mejores preguntas.
-
-¿Por qué este juego necesita un puerto abierto? ¿Qué bloquea mi firewall? Leí sobre TCP hasta poder imaginarme todo el camino de mi PC al servidor.
+La mitad no andaba. Los foros me explicaban por qué, y me dejaban mejores preguntas: ¿por qué este juego necesita un puerto abierto? ¿Qué bloquea mi firewall?
 
 **Cierre.** Vine por los juegos y me quedé por las cañerías.
 
 ---
 
-## Capítulo 4: Dieciséis años y ' OR 1=1
+## Capítulo 3: Dieciséis años y ' OR 1=1
 
-**Gancho.** A los dieciséis encontré ’ OR 1=1 -- en un foro y lo pegué en el login de un servidor privado de Mu Online.
+**Gancho.** A los dieciséis encontré ' OR 1=1 -- en un foro y lo pegué en el login de un servidor privado de Mu Online.
 
-Entré. Lo modifiqué para sacar ítems que quería, no es algo de lo que me enorgullezca, y no paré hasta entender el SQL que había atrás.
+Funcionó. Lo modifiqué yo para sacar ítems que quería, no es algo de lo que me enorgullezca, y seguí hasta entender el SQL que había atrás.
 
-**Cierre.** Por eso hoy valido cada input.
+**Cierre.** Hoy escribo la consulta parametrizada que me hubiera frenado.
 
 ---
 
-## Capítulo 5: UTN
+## Capítulo 4: UTN
 
-**Gancho.** Arranqué Ingeniería en Software para aprender las bases bien.
+**Gancho.** Después de eso, romper cosas ya no me alcanzaba.
 
-Después me pasé a Técnico Programador Universitario en la UTN FRT, más corta, para empezar a laburar antes, y me recibí en 2021.
+Quería construirlas. Arranqué Ingeniería en Software y después me pasé a Técnico Programador Universitario en la UTN FRT, que era más corta, para empezar a laburar antes. Me recibí en 2021.
 
 **Cierre.** Trucos que venía usando hacía años por fin tenían nombre.
 
 ---
 
-## Capítulo 6: Laburo, 2021 a 2026
+## Capítulo 5: El endpoint del 80% (Lytx)
 
-**Gancho.** Cinco años, de junior en e.tres a senior en GlobalLogic.
+**Gancho.** En Lytx (telemática de video, vía GlobalLogic), los clientes pedían los datos de a un registro por llamada.
 
-Hice un endpoint masivo que bajó 80% el tiempo de proceso de los clientes, pasamos endpoints a un microservicio .NET 9 que anduvo 30% más rápido bajo carga, y trabajé con CQRS en pagos para GreenDot.
+Diseñé un endpoint masivo: un request por lote que pasa a un stored procedure nuevo en SQL Server y procesa todo dentro de la base. El tiempo de proceso bajó 80%.
 
-**Cierre.** En cada paso, un pedazo más grande del sistema.
+**Cierre.** Casi siempre, la performance pasa por la forma de la API.
 
 ---
 
-## Capítulo 7: Ahora
+## Capítulo 6: De romper logins a vender accesos (Coalfire)
 
-**Gancho.** Último rol: un framework spec-first para programar con agentes de IA.
+**Gancho.** Coalfire es una empresa de ciberseguridad.
 
-Por mi cuenta, ArggonManager: las tareas son Markdown en el repo y los agentes las programan y revisan. Las decisiones sin vuelta atrás son mías. Los fines de semana, Rust.
+Diseñé el rol de acceso, con permisos y restricciones, para vender por AWS Marketplace, y migré endpoints críticos de un monolito a un microservicio .NET 9 que responde 30% más rápido bajo carga. El pibe del capítulo 03 ahora hace las cerraduras.
+
+**Cierre.** Sé cómo se rompe un login, por eso los hago con cuidado.
+
+---
+
+## Capítulo 7: Un equipo de agentes, un humano
+
+**Gancho.** En Coalfire, en mayo de 2026, diseñé un pipeline de cinco agentes.
+
+Transcripción: de la reunión a specs. Backlog: de specs a tareas. Developer: abre el PR. QA: lo prueba con Playwright. Tech lead: lo revisa. Si falla un chequeo, el trabajo vuelve para atrás.
+
+**Cierre.** Los agentes hacen el trabajo. Las decisiones sin vuelta atrás son mías.
+
+---
+
+## Capítulo 8: Ahora
+
+**Gancho.** Mi último proyecto en GlobalLogic terminó en agosto de 2026.
+
+Desde entonces construyo ArggonManager, mi gestor de proyectos que manejan agentes, y aprendo Rust. Lo próximo: un repo chico de microservicios en C#, hecho con el mismo método.
 
 **Cierre.** El código está en GitHub.
 
+Tarjeta del capítulo 7: Un proyecto de un mes, en un equipo de tres. Nuestro project manager le presentó la propuesta al cliente, un compañero probó los agentes contra el método, y yo me encargué del diseño de los agentes y de la metodología. Armé el método con Claude Sonnet e hice las pruebas de concepto en GitHub Copilot (GPT-4o). El método, spec-driven development más TDD test-first para agentes de IA, es open source: openspec-tdd-schema.
+
 ---
 
-## Contact / Contacto
+## Contact / Contacto (chapter 09)
 
 Looking for a backend developer? Remote senior role in backend, .NET or AI engineering, or a freelance project. If that fits your team, send me an email.
 

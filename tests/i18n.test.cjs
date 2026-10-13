@@ -46,8 +46,8 @@ assert.strictEqual(i18n.resolveLang('en'), 'en');
 assert.strictEqual(i18n.resolveLang('fr'), 'en');
 assert.strictEqual(i18n.resolveLang(null), 'en');
 assert.strictEqual(i18n.resolveLang(undefined), 'en');
-assert.strictEqual(i18n.t('rail.c7', 'es'), '07 Ahora');
-assert.strictEqual(i18n.t('rail.c7', 'zz'), '07 Now');
+assert.strictEqual(i18n.t('rail.c8', 'es'), '08 Ahora');
+assert.strictEqual(i18n.t('rail.c8', 'zz'), '08 Now');
 
 // 6. Scene arrays stay in sync (same line/query counts per language).
 assert.strictEqual(i18n.STRINGS.en['ch1.bootLines'].length,

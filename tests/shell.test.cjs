@@ -1,6 +1,6 @@
 /* Shell contract tests — run with `node tests/shell.test.cjs` (no deps, no build).
  * Guards the skeleton that every later task builds on:
- *   - seven [data-scene] sections, ch1..ch7, each with a scene stage
+ *   - eight [data-scene] sections, ch1..ch8, each with a scene stage
  *   - referenced assets exist and the JS parses as classic scripts
  */
 'use strict';
@@ -12,10 +12,10 @@ const { join } = require('node:path');
 const root = join(__dirname, '..');
 const html = readFileSync(join(root, 'index.html'), 'utf8');
 
-// 1. Exactly seven scenes, ch1..ch7, in document order.
+// 1. Exactly eight scenes, ch1..ch8, in document order.
 const scenes = [...html.matchAll(/data-scene="([^"]+)"/g)].map((m) => m[1]);
-assert.deepStrictEqual(scenes, ['ch1', 'ch2', 'ch3', 'ch4', 'ch5', 'ch6', 'ch7'],
-  'index.html must declare scenes ch1..ch7 in order');
+assert.deepStrictEqual(scenes, ['ch1', 'ch2', 'ch3', 'ch4', 'ch5', 'ch6', 'ch7', 'ch8'],
+  'index.html must declare scenes ch1..ch8 in order');
 
 // 2. Each scene is labelled and has an animation stage.
 for (const id of scenes) {
