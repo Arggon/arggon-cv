@@ -58,5 +58,6 @@ assert.ok(html.includes('mailto:arggondev@gmail.com'), 'ch8 needs the contact em
 assert.ok(html.includes('linkedin.com/in/arggon'), 'ch8 needs the LinkedIn profile');
 assert.ok(html.includes('https://github.com/Arggon"'), 'ch8 needs the GitHub profile');
 assert.ok(html.includes('github.com/Arggon/openspec-tdd-schema'), 'ch7 links the open-source method');
+assert.ok(/data-i18n="ch8.p1cta"/.test(html) && html.includes('github.com/Arggon/ArggonManager" rel="noopener" data-i18n="ch8.p1cta"'), 'ch8 gives ArggonManager the prominent link');
 
 console.log('chapters tests: all green');

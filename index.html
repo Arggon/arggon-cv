@@ -128,7 +128,7 @@
       <div class="skim-role"><dt data-i18n="skim.roleK">Role</dt><dd data-i18n="skim.roleV">Senior .NET Backend Engineer · available now</dd></div>
       <div><dt data-i18n="skim.expK">Experience</dt><dd data-i18n="skim.expV">5 years, since 2021</dd></div>
       <div><dt data-i18n="skim.stackK">Stack</dt><dd data-i18n="skim.stackV">C#, .NET, SQL Server, AWS, Angular</dd></div>
-      <div><dt data-i18n="skim.focusK">Focus</dt><dd data-i18n="skim.focusV">Agentic SDLC workflows, learning Rust</dd></div>
+      <div><dt data-i18n="skim.focusK">Focus</dt><dd data-i18n="skim.focusV">ArggonManager, my AI agent methodology · learning Rust</dd></div>
       <div><dt data-i18n="skim.domK">Domains</dt><dd data-i18n="skim.domV">Fleet telematics, cybersecurity, fintech payments, e-commerce</dd></div>
       <div><dt data-i18n="skim.whereK">Where</dt><dd data-i18n="skim.whereV">Córdoba, AR (UTC-3) · remote · English C1</dd></div>
     </dl>
@@ -317,7 +317,7 @@
       </div>
       <div class="case-card">
         <p data-i18n="ch7.team">A one-month project on a team of three. Our project manager presented the proposal to the client, a co-worker tested the agents against the method, and I owned the agent design and the methodology. I drafted the method with Claude Sonnet and ran the proofs of concept in GitHub Copilot (GPT-4o).</p>
-        <p><span data-i18n="ch7.methodPre">The method, spec-driven development plus test-first TDD for AI agents, is open source:</span> <a href="https://github.com/Arggon/openspec-tdd-schema" rel="noopener">openspec-tdd-schema</a><span data-i18n="ch7.methodPost">.</span></p>
+        <p><span data-i18n="ch7.methodPre">That method was my first step, and I open-sourced it as</span> <a href="https://github.com/Arggon/openspec-tdd-schema" rel="noopener">openspec-tdd-schema</a><span data-i18n="ch7.methodPost">. Today I use a much fuller version of the idea: ArggonManager, in chapter 08.</span></p>
       </div>
       </div>
     </section>
@@ -325,19 +325,15 @@
     <section class="scene" id="ch8" data-scene="ch8" aria-labelledby="ch8-title">
       <div class="scene-inner">
       <p class="chapter-kicker" data-i18n="ch8.kicker">Chapter 08</p>
-      <h2 class="chapter-title" id="ch8-title" data-i18n="ch8.title">Now</h2>
-      <p class="chapter-body" data-i18n="ch8.body">My last project at GlobalLogic wrapped in August 2026. Since then I've been building ArggonManager, my project tracker run by agents, and learning Rust. Next up: a small C# microservices repo, built with the same method.</p>
-      <p class="chapter-takeaway" data-i18n="ch8.takeaway">The code is on GitHub.</p>
+      <h2 class="chapter-title" id="ch8-title" data-i18n="ch8.title">Now: ArggonManager</h2>
+      <p class="chapter-body" data-i18n="ch8.body">My last project at GlobalLogic wrapped in August 2026. Since then I've been building ArggonManager, my own methodology for AI agents. Specs and acceptance criteria live in the repo, agents claim, build, review and verify the work, and there's a done gate they can't skip. Next: a C# microservices repo built with it.</p>
+      <p class="chapter-takeaway" data-i18n="ch8.takeaway">The irreversible calls stay human.</p>
       <div class="now-grid" id="now-projects">
         <article class="now-card now-card--main">
-          <p class="now-tag" data-i18n="ch8.p1tag">main project · TypeScript</p>
+          <p class="now-tag" data-i18n="ch8.p1tag">my methodology for AI agents · TypeScript</p>
           <h3><a href="https://github.com/Arggon/ArggonManager" rel="noopener">ArggonManager</a></h3>
-          <p data-i18n="ch8.p1">Project management that lives in your repo: each task is a Markdown file, and a CLI validates them and renders a kanban board. Agents make and verify. I design the method (20+ ADRs), write the specs and keep acceptance, risk waivers and releases.</p>
-        </article>
-        <article class="now-card now-card--main">
-          <p class="now-tag" data-i18n="ch8.p6tag">open source · OpenSpec</p>
-          <h3><a href="https://github.com/Arggon/openspec-tdd-schema" rel="noopener">openspec-tdd-schema</a></h3>
-          <p data-i18n="ch8.p6">The TDD schema from my Coalfire work: agents build in vertical slices, red, green, refactor, and write a failing test before any code.</p>
+          <p data-i18n="ch8.p1">A work methodology for AI agents that lives in git. Four agent roles: delivery lead, standards reviewer, maker and verifier. Work is sized by risk, from a plain task up to spec, exploration and ADR. Reviews leave evidence on the item, and nothing closes with an unticked acceptance criterion. Waivers, claim takeovers, reopening and releases are human-only, and the tool enforces it. Runs on OpenCode, ZCode and Claude Code. 27 ADRs. This site is tracked with it.</p>
+          <p class="card-cta"><a class="btn btn-primary" href="https://github.com/Arggon/ArggonManager" rel="noopener" data-i18n="ch8.p1cta">See the methodology on GitHub</a></p>
         </article>
         <p class="labs-note" data-i18n="ch8.labsNote">The labs below were built by my agents, under my specs and review.</p>
         <article class="now-card">
