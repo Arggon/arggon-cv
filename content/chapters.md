@@ -1,154 +1,157 @@
-# The story — seven chapters
+# The story, in seven chapters
 
-Source of truth for the site copy (spec cv-001). First person, English,
-matching the English CV. Each chapter: one hook line, <= 120 words, one
-takeaway. Built from Gonzalo's own account plus the English CV PDF.
+Source of truth for the site copy (spec cv-001). First person, written in Gonzalo's own voice. Each chapter is 40 to 60 words including the takeaway, so a recruiter can skim it in seconds. The site strings live in js/i18n.js; keep both in sync.
 
 ---
 
-## Chapter 1 — The first computer
+## Chapter 1: Windows 98, age four
 
-**Hook.** It started at three or four years old, with a Windows 98 machine and a green cursor blinking on a curved glass screen.
+**Hook.** I was three or four when we got a Windows 98 PC at home.
 
-My family's first computer was not much: a CRT monitor that hummed before it glowed, a boot screen that took its time, and a keyboard that felt like a machine's own language. I did not know a single technical term yet. I only knew that whatever lived inside that beige box obeyed the words I typed. That was the moment the questions started: what else can I make it do?
+A buzzing CRT, a beige tower, a slow boot. I clicked everything, and when it didn't obey, I wanted to know why.
 
-**Takeaway.** Curiosity, once booted, never really shuts down.
-
----
-
-## Chapter 2 — The crack era
-
-**Hook.** I grew up playing video games — on the PC and on the Family Game and Sega consoles.
-
-Strategy games especially: the kind where you lose twenty times before you understand the system. Paid games were expensive where I grew up, so like a lot of kids I went looking for a free way in: cracks. Mu Online, World of Warcraft, Counter Strike, Age of Empires — the hunt for them became the skill: search operators, forum threads, readme files, the patient work of figuring out why a patch worked. I do not romanticize it today, but that is honestly where the researching reflex began.
-
-**Takeaway.** What looked like a shortcut was secretly a curriculum.
+**Takeaway.** I'm still poking at machines. Better tools now.
 
 ---
 
-## Chapter 3 — How things actually work
+## Chapter 2: Cracks and forum threads
 
-**Hook.** Every failed crack led to a better question: how do machines actually talk?
+**Hook.** Games were expensive in Argentina, so I hunted cracks for Mu Online, WoW, Counter Strike and Age of Empires.
 
-Somewhere between failed patches and forum arguments, the questions got better than the games. Why does a game need a port open? What is a firewall actually blocking? What is a client, a server, a database? I started reading about TCP, ports, packets and protocols just to understand the things my searches kept bumping into. Networking stopped being jargon and became a map: my computer, a server somewhere, and rules about who may talk to whom.
+Half of them failed. Reading forums to find out why taught me more than the games.
 
-**Takeaway.** The games faded; the map behind them stayed.
-
----
-
-## Chapter 4 — Sixteen and one query string
-
-**Hook.** At sixteen, I met my first SQL injection on a Mu Online website — and understood it.
-
-Private-server websites for Mu Online and Lineage were my playground — as a reader, then as a curious tinkerer. That is where I first saw SQL injection: a login box that trusted whatever it was given. I understood what the query was doing, why a crafted input changed it, and what the server handed back. It was a kid poking at hobby websites — small, local, long gone — and it is exactly why I care about validation and secure design today.
-
-**Takeaway.** Learning how things break is why I build them defensively.
+**Takeaway.** When something breaks, I go find out why.
 
 ---
 
-## Chapter 5 — Formal path
+## Chapter 3: Ports and routers
 
-**Hook.** Formal study finally gave names to the things I already knew.
+**Hook.** Failed cracks led to better questions.
 
-University gave my self-taught instincts a grammar. I started a Software Engineering program and learned programming properly: data structures, algorithms, the reasoning behind tricks I had been improvising for years. Life demanded a faster route to professional work, so I completed the Técnico Programador Universitario at UTN (FRT) and graduated in 2021 — fundamentals plus a credential, and the feeling that formal education was confirming what curiosity had already sketched.
+Why does this game need an open port? What is my firewall blocking? I read about TCP until I could picture the whole path from my PC to the server.
 
-**Takeaway.** Theory met instinct, and both got sharper.
-
----
-
-## Chapter 6 — The ladder, 2021–2026
-
-**Hook.** Four years from junior to senior — here is every rung.
-
-2021: junior Software Developer at e.tres (later Lytx), untangling payment-gateway integrations. 2022–2025: Software Engineer II at GlobalLogic (Lytx) — a bulk-data endpoint that cut client processing time by 80%, advanced filtering, cross-layer fixes across frontend, backend and database. Jul–Dec 2025: Senior Software Engineer at GlobalLogic (Coalfire) — critical endpoints migrated to a .NET 9 microservice, 30% faster under load, Angular v19 upgrades. Feb 2026: Consultant — CQRS + Mediator patterns in a payment microservice for GreenDot. Since May 2026: Senior AI Software Engineer, building Spec-Driven Development with AI.
-
-**Takeaway.** Four years, five rungs, one direction: deeper systems, more ownership.
+**Takeaway.** I came for the games and stayed for the plumbing.
 
 ---
 
-## Chapter 7 — Now
+## Chapter 4: Sixteen, and ' OR 1=1
 
-**Hook.** The kid hunting for free games became an engineer hunting for better systems.
+**Hook.** At sixteen I found ’ OR 1=1 -- on a forum and pasted it into a Mu Online private server login.
 
-Today I design and operate scalable .NET systems, and I spend my days helping teams build software with AI through Spec-Driven Development — the documentation reflex from the forum years, now my day job. I still play strategy games. I still read technical articles for fun. I still start from the same question that lit up a CRT screen all those years ago: what else can this machine do?
+I was in. I tweaked it to grab items I wanted, not my proudest moment, then dug in until I understood the SQL behind it.
 
-**Takeaway.** Same curiosity, better tools. Let's build the next chapter.
-
-**Contact.** Córdoba, Argentina · [arggondev@gmail.com](mailto:arggondev@gmail.com) · [linkedin.com/in/arggon](https://www.linkedin.com/in/arggon/)
-# La historia — ES (task-i18n-toggle, task-story-refresh)
-
-Spanish mirror of the seven chapters. The English copy in this file stays
-the source of truth for index.html; the ES strings live in js/i18n.js
-(STRINGS.es) and are reproduced here for review.
+**Takeaway.** That's why I validate every input today.
 
 ---
 
-## Capítulo 1 — La primera computadora
+## Chapter 5: UTN
 
-**Gancho.** Todo arrancó a mis tres o cuatro años, con una máquina con Windows 98 y un cursor verde titilando en una pantalla curva.
+**Hook.** I started Software Engineering to learn the basics properly.
 
-Todo arrancó a mis tres o cuatro años, con una máquina con Windows 98 y un cursor verde titilando en una pantalla curva. La primera computadora de mi familia no era gran cosa: un monitor CRT que zumbaba antes de prender, una pantalla de arranque que se tomaba su tiempo, y un teclado que parecía el idioma propio de una máquina. Todavía no conocía ni un término técnico. Solo sabía que lo que vivía dentro de esa caja beige obedecía las palabras que yo escribía. Ahí empezaron las preguntas: ¿qué más puedo hacer con ella?
+Then I switched to the shorter Técnico Programador Universitario at UTN FRT so I could start working sooner, and graduated in 2021.
 
-**Takeaway.** La curiosidad, una vez encendida, nunca se apaga del todo.
-
----
-
-## Capítulo 2 — La era de los cracks
-
-**Gancho.** Crecí jugando videojuegos — en la PC y en las consolas: el Family Game y el Sega.
-
-Crecí jugando videojuegos — en la PC y en las consolas: el Family Game y el Sega. Los de estrategia sobre todo: de esos donde perdés veinte veces antes de entender el sistema. Los juegos pagos eran caros donde crecí, así que como muchos pibes salí a buscar la entrada gratis: cracks. Mu Online, World of Warcraft, Counter Strike, Age of Empires — la caza se volvió la habilidad: operadores de búsqueda, threads de foros, archivos readme, el trabajo paciente de entender por qué funcionaba un parche. Hoy no lo romantizo, pero ahí nació de verdad mi reflejo investigador.
-
-**Takeaway.** Lo que parecía un atajo era, en secreto, un plan de estudio.
+**Takeaway.** Tricks I'd been using for years finally had names.
 
 ---
 
-## Capítulo 3 — Cómo funcionan de verdad las cosas
+## Chapter 6: Work, 2021 to 2026
 
-**Gancho.** Cada crack fallido dejaba una mejor pregunta: ¿cómo se hablan las máquinas, en realidad? En algún punto entre parches fallidos y discusiones de foro, las preguntas se volvieron mejores que los juegos.
+**Hook.** Five years, from junior at e.tres to senior at GlobalLogic.
 
-Cada crack fallido dejaba una mejor pregunta: ¿cómo se hablan las máquinas, en realidad? En algún punto entre parches fallidos y discusiones de foro, las preguntas se volvieron mejores que los juegos. ¿Por qué un juego necesita un puerto abierto? ¿Qué bloquea exactamente un firewall? ¿Qué es un cliente, un servidor, una base de datos? Empecé a leer sobre TCP, puertos, paquetes y protocolos solo para entender con lo que mis búsquedas se topaban. Las redes dejaron de ser jerga y se volvieron un mapa: mi computadora, un servidor en algún lado, y reglas sobre quién puede hablar con quién.
+I built a bulk endpoint that cut client processing time by 80%, moved endpoints to a .NET 9 microservice that ran 30% faster under load, and did CQRS work on payments for GreenDot.
 
-**Takeaway.** Los juegos se apagaron; el mapa que había detrás quedó.
-
----
-
-## Capítulo 4 — Dieciséis y una query string
-
-**Gancho.** A los dieciséis conocí mi primera inyección SQL en una web de Mu Online — y la entendí.
-
-A los dieciséis conocí mi primera inyección SQL en una web de Mu Online — y la entendí. Las webs de servidores privados de Mu Online y Lineage eran mi patio de juegos — primero como lector, después como curioso experimentalista. Ahí vi por primera vez `’ OR 1=1 --`: un login que se confiaba de lo que fuera que le entregaran. Entendía qué hacía la query, por qué un input armado a mano la cambiaba, y qué devolvía el servidor. Era un pibe molestando webs de hobby — pequeñas, locales, desaparecidas hace largo — y es exactamente la razón por la que hoy me importa la validación y el diseño seguro.
-
-**Takeaway.** Entender cómo se rompen las cosas es por lo que las construyo a prueba de rotura.
+**Takeaway.** Every step, a bigger piece of the system.
 
 ---
 
-## Capítulo 5 — El camino formal
+## Chapter 7: Now
 
-**Gancho.** El estudio formal por fin le puso nombre a lo que ya sabía.
+**Hook.** Last role: a spec-first framework for shipping code with AI agents.
 
-El estudio formal por fin le puso nombre a lo que ya sabía. La universidad le dio gramática a mi instinto autodidacta. Empecé Ingeniería en Software y aprendí a programar en serio: estructuras de datos, algoritmos, el razonamiento detrás de los trucos que venía improvisando hace años. La vida pedía un camino más rápido al trabajo profesional, así que completé el Técnico Programador Universitario en la UTN (FRT) y me recibí en 2021 — fundamentos más una credencial, y la sensación de que la educación formal confirmaba lo que la curiosidad ya había dibujado.
+On my own time, ArggonManager, where tasks are Markdown in the repo and agents code and review them. I keep the calls you can't undo. Weekends, I'm learning Rust.
 
-**Takeaway.** La teoría se encontró con el instinto, y ambos afilaron al otro.
-
----
-
-## Capítulo 6 — La escalera, 2021–2026
-
-**Gancho.** Cuatro años de junior a senior — cada peldaño.
-
-Cuatro años de junior a senior — cada peldaño. 2021: desarrollador junior en e.tres (luego Lytx), desenredando integraciones con pasarelas de pago. 2022–2025: Software Engineer II en GlobalLogic (Lytx) — un endpoint de datos masivos que recortó 80% el tiempo de proceso de los clientes, filtros avanzados, fixes cross-layer entre frontend, backend y base de datos. Jul–Dic 2025: Ingeniero de Software Senior en GlobalLogic (Coalfire) — endpoints críticos migrados a un microservicio .NET 9, 30% más rápido bajo carga, upgrade a Angular v19. Feb 2026: Consultor — patrones CQRS + Mediator en un microservicio de pagos para GreenDot. Desde mayo 2026: Ingeniero de Software Senior de AI, construyendo Spec-Driven Development con IA.
-
-**Takeaway.** Cuatro años, cinco peldaños, una dirección: sistemas más profundos, más ownership.
+**Takeaway.** The code is on GitHub.
 
 ---
 
-## Capítulo 7 — Ahora
+# La historia, en español
 
-**Gancho.** El pibe que cazaba juegos gratis se volvió un ingeniero que caza mejores sistemas.
-
-El pibe que cazaba juegos gratis se volvió un ingeniero que caza mejores sistemas. Hoy diseño y opero sistemas .NET escalables, y paso mis días ayudando a equipos a construir software con IA mediante Spec-Driven Development — el reflejo documentador de los años de foros, ahora mi trabajo diario. Sigo jugando juegos de estrategia. Sigo leyendo artículos técnicos por diversión. Y sigo arrancando de la misma pregunta que encendió un CRT hace tantos años: ¿qué más puedo hacer con esta máquina?
-
-**Takeaway.** Misma curiosidad, mejores herramientas. Construyamos el próximo capítulo.
+Escrita en castellano rioplatense (vos), no traducida palabra por palabra.
 
 ---
+
+## Capítulo 1: Windows 98, a los cuatro
+
+**Gancho.** Tenía tres o cuatro años cuando llegó una PC con Windows 98 a casa.
+
+Un CRT que zumbaba, un gabinete beige, un arranque eterno. Clickeaba todo, y cuando no me hacía caso, quería saber por qué.
+
+**Cierre.** Sigo metiéndole mano a las máquinas. Ahora con mejores herramientas.
+
+---
+
+## Capítulo 2: Cracks y foros
+
+**Gancho.** Los juegos eran caros, así que salía a buscar cracks para Mu Online, WoW, Counter Strike y Age of Empires.
+
+La mitad no andaba. Leer foros para entender por qué me enseñó más que los juegos.
+
+**Cierre.** Si algo se rompe, voy a ver por qué.
+
+---
+
+## Capítulo 3: Puertos y routers
+
+**Gancho.** Los cracks que fallaban me dejaban mejores preguntas.
+
+¿Por qué este juego necesita un puerto abierto? ¿Qué bloquea mi firewall? Leí sobre TCP hasta poder imaginarme todo el camino de mi PC al servidor.
+
+**Cierre.** Vine por los juegos y me quedé por las cañerías.
+
+---
+
+## Capítulo 4: Dieciséis años y ' OR 1=1
+
+**Gancho.** A los dieciséis encontré ’ OR 1=1 -- en un foro y lo pegué en el login de un servidor privado de Mu Online.
+
+Entré. Lo modifiqué para sacar ítems que quería, no es algo de lo que me enorgullezca, y no paré hasta entender el SQL que había atrás.
+
+**Cierre.** Por eso hoy valido cada input.
+
+---
+
+## Capítulo 5: UTN
+
+**Gancho.** Arranqué Ingeniería en Software para aprender las bases bien.
+
+Después me pasé a Técnico Programador Universitario en la UTN FRT, más corta, para empezar a laburar antes, y me recibí en 2021.
+
+**Cierre.** Trucos que venía usando hacía años por fin tenían nombre.
+
+---
+
+## Capítulo 6: Laburo, 2021 a 2026
+
+**Gancho.** Cinco años, de junior en e.tres a senior en GlobalLogic.
+
+Hice un endpoint masivo que bajó 80% el tiempo de proceso de los clientes, pasamos endpoints a un microservicio .NET 9 que anduvo 30% más rápido bajo carga, y trabajé con CQRS en pagos para GreenDot.
+
+**Cierre.** En cada paso, un pedazo más grande del sistema.
+
+---
+
+## Capítulo 7: Ahora
+
+**Gancho.** Último rol: un framework spec-first para programar con agentes de IA.
+
+Por mi cuenta, ArggonManager: las tareas son Markdown en el repo y los agentes las programan y revisan. Las decisiones sin vuelta atrás son mías. Los fines de semana, Rust.
+
+**Cierre.** El código está en GitHub.
+
+---
+
+## Contact / Contacto
+
+Looking for a backend developer? Remote senior role in backend, .NET or AI engineering, or a freelance project. If that fits your team, send me an email.
+
+¿Buscás un dev backend? Busco un rol senior remoto en backend, .NET o IA, o un proyecto freelance. Si encaja con tu equipo, mandame un mail.
