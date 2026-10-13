@@ -1,0 +1,154 @@
+/* Storytelling refresh: hero, impact metrics, CTAs, "now" project grid,
+ * contact chapter. Static CSS only; motion respects prefers-reduced-motion. */
+
+body {
+  background:
+    radial-gradient(60rem 40rem at 85% -10%, rgba(100, 255, 218, 0.10), transparent 60%),
+    radial-gradient(50rem 40rem at -10% 30%, rgba(130, 120, 255, 0.10), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-3);
+  padding-block: var(--space-8) var(--space-6);
+}
+
+.hero .site-title {
+  font-size: clamp(2.6rem, 1.4rem + 6vw, 5.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  background: linear-gradient(100deg, var(--ink) 30%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  align-self: flex-start;
+  margin: 0;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+}
+
+.status-dot {
+  width: 0.55rem; height: 0.55rem; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 var(--glow);
+  animation: status-pulse 2s ease-out infinite;
+}
+@keyframes status-pulse { to { box-shadow: 0 0 0 0.6rem transparent; } }
+
+.hero-role {
+  margin: 0;
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: var(--step-0);
+}
+
+.metrics {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--space-3);
+}
+.metric {
+  padding: var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--bg-raised) 90%, transparent), transparent);
+  transition: transform var(--dur-fast) var(--ease-out), border-color var(--dur-fast);
+}
+.metric:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 60%, transparent); }
+.metric-num {
+  display: block;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(2rem, 1.4rem + 2.5vw, 3rem);
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.metric-label { color: var(--ink-dim); font-size: var(--step--1); line-height: 1.45; }
+
+.cta-row { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 2.75rem;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-decoration: none;
+  transition: background var(--dur-fast), color var(--dur-fast), transform var(--dur-fast) var(--ease-out);
+}
+.btn:hover { background: color-mix(in srgb, var(--accent) 12%, transparent); transform: translateY(-2px); }
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); font-weight: 700; }
+.btn-primary:hover { background: var(--accent); filter: brightness(1.08); }
+.btn-ghost { border-color: var(--line); color: var(--ink); }
+
+/* Chapter 07: what I am building now */
+.now-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: var(--space-3);
+  margin-block: var(--space-5);
+}
+.now-card {
+  padding: var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--bg-raised) 80%, transparent);
+}
+.now-card--main {
+  grid-column: 1 / -1;
+  border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, var(--bg-raised)), var(--bg-raised));
+}
+.now-card h3 { margin: var(--space-1) 0 var(--space-2); font-size: var(--step-1); }
+.now-card h3 a { color: var(--ink); text-decoration: none; }
+.now-card h3 a:hover, .now-card h3 a:focus-visible { color: var(--accent); }
+.now-card p { margin: 0; color: var(--ink-dim); font-size: var(--step--1); line-height: 1.55; }
+.now-tag { font-family: var(--font-mono); color: var(--accent) !important; letter-spacing: 0.05em; }
+
+/* Chapter 08: the contact chapter */
+.contact {
+  max-width: var(--content-max);
+  margin: var(--space-8) auto;
+  padding: var(--space-6) var(--space-5);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: 1.5rem;
+  background:
+    radial-gradient(30rem 20rem at 100% 0%, rgba(100, 255, 218, 0.12), transparent 70%),
+    var(--bg-raised);
+  text-align: left;
+}
+.contact-title { font-size: var(--step-5); line-height: 1.1; margin: var(--space-2) 0 var(--space-3); color: var(--ink); }
+.contact-body { color: var(--ink-dim); max-width: 38rem; }
+
+@media (max-width: 40rem) {
+  .contact { margin-inline: var(--space-3); padding: var(--space-5) var(--space-4); }
+  .btn { flex: 1 1 auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-dot { animation: none; }
+  .metric, .btn { transition: none; }
+  .metric:hover, .btn:hover { transform: none; }
+}
