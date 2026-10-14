@@ -67,28 +67,17 @@ body {
 
 /* Scenes ----------------------------------------------------------------- */
 
-/* Scroll-scrubbed storytelling layout (task-scrub-engine): each scene is a
- * tall pin range; its sticky inner stays on screen while scroll scrubs the
- * chapter's animation through it. --scene-h is the scrub length. */
-:root {
-  --scene-h: 190vh;
-}
-
-@media (max-width: 640px) {
-  :root {
-    --scene-h: 165vh;
-  }
-}
-
+/* Scenes are normal-flow sections (task-motion-premium): no pinning, no
+ * sticky scrub range, so native scroll always moves the content. Scene
+ * animations are driven by how far the section has travelled through the
+ * viewport (js/scrub.js viewProgress). */
 .scene {
-  min-height: var(--scene-h);
   position: relative;
 }
 
 .scene-inner {
-  position: sticky;
-  top: 0;
-  min-height: 100vh;
+  position: relative;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -168,20 +157,8 @@ body {
 
 /* Reveal ------------------------------------------------------------------ */
 
-.scene-inner {
-  opacity: 0.25;
-  transform: translateY(24px);
-  transition: opacity var(--dur-med) var(--ease-out), transform var(--dur-med) var(--ease-out);
-}
-
-.scene.is-instant .scene-inner {
-  transition: none;
-}
-
-.scene.is-revealed .scene-inner {
-  opacity: 1;
-  transform: none;
-}
+/* Content is never dimmed at rest; the subtle per-element reveal lives in
+   css/polish.css behind html.polish + no-preference. */
 
 @media (prefers-reduced-motion: reduce) {
   .scene {
@@ -190,15 +167,6 @@ body {
     transition: none;
   }
 
-  /* No pin, no scrub length: scenes read as normal full-screen sections. */
-  .scene {
-    min-height: 100vh;
-  }
-
-  .scene-inner {
-    position: static;
-    min-height: 0;
-  }
 }
 
 /* Footer ------------------------------------------------------------------ */

@@ -14,48 +14,55 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  /* 1. Hero entrance: quick (<= 700ms total), small travel, the hook is first
-     so the pitch is readable almost immediately. */
+  /* Restrained motion (task-motion-premium): opacity + small translate only,
+     220-360 ms, ease-out, short staggers. Nothing waits more than ~200 ms
+     to start, and nothing is ever dimmed once revealed. */
+
+  /* 1. Hero entrance: everything is legible within ~0.5 s. */
   .polish .hero > * {
-    animation: rise 520ms var(--ease-out) both;
+    animation: rise 360ms var(--ease-out) both;
   }
   .polish .hero > .hero-status { animation-delay: 0ms; }
-  .polish .hero > .hero-name   { animation-delay: 40ms; }
+  .polish .hero > .hero-name   { animation-delay: 30ms; }
   .polish .hero > .hero-hook   { animation-delay: 60ms; }
-  .polish .hero > .hero-who    { animation-delay: 120ms; }
-  .polish .hero > .hero-cta    { animation-delay: 170ms; }
+  .polish .hero > .hero-who    { animation-delay: 90ms; }
+  .polish .hero > .hero-cta    { animation-delay: 120ms; }
   .polish .hero > .metrics     { animation-delay: 0ms; animation-name: fade; }
-  .polish .hero .metric        { animation: rise 520ms var(--ease-out) both; }
-  .polish .hero .metric:nth-child(1) { animation-delay: 220ms; }
-  .polish .hero .metric:nth-child(2) { animation-delay: 280ms; }
-  .polish .hero .metric:nth-child(3) { animation-delay: 340ms; }
-  .polish .hero > .skim        { animation-delay: 380ms; }
-  .polish .hero > .site-hint   { animation-delay: 600ms; }
-  .site-hint::after { content: " ↓"; display: inline-block; animation: nudge 1.8s ease-in-out 1.2s infinite; }
+  .polish .hero .metric        { animation: rise 360ms var(--ease-out) both; }
+  .polish .hero .metric:nth-child(1) { animation-delay: 140ms; }
+  .polish .hero .metric:nth-child(2) { animation-delay: 170ms; }
+  .polish .hero .metric:nth-child(3) { animation-delay: 200ms; }
+  .polish .hero > .skim        { animation-delay: 200ms; }
+  .polish .hero > .site-hint   { animation-delay: 240ms; }
+  .site-hint::after { content: " ↓"; display: inline-block; animation: nudge 2.4s ease-in-out 1.5s 3; }
 
-  /* 2. Staggered chapter text: kicker, title, body, takeaway. */
+  /* 2. Chapter copy: soft fade + 10px rise, triggered before the section is
+     fully on screen (js/engine.js rootMargin), 40 ms staggers. */
   .polish .scene .chapter-kicker,
   .polish .scene .chapter-title,
   .polish .scene .chapter-body,
   .polish .scene .chapter-takeaway,
+  .polish .scene .scene-stage,
+  .polish .scene .case-card,
   .polish .scene .now-card,
+  .polish .scene .labs-note,
   .polish .scene .chapter-contact {
-    opacity: 0; transform: translate3d(0, 1.25rem, 0);
-    transition: opacity 600ms var(--ease-out), transform 700ms var(--ease-out);
+    opacity: 0; transform: translate3d(0, 10px, 0);
+    transition: opacity 320ms var(--ease-out), transform 360ms var(--ease-out);
   }
   .polish .scene.is-revealed .chapter-kicker   { transition-delay: 0ms; }
-  .polish .scene.is-revealed .chapter-title    { transition-delay: 70ms; }
-  .polish .scene.is-revealed .chapter-body     { transition-delay: 150ms; }
-  .polish .scene.is-revealed .chapter-takeaway { transition-delay: 260ms; }
-  .polish .scene.is-revealed .now-card:nth-child(1) { transition-delay: 300ms; }
-  .polish .scene.is-revealed .now-card:nth-child(2) { transition-delay: 360ms; }
-  .polish .scene.is-revealed .now-card:nth-child(3) { transition-delay: 420ms; }
-  .polish .scene.is-revealed .now-card:nth-child(4) { transition-delay: 480ms; }
-  .polish .scene.is-revealed .now-card:nth-child(5) { transition-delay: 540ms; }
-  .polish .scene.is-revealed :is(.chapter-kicker, .chapter-title, .chapter-body, .chapter-takeaway, .now-card, .chapter-contact) {
+  .polish .scene.is-revealed .chapter-title    { transition-delay: 40ms; }
+  .polish .scene.is-revealed .chapter-body     { transition-delay: 80ms; }
+  .polish .scene.is-revealed .chapter-takeaway { transition-delay: 120ms; }
+  .polish .scene.is-revealed .scene-stage      { transition-delay: 160ms; }
+  .polish .scene.is-revealed .case-card        { transition-delay: 200ms; }
+  .polish .scene.is-revealed .now-card:nth-child(1) { transition-delay: 160ms; }
+  .polish .scene.is-revealed .now-card:nth-child(2) { transition-delay: 200ms; }
+  .polish .scene.is-revealed :is(.now-card:nth-child(n+3), .labs-note) { transition-delay: 240ms; }
+  .polish .scene.is-revealed :is(.chapter-kicker, .chapter-title, .chapter-body, .chapter-takeaway, .scene-stage, .case-card, .now-card, .labs-note, .chapter-contact) {
     opacity: 1; transform: none;
   }
-  .polish .scene.is-instant :is(.chapter-kicker, .chapter-title, .chapter-body, .chapter-takeaway, .now-card, .chapter-contact) {
+  .polish .scene.is-instant :is(.chapter-kicker, .chapter-title, .chapter-body, .chapter-takeaway, .scene-stage, .case-card, .now-card, .labs-note, .chapter-contact) {
     transition: none;
   }
 
@@ -64,47 +71,43 @@
   .polish .chapter-takeaway::before {
     content: ""; position: absolute; left: 0; top: -0.6rem; width: 3rem; height: 2px;
     background: var(--accent); transform: scaleX(0); transform-origin: 0 50%;
-    transition: transform 700ms var(--ease-out) 450ms;
+    transition: transform 400ms var(--ease-out) 200ms;
   }
   .polish .scene.is-revealed .chapter-takeaway::before { transform: scaleX(1); }
 
-  /* 3. Chapter-to-chapter focus: the chapter you're reading is crisp, the
-     ones leaving and arriving recede slightly. JS sets --focus 0..1. */
-  .polish .scene.is-revealed .scene-inner {
-    opacity: calc(0.35 + 0.65 * var(--focus, 1));
-    transform: scale(calc(0.97 + 0.03 * var(--focus, 1)));
-    transition: none;
-  }
-
-  /* 4. Contact section reveal. */
-  .polish .contact { opacity: 0; transform: translate3d(0, 2rem, 0) scale(0.98);
-    transition: opacity 700ms var(--ease-out), transform 800ms var(--ease-out); }
+  /* 3. Contact section reveal. */
+  .polish .contact { opacity: 0; transform: translate3d(0, 12px, 0);
+    transition: opacity 320ms var(--ease-out), transform 360ms var(--ease-out); }
   .polish .contact.is-in { opacity: 1; transform: none; }
 
-  /* 5. Micro-interactions. Tilt values come from JS (--rx/--ry). */
-  .polish .now-card, .polish .metric {
-    transform: perspective(700px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translate3d(0, var(--lift, 0px), 0);
-  }
+  /* 4. Micro-interactions: a 2px lift and a soft glow, no 3D tilt. The lift
+     waits for the reveal so it never fights the entrance transition. */
   .now-card, .metric { position: relative; overflow: hidden; }
   .now-card::after, .metric::after {
     content: ""; position: absolute; inset: 0; pointer-events: none;
-    background: radial-gradient(14rem 14rem at 50% 0%, rgba(100, 255, 218, 0.14), transparent 70%);
-    opacity: 0; transition: opacity 250ms var(--ease-out);
+    background: radial-gradient(14rem 14rem at 50% 0%, rgba(100, 255, 218, 0.12), transparent 70%);
+    opacity: 0; transition: opacity 220ms var(--ease-out);
   }
-  .now-card:hover::after, .metric:hover::after { opacity: 1; }
-  .now-card:hover { --lift: -4px; }
+  .now-card:hover::after, .now-card:focus-within::after, .metric:hover::after { opacity: 1; }
+  .polish .scene.is-revealed .now-card {
+    transition: opacity 320ms var(--ease-out), transform 220ms var(--ease-out);
+  }
+  .polish .scene.is-revealed .now-card:is(:hover, :focus-within) { transform: translate3d(0, -2px, 0); }
+  .metric { transition: transform 220ms var(--ease-out); }
+  .metric:hover { transform: translate3d(0, -2px, 0); }
 
-  .btn { position: relative; overflow: hidden; }
+  .btn { position: relative; overflow: hidden; transition: transform 160ms var(--ease-out); }
   .btn::after {
     content: ""; position: absolute; inset: 0;
-    background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+    background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.28) 50%, transparent 70%);
     transform: translate3d(-120%, 0, 0); pointer-events: none;
   }
-  .btn:hover::after, .btn:focus-visible::after { transform: translate3d(120%, 0, 0); transition: transform 650ms var(--ease-out); }
-  .btn:active { transform: scale(0.97); }
+  .btn:hover::after, .btn:focus-visible::after { transform: translate3d(120%, 0, 0); transition: transform 500ms var(--ease-out); }
+  .btn:hover { transform: translate3d(0, -1px, 0); }
+  .btn:active { transform: scale(0.98); }
 }
 
-@keyframes rise { from { opacity: 0; transform: translate3d(0, 14px, 0); } to { opacity: 1; transform: none; } }
+@keyframes rise { from { opacity: 0; transform: translate3d(0, 10px, 0); } to { opacity: 1; transform: none; } }
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes nudge { 0%, 100% { transform: translate3d(0, 0, 0); } 50% { transform: translate3d(0, 4px, 0); } }
 

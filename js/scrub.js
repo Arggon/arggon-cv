@@ -41,6 +41,22 @@
   }
 
   /**
+   * Progress of a normal-flow (unpinned) section travelling through the
+   * viewport: 0 when its top is at 90% of the viewport height, 1 when its
+   * top reaches 30%. Scroll never pauses; the scene just plays as it rises.
+   * @param {number} sceneTop   Document-space top (px).
+   * @param {number} viewHeight Viewport height (px).
+   * @param {number} scrollY    Scroll offset (px).
+   * @returns {number} 0..1
+   */
+  function viewProgress(sceneTop, viewHeight, scrollY) {
+    if (!isFinite(viewHeight) || viewHeight <= 0) return 1;
+    var p = (scrollY + viewHeight * 0.9 - sceneTop) / (viewHeight * 0.6);
+    if (!isFinite(p) || p < 0) return 0;
+    return p > 1 ? 1 : p;
+  }
+
+  /**
    * Clamped sub-range of progress: 0 before the band, 0..1 inside, 1 after.
    * @param {number} p     Global progress 0..1.
    * @param {number} start Band start (0..1, exclusive of ordering checks).
@@ -97,7 +113,7 @@
         var m = metrics[i];
         var render = (window.SceneRenderers || {})[m.el.dataset.scene];
         if (typeof render !== 'function') continue;
-        var p = sceneProgress(m.top, m.height, viewHeight, scrollY);
+        var p = viewProgress(m.top, viewHeight, scrollY);
         if (Math.abs(p - m.last) < 0.0005) continue;
         m.last = p;
         render(p);
@@ -124,10 +140,9 @@
         var m = metrics.filter(function (x) { return x.el.dataset.scene === id; })[0];
         if (m) {
           m.last = -1; /* force */
-          render(sceneProgress(m.top, m.height, win.innerHeight,
-            win.scrollY || win.pageYOffset || 0));
-          m.last = sceneProgress(m.top, m.height, win.innerHeight,
+          m.last = viewProgress(m.top, win.innerHeight,
             win.scrollY || win.pageYOffset || 0);
+          render(m.last);
         }
       }
     });
@@ -139,6 +154,7 @@
 
   return {
     sceneProgress: sceneProgress,
+    viewProgress: viewProgress,
     band: band,
     easeOutCubic: easeOutCubic
   };
