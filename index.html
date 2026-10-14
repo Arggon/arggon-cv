@@ -38,6 +38,7 @@
   <link rel="stylesheet" href="css/polish.css">
   <link rel="stylesheet" href="css/audit.css">
   <link rel="stylesheet" href="css/scenes-work.css">
+  <link rel="stylesheet" href="css/chapters.css">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -105,6 +106,12 @@
     </ol>
   </nav>
 
+  <div class="pager-hud" data-pager-hud aria-hidden="true">
+    <span class="pager-count"><span class="pager-now" data-pager-now>01</span><span class="pager-total">/08</span></span>
+    <span class="pager-keys">↑ ↓</span>
+  </div>
+  <div class="pager-sweep" aria-hidden="true"></div>
+
   <header class="site-header hero">
     <p class="hero-status"><span class="status-dot" aria-hidden="true"></span><span data-i18n="hero.status">Open to work · remote, any location · full-time, employee or contractor</span></p>
     <h1 class="hero-name"><span class="site-kicker" data-i18n="header.kicker">Hi, I'm</span> <span class="hero-name-text" data-i18n="header.name">Gonzalo Argañaraz</span></h1>
@@ -137,7 +144,7 @@
 
   <main id="story">
 
-    <section class="scene" id="ch1" data-scene="ch1" aria-labelledby="ch1-title">
+    <section class="scene" id="ch1" data-scene="ch1" data-pager-label="01" aria-labelledby="ch1-title">
       <div class="scene-inner">
       <p class="chapter-kicker" data-i18n="ch1.kicker">Chapter 01</p>
       <h2 class="chapter-title" id="ch1-title" data-i18n="ch1.title">Windows 98, age four</h2>
@@ -157,7 +164,7 @@
       </div>
     </section>
 
-    <section class="scene" id="ch2" data-scene="ch2" aria-labelledby="ch2-title">
+    <section class="scene" id="ch2" data-scene="ch2" data-pager-label="02" aria-labelledby="ch2-title">
       <div class="scene-inner">
       <p class="chapter-kicker" data-i18n="ch2.kicker">Chapter 02</p>
       <h2 class="chapter-title" id="ch2-title" data-i18n="ch2.title">Cracks, forums and ports</h2>
@@ -188,7 +195,7 @@
       </div>
     </section>
 
-    <section class="scene" id="ch3" data-scene="ch3" aria-labelledby="ch3-title">
+    <section class="scene" id="ch3" data-scene="ch3" data-pager-label="03" aria-labelledby="ch3-title">
       <div class="scene-inner">
       <p class="chapter-kicker" data-i18n="ch3.kicker">Chapter 03</p>
       <h2 class="chapter-title" id="ch3-title" data-i18n="ch3.title">Sixteen, and ' OR 1=1</h2>
@@ -216,7 +223,7 @@
       </div>
     </section>
 
-    <section class="scene" id="ch4" data-scene="ch4" aria-labelledby="ch4-title">
+    <section class="scene" id="ch4" data-scene="ch4" data-pager-label="04" aria-labelledby="ch4-title">
       <div class="scene-inner">
       <p class="chapter-kicker" data-i18n="ch4.kicker">Chapter 04</p>
       <h2 class="chapter-title" id="ch4-title" data-i18n="ch4.title">UTN</h2>
@@ -247,7 +254,7 @@
       </div>
     </section>
 
-    <section class="scene" id="ch5" data-scene="ch5" aria-labelledby="ch5-title">
+    <section class="scene" id="ch5" data-scene="ch5" data-pager-label="05" aria-labelledby="ch5-title">
       <div class="scene-inner">
       <p class="chapter-kicker" data-i18n="ch5.kicker">Chapter 05</p>
       <h2 class="chapter-title" id="ch5-title" data-i18n="ch5.title">The 80% endpoint (Lytx)</h2>
@@ -288,7 +295,7 @@
       </div>
     </section>
 
-    <section class="scene" id="ch6" data-scene="ch6" aria-labelledby="ch6-title">
+    <section class="scene" id="ch6" data-scene="ch6" data-pager-label="06" aria-labelledby="ch6-title">
       <div class="scene-inner">
       <p class="chapter-kicker" data-i18n="ch6.kicker">Chapter 06</p>
       <h2 class="chapter-title" id="ch6-title" data-i18n="ch6.title">From breaking logins to selling access (Coalfire)</h2>
@@ -296,14 +303,14 @@
       <p class="chapter-takeaway" data-i18n="ch6.takeaway">I know how logins break, so I build them carefully.</p>
       <div class="scene-stage" data-stage="ch6" aria-hidden="true">
         <div class="lockflow">
-          <div class="lf-row"><span class="lf-box lf-old" data-i18n="ch6.s1">legacy monolith</span><span class="lf-arrow">→</span><span class="lf-box lf-new"><span data-i18n="ch6.s2">.NET 9 microservice</span><small data-i18n="ch6.s2s">30% faster under load</small></span></div>
-          <div class="lf-row"><span class="lf-box lf-lock"><span data-i18n="ch6.s3">new access role</span><small data-i18n="ch6.s3s">permissions + restrictions</small></span><span class="lf-arrow">→</span><span class="lf-box lf-new" data-i18n="ch6.s4">AWS Marketplace</span></div>
+          <div class="lf-row lf-row--migrate"><span class="lf-box lf-old" data-i18n="ch6.s1">legacy monolith</span><span class="lf-wire"><span class="lf-pulse"></span></span><span class="lf-box lf-new"><span data-i18n="ch6.s2">.NET 9 microservice</span><small data-i18n="ch6.s2s">30% faster under load</small><span class="lf-gauge"><span class="lf-gauge-old"></span><span class="lf-gauge-new"></span></span></span></div>
+          <div class="lf-row lf-row--access"><span class="lf-box lf-lock"><span class="lf-padlock"><span class="lf-shackle"></span><span class="lf-body"></span></span><span data-i18n="ch6.s3">new access role</span><small data-i18n="ch6.s3s">permissions + restrictions</small></span><span class="lf-wire"><span class="lf-pulse"></span></span><span class="lf-box lf-new" data-i18n="ch6.s4">AWS Marketplace</span></div>
         </div>
       </div>
       </div>
     </section>
 
-    <section class="scene" id="ch7" data-scene="ch7" aria-labelledby="ch7-title">
+    <section class="scene" id="ch7" data-scene="ch7" data-pager-label="07" aria-labelledby="ch7-title">
       <div class="scene-inner">
       <p class="chapter-kicker" data-i18n="ch7.kicker">Chapter 07</p>
       <h2 class="chapter-title" id="ch7-title" data-i18n="ch7.title">A team of agents, one human</h2>
@@ -322,7 +329,7 @@
       </div>
     </section>
 
-    <section class="scene" id="ch8" data-scene="ch8" aria-labelledby="ch8-title">
+    <section class="scene" id="ch8" data-scene="ch8" data-pager-label="08" aria-labelledby="ch8-title">
       <div class="scene-inner">
       <p class="chapter-kicker" data-i18n="ch8.kicker">Chapter 08</p>
       <h2 class="chapter-title" id="ch8-title" data-i18n="ch8.title">Now: ArggonManager</h2>
@@ -403,9 +410,12 @@
   <script src="js/scenes/ch3-sqli.js" defer></script>
   <script src="js/scenes/ch4-degree.js" defer></script>
   <script src="js/scenes/ch5-ladder.js" defer></script>
+  <script src="js/scenes/ch6-migrate.js" defer></script>
+  <script src="js/scenes/ch7-agents.js" defer></script>
   <script src="js/scenes.js" defer></script>
   <script src="js/engine.js" defer></script>
   <script src="js/scrub.js" defer></script>
+  <script src="js/pager.js" defer></script>
   <script src="js/hero.js" defer></script>
   <script src="js/polish.js" defer></script>
 </body>

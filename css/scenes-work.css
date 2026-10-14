@@ -48,37 +48,8 @@
   .polish .scene.is-revealed .batch-calls span { animation: collapse 600ms var(--ease-out) 200ms both; }
   .polish .scene.is-revealed .batch-result { animation: rise 320ms var(--ease-out) 600ms both; }
 
-  /* Ch6 (task-motion-premium): each migration reads left to right. The
-     source box settles, the connector draws (scaleX), then the target
-     fades up. Second row follows 120 ms later. Transform/opacity only. */
-  .polish .scene .lf-row > * { opacity: 0; }
-  .polish .scene.is-revealed .lf-row > .lf-box { animation: rise 320ms var(--ease-out) both; }
-  .polish .scene.is-revealed .lf-row > .lf-arrow { display: inline-block; transform-origin: 0 50%;
-    animation: draw 280ms var(--ease-out) both; }
-  .polish .scene.is-revealed .lf-row:nth-child(1) > :nth-child(1) { animation-delay: 220ms; }
-  .polish .scene.is-revealed .lf-row:nth-child(1) > :nth-child(2) { animation-delay: 320ms; }
-  .polish .scene.is-revealed .lf-row:nth-child(1) > :nth-child(3) { animation-delay: 420ms; }
-  .polish .scene.is-revealed .lf-row:nth-child(2) > :nth-child(1) { animation-delay: 340ms; }
-  .polish .scene.is-revealed .lf-row:nth-child(2) > :nth-child(2) { animation-delay: 440ms; }
-  .polish .scene.is-revealed .lf-row:nth-child(2) > :nth-child(3) { animation-delay: 540ms; }
-  .polish .scene.is-revealed .lf-row > .lf-old { animation-name: rise-dim; }
-
-  /* Ch7: the five agents arrive in order (50 ms apart), connectors fade in
-     between them, and the "sent back" loop closes the sequence. */
-  .polish .scene .pipeline li, .polish .scene .pipeline-back { opacity: 0; }
-  .polish .scene.is-revealed .pipeline li { animation: rise 300ms var(--ease-out) both; }
-  .polish .scene.is-revealed .pipeline li::after { animation: fade 240ms var(--ease-out) both; }
-  .polish .scene.is-revealed .pipeline li:nth-child(1) { animation-delay: 200ms; }
-  .polish .scene.is-revealed .pipeline li:nth-child(2) { animation-delay: 250ms; }
-  .polish .scene.is-revealed .pipeline li:nth-child(3) { animation-delay: 300ms; }
-  .polish .scene.is-revealed .pipeline li:nth-child(4) { animation-delay: 350ms; }
-  .polish .scene.is-revealed .pipeline li:nth-child(5) { animation-delay: 400ms; }
-  .polish .scene.is-revealed .pipeline li:nth-child(1)::after { animation-delay: 300ms; }
-  .polish .scene.is-revealed .pipeline li:nth-child(2)::after { animation-delay: 350ms; }
-  .polish .scene.is-revealed .pipeline li:nth-child(3)::after { animation-delay: 400ms; }
-  .polish .scene.is-revealed .pipeline li:nth-child(4)::after { animation-delay: 450ms; }
-  .polish .scene.is-revealed .pipeline-back { animation: fade 320ms var(--ease-out) 520ms both; }
-  .polish .scene.is-instant :is(.pipeline li, .pipeline li::after, .pipeline-back, .lf-row > *) { animation-duration: 1ms; animation-delay: 0ms; }
+  /* Ch6/Ch7 are JS timelines now (js/scenes/ch6-migrate.js, ch7-agents.js,
+     styled in css/chapters.css), replayed on every chapter arrival. */
 }
 @keyframes draw { from { opacity: 0; transform: scaleX(0); } to { opacity: 1; transform: none; } }
 @keyframes rise-dim { from { opacity: 0; transform: translate3d(0, 10px, 0); } to { opacity: 0.85; transform: none; } }
