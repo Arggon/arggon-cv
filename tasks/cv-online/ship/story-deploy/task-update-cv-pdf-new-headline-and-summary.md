@@ -29,3 +29,5 @@ Swap assets/Gonzalo-Arganaraz-CV.pdf for the revised CV (new headline and summar
 - [x] pdftotext check: no phone number, no +54
 
 ## Notes
+
+- Done evidence (2026-10-14): PR #27 merged by Gonzalo into main as d76acbb (https://github.com/Arggon/arggon-cv/pull/27); acceptance checklist all ticked; node tests and arggon validate green at merge.
