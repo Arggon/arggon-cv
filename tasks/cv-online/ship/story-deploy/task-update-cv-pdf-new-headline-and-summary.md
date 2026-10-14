@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-update-cv-pdf-new-headline-and-summary
 title: "Update CV PDF: new headline and summary"
 assignee: Arggon
@@ -8,7 +8,6 @@ parent: story-deploy
 labels: []
 created: "2026-10-14"
 updated: "2026-10-14"
-claimed_at: "2026-10-14T14:43:12.693Z"
 ---
 <!--
   Placement (v0): tasks/cv-online/ship/story-deploy/task-update-cv-pdf-new-headline-and-summary.md
