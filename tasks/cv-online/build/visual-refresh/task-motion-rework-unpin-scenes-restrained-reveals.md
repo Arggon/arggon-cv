@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-motion-rework-unpin-scenes-restrained-reveals
 title: "Motion rework: unpin scenes, restrained reveals"
 assignee: Arggon
@@ -8,7 +8,6 @@ parent: visual-refresh
 labels: []
 created: "2026-10-14"
 updated: "2026-10-14"
-claimed_at: "2026-10-14T14:41:44.648Z"
 ---
 <!--
   Placement (v0): tasks/cv-online/build/visual-refresh/task-motion-rework-unpin-scenes-restrained-reveals.md
@@ -37,3 +36,5 @@ a JS anchor glide and a 26 s infinite ambient drift all competed with native scr
 - [x] Lighthouse before/after recorded in the PR (perf 98 -> 98, TBT 30 ms -> 0 ms, CLS 0)
 
 ## Notes
+
+- Done evidence (2026-10-14): PR #26 merged by Gonzalo into main as 49c34eb (https://github.com/Arggon/arggon-cv/pull/26); acceptance checklist all ticked; node tests and arggon validate green at merge.
