@@ -158,6 +158,10 @@
       'ch8.p5tag': "labs · Go",
       'ch8.p5': "Two small Go tools: one tracks the books I read, the other runs Swiss-system tournaments (still early).",
       'ch8.p1cta': "See the methodology on GitHub",
+      'ch8.p6tag': "showcase · C# · .NET 10",
+      'ch8.p6': "An open-source .NET 10 backend showcase: batch ingest, JWT plans and roles, CQRS payments with an outbox and RabbitMQ, and a strangler migration from a monolith to a service behind YARP, traced with OpenTelemetry. In k6 tests on a cloud VM at 500 items per request, median latency fell 93% (about 300 ms to 20 ms) and throughput rose from about 7.7k to 95k items/s.",
+      'ch8.p6stack': "C# · .NET 10 · SQL Server · Redis · RabbitMQ · YARP · OpenTelemetry · k6 · Docker",
+      'ch8.p6cta': "See the repo on GitHub",
     },
     es: {
       'ui.skip': "Saltar a la historia",
@@ -299,6 +303,10 @@
       'ch8.p5tag': "labs · Go",
       'ch8.p5': "Dos herramientas chicas en Go: una para anotar los libros que leo y otra para torneos con sistema suizo (todavía en pañales).",
       'ch8.p1cta': "Ver la metodología en GitHub",
+      'ch8.p6tag': "showcase · C# · .NET 10",
+      'ch8.p6': "Un showcase backend open source en .NET 10: ingesta por lotes, planes y roles con JWT, pagos con CQRS, outbox y RabbitMQ, y una migración strangler de un monolito a un servicio detrás de YARP, con trazas en OpenTelemetry. En pruebas con k6 en una VM en la nube, con 500 ítems por request, la latencia mediana bajó 93% (de unos 300 ms a 20 ms) y el throughput subió de unos 7,7k a 95k ítems/s.",
+      'ch8.p6stack': "C# · .NET 10 · SQL Server · Redis · RabbitMQ · YARP · OpenTelemetry · k6 · Docker",
+      'ch8.p6cta': "Ver el repo en GitHub",
     },
   };
 
