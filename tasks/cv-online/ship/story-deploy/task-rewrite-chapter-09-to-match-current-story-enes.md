@@ -19,10 +19,14 @@ updated: "2026-10-14"
 
 ## Context
 
-<!-- Why this task exists. -->
+Chapter 09 (the contact section) still read "Looking for a backend developer?" and offered freelance work, which isn't in the current CV/LinkedIn story. Text-only rewrite; pager markup, classes and motion untouched.
 
 ## Acceptance
 
-- [ ] 
+- [x] EN and ES title/body rewritten from the CV PDF and LinkedIn final content only
+- [x] ArggonManager framed as his methodology for AI agents; dotnet-batchyard included
+- [x] No OpenSpec, phone number or salary
+- [x] Node tests and arggon validate green
+- [ ] EN/ES screenshots in the PR
 
 ## Notes
