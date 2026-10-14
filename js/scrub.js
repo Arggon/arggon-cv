@@ -10,7 +10,8 @@
  * after the reveal engine initializes a scene). Progress-driven scenes read
  * state as a pure function of progress, so scrubbing backwards un-plays them.
  *
- * Reduced motion never binds the loop; scenes paint their final frame once.
+ * Since task-chapter-pager the renderers are replayed in time when the
+ * pager lands on a chapter (see initScrub). Reduced motion paints final frames.
  */
 (function (root, factory) {
   var api = factory();
@@ -82,69 +83,70 @@
     return 1 - Math.pow(1 - t, 3);
   }
 
+  /**
+   * Per-chapter timeline length (ms). The scene renderers are pure
+   * functions of progress, so the chapter pager replays them in TIME on
+   * arrival instead of scrubbing them with scroll (task-chapter-pager).
+   */
+  var TIMELINE_MS = { ch1: 2600, ch2: 2600, ch3: 2400, ch4: 1900, ch5: 1600, ch6: 2200, ch7: 2600 };
+
   /* DOM wiring ------------------------------------------------------------- */
 
   function initScrub(doc, win) {
     var reduced = win.matchMedia('(prefers-reduced-motion: reduce)');
-    var scenes = Array.prototype.slice.call(doc.querySelectorAll('[data-scene]'));
-    if (scenes.length === 0) return;
+    var playing = {}; // id -> raf
+    var current = null;
 
-    var metrics = []; // { el, top, height, last }
-    var raf = null;
+    function renderer(id) { return (win.SceneRenderers || {})[id]; }
 
-    function measure() {
-      var scrollY = win.scrollY || win.pageYOffset || 0;
-      metrics = scenes.map(function (scene) {
-        var box = scene.getBoundingClientRect();
-        return {
-          el: scene,
-          top: box.top + scrollY,
-          height: box.height,
-          last: -1
-        };
-      });
+    function stop(id) {
+      if (playing[id]) { win.cancelAnimationFrame(playing[id]); delete playing[id]; }
     }
 
-    function paint() {
-      raf = null;
-      var scrollY = win.scrollY || win.pageYOffset || 0;
-      var viewHeight = win.innerHeight;
-      for (var i = 0; i < metrics.length; i++) {
-        var m = metrics[i];
-        var render = (window.SceneRenderers || {})[m.el.dataset.scene];
-        if (typeof render !== 'function') continue;
-        var p = viewProgress(m.top, viewHeight, scrollY);
-        if (Math.abs(p - m.last) < 0.0005) continue;
-        m.last = p;
+    function play(id) {
+      var render = renderer(id);
+      if (typeof render !== 'function') return;
+      stop(id);
+      if (reduced.matches) { render(1); return; }
+      var dur = TIMELINE_MS[id] || 1800;
+      var start = null;
+      render(0);
+      function step(ts) {
+        if (start === null) start = ts;
+        var p = Math.min(1, (ts - start) / dur);
         render(p);
+        if (p < 1) playing[id] = win.requestAnimationFrame(step);
+        else delete playing[id];
       }
+      playing[id] = win.requestAnimationFrame(step);
     }
 
-    function requestPaint() {
-      if (raf === null && !reduced.matches) {
-        raf = win.requestAnimationFrame(paint);
-      }
-    }
-
-    measure();
-    win.addEventListener('scroll', requestPaint, { passive: true });
-    win.addEventListener('resize', function () { measure(); requestPaint(); });
-
-    /* Renderers register as scenes reveal; paint them immediately with the
-       current progress so rail jumps land on the right frame. */
-    document.addEventListener('scene-renderer', function (event) {
-      measure();
-      var id = event.detail && event.detail.id;
-      var render = (window.SceneRenderers || {})[id];
-      if (typeof render === 'function') {
-        var m = metrics.filter(function (x) { return x.el.dataset.scene === id; })[0];
-        if (m) {
-          m.last = -1; /* force */
-          m.last = viewProgress(m.top, win.innerHeight,
-            win.scrollY || win.pageYOffset || 0);
-          render(m.last);
+    /* Arriving at a chapter replays its full timeline; the chapter we left
+       keeps its last frame until it is out of view, then rewinds so the
+       next visit plays from the top again. */
+    doc.addEventListener('chapter-arrive', function (event) {
+      var id = event.target && event.target.dataset && event.target.dataset.scene;
+      var prev = current;
+      current = id || null;
+      if (prev && prev !== current) {
+        stop(prev);
+        var r = renderer(prev);
+        if (typeof r === 'function') {
+          win.setTimeout(function () { if (current !== prev) r(0); }, 950);
         }
       }
+      if (id) play(id);
+    });
+
+    /* A renderer can register after the pager already activated its
+       chapter (first visit): start it right away. Without the pager
+       (reduced motion, or JS paging off) scenes show their final frame. */
+    doc.addEventListener('scene-renderer', function (event) {
+      var id = event.detail && event.detail.id;
+      var render = renderer(id);
+      if (typeof render !== 'function') return;
+      if (!doc.documentElement.classList.contains('paged')) { render(1); return; }
+      if (id === current) play(id); else render(0);
     });
   }
 

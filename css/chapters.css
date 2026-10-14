@@ -1,0 +1,262 @@
+/* Chapter-to-chapter model (task-chapter-pager).
+ *
+ * Layout: every chapter is a full-viewport stage (copy left, scene right on
+ * wide screens). Motion lives under html.paged, which js/pager.js only sets
+ * when prefers-reduced-motion is not "reduce": the pager glides between
+ * stops and toggles .is-active; the active chapter plays its entrance
+ * (masked title, staggered copy, oversized numeral) and its scene timeline.
+ * Everything here animates transform / opacity / clip-path only.
+ */
+
+/* Layout -------------------------------------------------------------------- */
+
+@media (min-width: 64rem) and (min-height: 36rem) {
+  .scene-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+    column-gap: clamp(2.5rem, 5vw, 5rem);
+    align-content: center;
+    max-width: min(78rem, 92vw);
+    padding-inline: clamp(1.5rem, 3vw, 2.5rem) clamp(7rem, 11vw, 10rem); /* clear the rail labels */
+  }
+  .scene-inner > * { grid-column: 1; }
+  .scene-inner > .scene-stage {
+    grid-column: 2;
+    grid-row: 1 / span 8;
+    align-self: center;
+    margin-top: 0;
+  }
+  /* Chapter 08 is a project index: one wide column. */
+  #ch8 .scene-inner { grid-template-columns: minmax(0, 1fr); max-width: min(72rem, 92vw); }
+  #ch8 .scene-inner > * { grid-column: 1; }
+  #ch8 .scene-inner > .scene-stage { grid-row: auto; margin-top: var(--space-5); }
+  .chapter-title { font-size: clamp(2rem, 1rem + 2.6vw, 3.4rem); letter-spacing: -0.02em; }
+  .case-card { margin-top: var(--space-3); padding: var(--space-3) var(--space-4); }
+}
+
+.paged .scene,
+.paged .hero,
+.paged .contact {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+.paged .scene { display: flex; align-items: center; overflow: clip; }
+.paged .scene-inner { width: 100%; padding-block: clamp(4rem, 9vh, 6rem); }
+.paged .contact { display: flex; flex-direction: column; justify-content: center; }
+
+/* HUD: chapter counter + sweep ---------------------------------------------- */
+
+.pager-hud { display: none; }
+.pager-sweep { display: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .paged .pager-hud {
+    position: fixed; left: clamp(1rem, 2.4vw, 2rem); bottom: clamp(1rem, 3vh, 2rem); z-index: 5;
+    display: flex; align-items: baseline; gap: 0.9rem;
+    font-family: var(--font-mono); color: var(--ink-dim); pointer-events: none;
+    transition: opacity 300ms var(--ease-out), transform 300ms var(--ease-out);
+  }
+  .paged .pager-hud.is-hidden { opacity: 0; transform: translate3d(0, 8px, 0); }
+  .pager-count { display: inline-flex; align-items: baseline; overflow: hidden; }
+  .pager-now {
+    display: inline-block; color: var(--accent); font-size: var(--step-3); font-weight: 700;
+    line-height: 1.1;
+  }
+  .pager-now.is-rolling { animation: hud-roll-down 520ms var(--ease-out) both; }
+  .pager-hud[data-dir="up"] .pager-now.is-rolling { animation-name: hud-roll-up; }
+  .pager-total { font-size: var(--step--1); margin-left: 0.2rem; }
+  .pager-keys { font-size: var(--step--1); letter-spacing: 0.2em; opacity: 0.7; }
+
+  /* A thin phosphor scanline crosses the viewport on every chapter glide:
+     the CRT from chapter 01 becomes the page transition. */
+  .paged .pager-sweep {
+    display: block; position: fixed; left: 0; right: 0; top: 0; height: 2px; z-index: 4;
+    pointer-events: none; opacity: 0;
+    background: linear-gradient(90deg, transparent, var(--accent) 20%, var(--accent) 80%, transparent);
+    box-shadow: 0 0 18px 4px var(--glow);
+  }
+  .paged.is-gliding[data-glide="down"] .pager-sweep { animation: sweep-down 720ms cubic-bezier(0.65, 0, 0.35, 1) both; }
+  .paged.is-gliding[data-glide="up"] .pager-sweep { animation: sweep-up 720ms cubic-bezier(0.65, 0, 0.35, 1) both; }
+
+  /* Oversized outline numeral: the typographic anchor of each chapter. */
+  .chapter-numeral {
+    position: absolute; right: clamp(1rem, 6vw, 6rem); top: 50%;
+    font-family: var(--font-mono); font-weight: 800; line-height: 0.8;
+    font-size: clamp(9rem, 30vmin, 22rem); letter-spacing: -0.06em;
+    color: transparent; -webkit-text-stroke: 1px rgba(100, 255, 218, 0.16);
+    pointer-events: none; user-select: none; z-index: 0;
+    transform: translate3d(0, -40%, 0); opacity: 0;
+    transition: transform 900ms var(--ease-out), opacity 600ms var(--ease-out);
+  }
+  .scene.is-before .chapter-numeral { transform: translate3d(0, -70%, 0); }
+  .scene.is-active .chapter-numeral { transform: translate3d(0, -50%, 0); opacity: 1; transition-delay: 120ms; }
+  .scene-inner { position: relative; z-index: 1; }
+
+  /* Entrance on arrival (overrides the one-shot reveal in polish.css). --- */
+  .paged.polish .scene :is(.chapter-kicker, .chapter-body, .chapter-takeaway, .scene-stage, .case-card, .now-card, .labs-note, .chapter-contact) {
+    opacity: 0; transform: translate3d(0, 28px, 0);
+    transition: opacity 260ms var(--ease-out), transform 260ms var(--ease-out);
+    transition-delay: 0ms;
+  }
+  .paged.polish .scene.is-before :is(.chapter-kicker, .chapter-body, .chapter-takeaway, .scene-stage, .case-card, .now-card, .labs-note, .chapter-contact) {
+    transform: translate3d(0, -28px, 0);
+  }
+  .paged.polish .scene .chapter-title {
+    opacity: 0; transform: translate3d(0, 0.5em, 0); clip-path: inset(0 0 100% 0);
+    transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out), clip-path 200ms var(--ease-out);
+  }
+  .paged.polish .scene.is-active :is(.chapter-kicker, .chapter-title, .chapter-body, .chapter-takeaway, .scene-stage, .case-card, .now-card, .labs-note, .chapter-contact) {
+    opacity: 1; transform: none;
+    transition: opacity 560ms var(--ease-out), transform 760ms var(--ease-out), clip-path 760ms var(--ease-out);
+  }
+  .paged.polish .scene.is-active .chapter-title { clip-path: inset(-0.2em -0.2em -0.3em -0.2em); }
+  .paged.polish .scene.is-active .chapter-kicker   { transition-delay: 180ms; letter-spacing: 0.25em; }
+  .paged.polish .scene.is-active .chapter-title    { transition-delay: 240ms; }
+  .paged.polish .scene.is-active .chapter-body     { transition-delay: 360ms; }
+  .paged.polish .scene.is-active .chapter-takeaway { transition-delay: 440ms; }
+  .paged.polish .scene.is-active .scene-stage      { transition-delay: 260ms; }
+  .paged.polish .scene.is-active .case-card        { transition-delay: 520ms; }
+  .paged.polish .scene.is-active .now-card:nth-child(1) { transition-delay: 420ms; }
+  .paged.polish .scene.is-active .now-card:nth-child(2) { transition-delay: 480ms; }
+  .paged.polish .scene.is-active :is(.now-card:nth-child(n+3), .labs-note, .chapter-contact) { transition-delay: 560ms; }
+  .paged.polish .scene .chapter-kicker { letter-spacing: 0.6em; }
+  .paged.polish .scene .chapter-takeaway::before { transform: scaleX(0); transition: transform 200ms; }
+  .paged.polish .scene.is-active .chapter-takeaway::before { transform: scaleX(1); transition: transform 600ms var(--ease-out) 640ms; }
+  .paged.polish .scene.is-active .now-card:is(:hover, :focus-within) { transform: translate3d(0, -2px, 0); transition-delay: 0ms; }
+
+  /* Contact: same arrival language. */
+  .paged.polish .contact { opacity: 0; transform: translate3d(0, 28px, 0); transition: opacity 260ms var(--ease-out), transform 260ms var(--ease-out); }
+  .paged.polish .contact.is-active { opacity: 1; transform: none; transition: opacity 560ms var(--ease-out) 200ms, transform 760ms var(--ease-out) 200ms; }
+}
+
+@keyframes hud-roll-down { from { transform: translate3d(0, 100%, 0); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes hud-roll-up { from { transform: translate3d(0, -100%, 0); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes sweep-down {
+  0% { transform: translate3d(0, 100vh, 0); opacity: 0; }
+  15% { opacity: 1; } 85% { opacity: 1; }
+  100% { transform: translate3d(0, 0, 0); opacity: 0; }
+}
+@keyframes sweep-up {
+  0% { transform: translate3d(0, 0, 0); opacity: 0; }
+  15% { opacity: 1; } 85% { opacity: 1; }
+  100% { transform: translate3d(0, 100vh, 0); opacity: 0; }
+}
+
+/* Chapter 01: CRT glow bloom while it boots. ------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .paged .crt { transform: translate3d(0, 0, 0) scale(0.94); transition: transform 1200ms var(--ease-out); }
+  .paged .scene.is-active .crt { transform: none; }
+  .crt.is-on .crt-screen { box-shadow: inset 0 0 5rem rgba(70, 240, 138, 0.14), 0 0 0 2px var(--line), 0 0 60px -10px var(--glow); }
+}
+
+/* Chapter 02: the cover shelf. Covers stand on a lit shelf, angled like
+ * boxed games, and flip in from the spine one after another. ---------- */
+.cover-shelf {
+  position: relative; perspective: 900px; flex-wrap: nowrap; gap: clamp(0.4rem, 1vw, 0.9rem);
+  padding-bottom: 0.9rem;
+}
+.cover-shelf::after {
+  content: ""; position: absolute; left: -4%; right: -4%; bottom: 0; height: 6px; border-radius: 3px;
+  background: linear-gradient(180deg, #2a3f63, #10203a);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55), 0 -1px 14px rgba(100, 255, 218, 0.12);
+}
+.cover { width: clamp(3.4rem, 6vw, 5.2rem); height: clamp(4.8rem, 8.4vw, 7.2rem); transform-origin: 50% 100%; }
+.cover.is-shown { transform: rotateY(-16deg) rotate(var(--tilt, 0deg)); }
+@media (prefers-reduced-motion: no-preference) {
+  .cover {
+    transform: translate3d(0, -60px, 0) rotateY(-95deg);
+    transition: opacity 380ms var(--ease-out), transform 720ms cubic-bezier(0.2, 1.25, 0.35, 1);
+  }
+  .cover.is-shown { transform: rotateY(-16deg) rotate(var(--tilt, 0deg)); }
+  .cover:hover { transform: rotateY(0deg) translate3d(0, -6px, 0); transition-duration: 260ms; }
+}
+@media (max-width: 40rem) {
+  .cover-shelf { flex-wrap: wrap; }
+}
+
+/* Chapter 06: strangler migration + the lock. ------------------------------ */
+.lockflow { gap: var(--space-5); }
+.lf-row { flex-wrap: nowrap; gap: 0; }
+.lf-wire {
+  position: relative; display: inline-block; width: clamp(2.5rem, 6vw, 5rem); height: 2px;
+  background: var(--line); overflow: visible;
+}
+.lf-wire::before {
+  content: ""; position: absolute; inset: 0; background: var(--accent);
+  transform: scaleX(var(--wire, 1)); transform-origin: 0 50%;
+}
+.lf-pulse {
+  position: absolute; top: 50%; left: 0; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%;
+  background: var(--accent); box-shadow: 0 0 12px 3px var(--glow); opacity: 0;
+}
+.lf-box { position: relative; }
+.lf-new { transition: box-shadow 400ms var(--ease-out); }
+.lf-row.is-live .lf-new, .lockflow.is-static .lf-new { box-shadow: 0 0 0 1px var(--accent), 0 0 28px -6px var(--glow); }
+.lf-gauge { display: grid; gap: 3px; margin-top: 0.45rem; width: 8rem; }
+.lf-gauge > span { display: block; height: 4px; border-radius: 2px; transform-origin: 0 50%; }
+.lf-gauge-old { background: #a8b2d1; opacity: 0.45; }
+.lf-gauge-new { background: var(--accent); transform: scaleX(calc(1 - 0.3 * var(--gauge, 1))); }
+.lf-old { transition: opacity 500ms var(--ease-out); }
+.lf-row.is-retired .lf-old { opacity: 0.55; }
+.lf-lock::before { content: none; }
+.lf-padlock { position: relative; display: block; width: 18px; height: 20px; margin-bottom: 0.35rem; }
+.lf-shackle {
+  position: absolute; left: 3px; top: 0; width: 12px; height: 12px; border: 2px solid var(--accent); border-bottom: 0;
+  border-radius: 7px 7px 0 0; transform: translate3d(0, calc(-5px * (1 - var(--lock, 1))), 0);
+}
+.lf-body { position: absolute; left: 0; bottom: 0; width: 18px; height: 11px; border-radius: 2px; background: var(--accent); }
+.lf-row.is-locked .lf-lock, .lockflow.is-static .lf-lock { border-color: var(--accent); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .lockflow.is-scripted .lf-row > .lf-box:first-child { opacity: var(--in, 0); transform: translate3d(calc(-16px * (1 - var(--in, 0))), 0, 0); }
+  .lockflow.is-scripted .lf-row > .lf-box:last-child { opacity: var(--out, 0); transform: scale(calc(0.9 + 0.1 * var(--out, 0))); }
+  .lockflow.is-scripted .lf-wire::before { transform: scaleX(var(--wire, 0)); }
+  .lockflow.is-scripted .lf-pulse {
+    opacity: calc(var(--wire, 0) * (1 - var(--out, 0)) * 4);
+    transform: translate3d(calc(var(--wire, 0) * clamp(2.5rem, 6vw, 5rem)), 0, 0);
+  }
+  .lockflow.is-scripted .lf-row.is-locked .lf-padlock { animation: lock-snap 360ms var(--ease-out); }
+}
+@keyframes lock-snap { 40% { transform: scale(1.25); } 100% { transform: none; } }
+@media (max-width: 40rem) {
+  .lf-row { flex-direction: column; }
+  .lf-wire { width: 2px; height: 2rem; }
+  .lf-wire::before { transform: scaleY(var(--wire, 1)); transform-origin: 50% 0; }
+  .lockflow.is-scripted .lf-wire::before { transform: scaleY(var(--wire, 0)); }
+  .lf-pulse { left: 50%; top: 0; margin: -5px 0 0 -5px; }
+  .lockflow.is-scripted .lf-pulse { transform: translate3d(0, calc(var(--wire, 0) * 2rem), 0); }
+}
+
+/* Chapter 07: a work item travels the agent pipeline. ---------------------- */
+.pipeline li { transition: border-color 260ms var(--ease-out), box-shadow 260ms var(--ease-out), background 260ms var(--ease-out), opacity 300ms var(--ease-out), transform 300ms var(--ease-out); }
+.pipeline li.is-current { box-shadow: 0 0 0 2px var(--accent), 0 0 24px -4px var(--glow); background: #0f2e3a; }
+.pipeline li.is-fail { border-color: #ff9e8a; box-shadow: 0 0 0 2px #ff9e8a, 0 0 24px -4px rgba(255, 158, 138, 0.5); }
+.pipeline li.is-pass::before { content: "✓ "; }
+.pipeline-back { transition: opacity 300ms var(--ease-out), transform 300ms var(--ease-out); }
+.pipeline.is-done { filter: none; }
+.pipeline.is-done li { border-color: var(--accent); }
+@media (prefers-reduced-motion: no-preference) {
+  .pipeline.is-scripted li { opacity: 0.25; transform: translate3d(0, 6px, 0); }
+  .pipeline.is-scripted li.is-seen { opacity: 1; transform: none; }
+  .pipeline.is-scripted li.is-current { transform: translate3d(0, -3px, 0) scale(1.06); }
+  .pipeline.is-scripted li:not(:last-child)::after { opacity: 0.25; transition: opacity 260ms; }
+  .pipeline.is-scripted li.is-seen:not(:last-child)::after { opacity: 1; }
+  .pipeline.is-scripted ~ .pipeline-back { opacity: 0.2; }
+  .pipeline.is-scripted ~ .pipeline-back.is-lit { opacity: 1; }
+  .pipeline.is-scripted ~ .pipeline-back.is-active { transform: translate3d(-6px, 0, 0); }
+  .pipeline.is-scripted.is-done { animation: pipe-done 700ms var(--ease-out); }
+}
+@keyframes pipe-done { 40% { transform: scale(1.02); } 100% { transform: none; } }
+
+/* Reduced motion: plain scrolling, static final states, no HUD. */
+@media (prefers-reduced-motion: reduce) {
+  .pager-hud, .pager-sweep, .chapter-numeral { display: none !important; }
+}
+
+/* Card tilt (restored): values come from js/polish.js on fine pointers. */
+@media (prefers-reduced-motion: no-preference) {
+  .paged.polish .scene.is-active .now-card:is(:hover, :focus-within),
+  .metric:hover {
+    transform: perspective(700px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translate3d(0, -2px, 0);
+  }
+}

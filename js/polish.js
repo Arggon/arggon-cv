@@ -34,4 +34,20 @@
     io.observe(contact);
   } else if (contact) { contact.classList.add('is-in'); }
 
+  // Pointer tilt on cards (restored, task-chapter-pager). Fine pointers only.
+  if (window.matchMedia('(pointer: fine)').matches) {
+    Array.prototype.forEach.call(document.querySelectorAll('.now-card, .metric'), function (el) {
+      el.addEventListener('pointermove', function (e) {
+        if (mq.matches) return;
+        var r = el.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+        el.style.setProperty('--ry', (x * 5).toFixed(2) + 'deg');
+        el.style.setProperty('--rx', (-y * 5).toFixed(2) + 'deg');
+      });
+      el.addEventListener('pointerleave', function () {
+        el.style.removeProperty('--rx'); el.style.removeProperty('--ry');
+      });
+    });
+  }
+
 }());
