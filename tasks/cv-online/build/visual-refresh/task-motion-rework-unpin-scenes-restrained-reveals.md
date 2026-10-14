@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-motion-rework-unpin-scenes-restrained-reveals
 title: "Motion rework: unpin scenes, restrained reveals"
 assignee: Arggon
@@ -8,7 +8,6 @@ parent: visual-refresh
 labels: []
 created: "2026-10-14"
 updated: "2026-10-14"
-claimed_at: "2026-10-14T14:41:44.648Z"
 ---
 <!--
   Placement (v0): tasks/cv-online/build/visual-refresh/task-motion-rework-unpin-scenes-restrained-reveals.md
