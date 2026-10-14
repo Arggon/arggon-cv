@@ -1,12 +1,14 @@
 ---
 type: task
-status: todo
+status: in_progress
 id: task-rewrite-chapter-09-to-match-current-story-enes
 title: Rewrite chapter 09 to match current story (EN/ES)
+assignee: Arggon
 parent: story-deploy
 labels: []
 created: "2026-10-14"
 updated: "2026-10-14"
+claimed_at: "2026-10-14T17:26:40.493Z"
 ---
 <!--
   Placement (v0): tasks/cv-online/ship/story-deploy/task-rewrite-chapter-09-to-match-current-story-enes.md
