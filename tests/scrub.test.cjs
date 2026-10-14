@@ -42,3 +42,11 @@ const up = scrub.sceneProgress(1000, H, VIEW, 1400);
 assert.strictEqual(down, up, 'pure function of scroll position');
 
 console.log('scrub tests: progress math passes');
+
+/* viewProgress (task-motion-premium): unpinned sections play as they rise. */
+assert.strictEqual(scrub.viewProgress(1000, 800, 0), 0, 'below the fold is 0');
+assert.strictEqual(scrub.viewProgress(1000, 800, 280), 0, 'top at 90% of viewport starts at 0');
+assert.ok(Math.abs(scrub.viewProgress(1000, 800, 520) - 0.5) < 1e-9, 'halfway through the travel band');
+assert.strictEqual(scrub.viewProgress(1000, 800, 760), 1, 'top at 30% of viewport is 1');
+assert.strictEqual(scrub.viewProgress(1000, 0, 0), 1, 'zero viewport is safe');
+console.log('viewProgress tests pass');

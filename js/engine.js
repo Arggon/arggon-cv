@@ -18,7 +18,10 @@
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (scenes.length === 0) return;
 
-  var REVEAL_THRESHOLD = 0.35;
+  /* Reveal as soon as any part of the section is 10% above the viewport
+     bottom, so copy is already visible by the time it is read. */
+  var REVEAL_THRESHOLD = 0;
+  var REVEAL_MARGIN = '0px 0px -10% 0px';
 
   function byId(id) {
     return scenes.filter(function (s) { return s.dataset.scene === id; })[0];
@@ -63,7 +66,7 @@
         entry.target.dispatchEvent(new CustomEvent('scene-exit'));
       }
     });
-  }, { threshold: REVEAL_THRESHOLD });
+  }, { threshold: REVEAL_THRESHOLD, rootMargin: REVEAL_MARGIN });
 
   scenes.forEach(function (scene) {
     observer.observe(scene);

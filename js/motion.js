@@ -97,124 +97,13 @@
 
   /* DOM wiring ------------------------------------------------------------- */
 
-  function initMotion(doc, win) {
-    var reduced = win.matchMedia('(prefers-reduced-motion: reduce)');
-    var stages = Array.prototype.slice.call(doc.querySelectorAll('.scene-stage'))
-      .filter(function (stage) { return stage.children.length > 0; });
-    var magnetLinks = Array.prototype.slice.call(doc.querySelectorAll(
-      '.chapter-contact a, .site-footer a'));
-
-    /* Velocity skew + parallax: one scroll-driven rAF loop, idles to a stop. */
-    var raf = null;
-    var lastY = win.scrollY || win.pageYOffset || 0;
-    var smoothV = 0;
-    var smoothParallax = stages.map(function () { return 0; });
-
-    function applyFrame() {
-      raf = null;
-      var y = win.scrollY || win.pageYOffset || 0;
-      smoothV = lerp(smoothV, y - lastY, 0.12);
-      lastY = y;
-
-      var midY = win.innerHeight / 2;
-      var settled = Math.abs(smoothV) < 0.1;
-      var mid = win.innerHeight * 1.2; /* keep animating while stages are near */
-
-      stages.forEach(function (stage, i) {
-        var rect = stage.getBoundingClientRect();
-        if (rect.bottom < -mid || rect.top > win.innerHeight + mid) return;
-        var target = parallaxOffset(rect.top + rect.height / 2 - midY, 0.05);
-        smoothParallax[i] = lerp(smoothParallax[i], target, 0.14);
-        var skew = velocitySkew(smoothV, 1.6);
-        stage.style.transform = 'translate3d(0, ' + smoothParallax[i].toFixed(2) +
-          'px, 0) skewY(' + skew + 'deg)';
-        settled = settled && Math.abs(smoothParallax[i] - target) < 0.1;
-      });
-
-      if (!settled || Math.abs(smoothV) >= 0.1) {
-        raf = win.requestAnimationFrame(applyFrame);
-      }
-    }
-
-    function requestFrame() {
-      if (raf === null && !reduced.matches) {
-        raf = win.requestAnimationFrame(applyFrame);
-      }
-    }
-
-    /* Eased anchor glides for the rail (native jump stays for reduced motion). */
-    function bindAnchors() {
-      var links = Array.prototype.slice.call(doc.querySelectorAll('[data-rail-link]'));
-      links.forEach(function (link) {
-        link.addEventListener('click', function (event) {
-          if (reduced.matches) return; /* native jump */
-          var target = doc.getElementById(link.dataset.railLink);
-          if (!target) return;
-          event.preventDefault();
-          var from = win.scrollY || win.pageYOffset || 0;
-          var to = target.getBoundingClientRect().top + from;
-          var distance = Math.abs(to - from);
-          var duration = Math.min(900, Math.max(400, distance * 0.35));
-          var start = null;
-          function step(ts) {
-            if (start === null) start = ts;
-            var t = Math.min(1, (ts - start) / duration);
-            /* behavior:'instant' — this loop IS the easing; the html-level
-               smooth scroll would restart an animation on every frame. */
-            win.scrollTo({ top: from + (to - from) * easeInOutCubic(t), behavior: 'instant' });
-            if (t < 1) {
-              win.requestAnimationFrame(step);
-            } else {
-              target.setAttribute('tabindex', '-1');
-              target.focus({ preventScroll: true });
-              if (win.history && win.history.pushState) {
-                win.history.pushState(null, '', '#' + target.id);
-              }
-            }
-          }
-          win.requestAnimationFrame(step);
-        });
-      });
-    }
-
-    /* Magnetic links: lean toward the pointer, spring back on leave. */
-    function bindMagnets() {
-      magnetLinks.forEach(function (link) {
-        link.addEventListener('pointermove', function (event) {
-          if (reduced.matches) return;
-          var rect = link.getBoundingClientRect();
-          var pull = magnetOffset(
-            event.clientX - (rect.left + rect.width / 2),
-            event.clientY - (rect.top + rect.height / 2), 6);
-          link.style.transform = 'translate(' + pull.x.toFixed(1) + 'px, ' +
-            pull.y.toFixed(1) + 'px)';
-        });
-        link.addEventListener('pointerleave', function () {
-          link.style.transform = '';
-        });
-      });
-    }
-
-    function bind() {
-      win.addEventListener('scroll', requestFrame, { passive: true });
-      win.addEventListener('resize', requestFrame);
-      if (typeof reduced.addEventListener === 'function') {
-        reduced.addEventListener('change', function () {
-          if (reduced.matches) {
-            if (raf !== null) { win.cancelAnimationFrame(raf); raf = null; }
-            stages.forEach(function (stage) { stage.style.transform = ''; });
-            magnetLinks.forEach(function (link) { link.style.transform = ''; });
-          } else {
-            requestFrame();
-          }
-        });
-      }
-      bindAnchors();
-      bindMagnets();
-    }
-
-    if (stages.length > 0 || magnetLinks.length > 0) bind();
-  }
+  /* task-motion-premium: the DOM layer is intentionally empty. Velocity
+     skew and stage parallax made the chapter 6/7 diagrams wobble while
+     scrolling, the eased anchor glide took over native scroll, and magnetic
+     links fought the pointer. Native scroll (plus CSS scroll-behavior for
+     rail anchors) is the only scroll motion now. The pure helpers stay
+     exported for reuse and tests. */
+  function initMotion() {}
 
   if (typeof document !== 'undefined' && document.querySelector) {
     initMotion(document, window);
