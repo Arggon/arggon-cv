@@ -24,7 +24,7 @@ The story arc (from Gonzalo's own account + CV). Seven chapters, chronological, 
 3. **Networking basics** — how the search led to ports, firewalls, packets, databases.
 4. **SQL injection at 16** — reading and poking Mu Online / Lineage private-server websites.
 5. **Formal path** — Software Engineering career, then Tecnico Programador Universitario (UTN FRT), graduating 2021.
-6. **The ladder** — 2021 junior at e.tres/Lytx, Consultant 2022-2025, Senior Software Engineer (GlobalLogic/Coalfire), Senior AI Software Engineer (2026): SDD framework, .NET 9 microservice migration, CQRS+Mediator payment work.
+6. **The ladder** — 2021 junior at e.tres/Lytx, Consultant 2022-2025, Senior Software Engineer (GlobalLogic/Coalfire), Senior AI Software Engineer (2026): SDD framework and a .NET 9 microservice migration.
 7. **Now** — what drives the next chapter; contact.
 
 ## Acceptance

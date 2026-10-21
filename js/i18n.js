@@ -218,7 +218,7 @@
       'ch5.y5': "may 2026",
       'ch5.r1': "desarrollador de software",
       'ch5.rs1': "e.tres · e-commerce · integraciones con pasarelas de pago",
-      'ch5.r2': "software engineer II",
+      'ch5.r2': "ingeniero de software II",
       'ch5.rs2': "GlobalLogic → Lytx · endpoint por lotes, 80% menos tiempo de proceso",
       'ch5.r3': "ingeniero de software senior",
       'ch5.rs3': "GlobalLogic → Coalfire · microservicio .NET 9 30% más rápido, rol de acceso para AWS Marketplace",
