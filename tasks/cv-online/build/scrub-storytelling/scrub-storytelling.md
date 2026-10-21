@@ -24,7 +24,7 @@ sense: scenes pin (sticky) while scroll position scrubs their animation forward
 and backward. Palette stays navy + mint; EN stays default with the ES toggle.
 Story content corrected to Gonzalo's real account (Windows 98 first PC, Family
 Game + Sega consoles, real games MU Online / WoW / Counter Strike / Age of
-Empires, career ladder exactly per the CV: consultant = GreenDot Feb 2026).
+Empires, career ladder exactly per the CV).
 
 ## Acceptance
 
