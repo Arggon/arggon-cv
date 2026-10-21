@@ -27,7 +27,7 @@ Replace test-era copy with Gonzalo's real account: Windows 98 first computer at
 3-4; grew up on PC plus Family Game and Sega consoles; ch2 covers are the real
 games (MU Online, World of Warcraft, Counter Strike, Age of Empires, Family
 Game, Sega); ch6 ladder matches the CV exactly (e.tres 2021-22; Lytx 2022-25;
-Coalfire senior 2025; GreenDot consultant Feb 2026; Senior AI since May 2026).
+Coalfire senior 2025; Senior AI since May 2026).
 EN inline copy + ES dict + content/chapters.md all updated; word limits kept.
 
 ## Acceptance
