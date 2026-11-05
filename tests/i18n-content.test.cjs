@@ -12,7 +12,7 @@
  */
 
 const assert = require('node:assert');
-const { readFileSync } = require('node:fs');
+const { existsSync, readFileSync } = require('node:fs');
 const { join } = require('node:path');
 
 const root = join(__dirname, '..');
@@ -174,5 +174,57 @@ assert.notStrictEqual(i18n.STRINGS.es['ch8.mClean'], i18n.STRINGS.en['ch8.mClean
 assert.strictEqual(i18n.STRINGS.es['ch8.mClean'], 'Arquitectura limpia');
 assert.strictEqual(i18n.STRINGS.es['ch8.mSpec'], 'Desarrollo guiado por specs');
 assert.strictEqual(i18n.STRINGS.es['ch8.mRust'], 'Rust (aprendiendo)');
+
+/* CV download href follows the locale. The HTML default stays the English
+ * file (no-JS visitors, and the existing EN path). applyLang swaps it. */
+const EN_PDF = 'assets/Gonzalo-Arganaraz-CV.pdf';
+const ES_PDF = 'assets/Gonzalo-Arganaraz-CV-ES.pdf';
+assert.strictEqual(i18n.STRINGS.en['cv.href'], EN_PDF);
+assert.strictEqual(i18n.STRINGS.es['cv.href'], ES_PDF);
+assert.ok(existsSync(join(root, EN_PDF)), 'English CV stays at its current path');
+assert.ok(existsSync(join(root, ES_PDF)), 'Spanish CV is shipped beside it');
+assert.ok(!html.includes(ES_PDF), 'the ES path is applied at runtime, not hardcoded');
+
+function downloadLinks() {
+  return [...html.matchAll(/<a\b[^>]*data-i18n-href="cv.href"[^>]*>/g)].map((m) => m[0]);
+}
+const downloads = downloadLinks();
+assert.strictEqual(downloads.length, 2, 'hero and footer both follow the locale');
+for (const tag of downloads) {
+  assert.ok(tag.includes(`href="${EN_PDF}"`), 'default href is the English PDF');
+  assert.ok(/data-i18n="(cta|footer)\.pdf"/.test(tag), tag);
+}
+
+function attrEl(attrs) {
+  const store = Object.assign({}, attrs);
+  return {
+    hasAttribute(name) { return Object.prototype.hasOwnProperty.call(store, name); },
+    getAttribute(name) { return Object.prototype.hasOwnProperty.call(store, name) ? store[name] : null; },
+    setAttribute(name, value) { store[name] = String(value); },
+  };
+}
+
+const links = [
+  attrEl({ 'data-i18n': 'cta.pdf', 'data-i18n-href': 'cv.href', href: EN_PDF }),
+  attrEl({ 'data-i18n': 'footer.pdf', 'data-i18n-href': 'cv.href', href: EN_PDF }),
+];
+global.CustomEvent = function CustomEvent(type, init) {
+  this.type = type;
+  this.detail = init && init.detail;
+};
+global.document = {
+  documentElement: { setAttribute() {}, getAttribute() { return null; } },
+  title: '',
+  querySelectorAll(sel) { return sel === '[data-i18n]' ? links : []; },
+  querySelector() { return null; },
+  dispatchEvent() {},
+};
+
+assert.strictEqual(i18n.applyLang('es', { persist: false }), 'es');
+for (const link of links) assert.strictEqual(link.getAttribute('href'), ES_PDF);
+assert.strictEqual(i18n.applyLang('en', { persist: false }), 'en');
+for (const link of links) assert.strictEqual(link.getAttribute('href'), EN_PDF);
+assert.strictEqual(i18n.applyLang('fr', { persist: false }), 'en');
+for (const link of links) assert.strictEqual(link.getAttribute('href'), EN_PDF);
 
 console.log(`i18n content: ${keyed.size} keyed strings, ${uncovered.length} equivalent tokens`);

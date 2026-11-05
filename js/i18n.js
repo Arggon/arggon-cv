@@ -97,6 +97,7 @@
       'hero.m3': "agents and 1 human: the SDLC pipeline I designed (Coalfire)",
       'cta.email': "Hire me · Email",
       'cta.pdf': "Download CV",
+      'cv.href': "assets/Gonzalo-Arganaraz-CV.pdf",
       'contact.kicker': "Chapter 09 · your team?",
       'contact.title': "Need a senior .NET backend engineer who works with AI agents?",
       'contact.body': "I'm open to remote full-time roles, as an employee or contractor: senior backend and .NET, or teams bringing AI agents into a real delivery process. I bring ArggonManager, my methodology for AI coding agents (evidence-based reviews, a done gate, irreversible calls kept human), and dotnet-batchyard, my public .NET 10 showcase built with it. I'm on UTC-3 and can overlap with US working hours. Send me an email.",
@@ -242,6 +243,7 @@
       'hero.m3': "agentes y 1 humano: el pipeline de SDLC que diseñé (Coalfire)",
       'cta.email': "Contratame · Email",
       'cta.pdf': "Bajar CV",
+      'cv.href': "assets/Gonzalo-Arganaraz-CV-ES.pdf",
       'contact.kicker': "Capítulo 09 · ¿tu equipo?",
       'contact.title': "¿Buscás un backend engineer senior en .NET que trabaje con agentes de IA?",
       'contact.body': "Busco roles remotos full-time, en relación de dependencia o como contractor: backend senior y .NET, o equipos que quieran sumar agentes de IA a un delivery real. Traigo ArggonManager, mi metodología para agentes de IA que programan (revisiones con evidencia, un done gate y las decisiones irreversibles en manos humanas), y dotnet-batchyard, mi showcase público en .NET 10 hecho con ella. Estoy en UTC-3 y puedo coincidir con el horario laboral de Estados Unidos. Mandame un mail.",
@@ -369,6 +371,7 @@
   /**
    * Apply a language to the document: swap [data-i18n] text, title,
    * meta/OG strings, <html lang>, toggle state; persist and broadcast.
+   * [data-i18n-href] swaps the href (the CV download follows the locale).
    * @param {'en'|'es'} lang
    * @param {Object} [opts] persist=false skips localStorage (tests).
    */
@@ -386,6 +389,8 @@
       } else {
         el.textContent = dict[key];
       }
+      var hrefKey = el.getAttribute('data-i18n-href');
+      if (hrefKey && isKey(hrefKey, lang)) el.setAttribute('href', dict[hrefKey]);
     });
 
     document.documentElement.setAttribute('lang', lang);

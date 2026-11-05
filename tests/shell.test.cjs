@@ -24,7 +24,7 @@ for (const id of scenes) {
 }
 
 // 3. Referenced local assets exist (works over file:// and any static server).
-const assets = [...html.matchAll(/(?:href|src)="(?!https?:|#|mailto:)([^"]+)"/g)].map((m) => m[1]);
+const assets = [...html.matchAll(/(?:^|[\s])(?:href|src)="(?!https?:|#|mailto:)([^"]+)"/g)].map((m) => m[1]);
 assert.ok(assets.length > 0, 'index.html must reference local assets');
 for (const asset of assets) {
   assert.ok(existsSync(join(root, asset)), `missing asset: ${asset}`);
