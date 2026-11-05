@@ -20,7 +20,10 @@ assert.ok(Object.keys(i18n.STRINGS.en).length >= 60, 'dictionary looks complete'
 assert.ok(i18n.STRINGS.es['ch1.body'].length > 100, 'ES chapter copy is real copy');
 
 // 2. Every key referenced from the HTML exists in both languages.
-const used = [...html.matchAll(/data-i18n="([^"]+)"/g)].map((m) => m[1]);
+const used = [
+  ...html.matchAll(/data-i18n="([^"]+)"/g),
+  ...html.matchAll(/data-i18n-href="([^"]+)"/g),
+].map((m) => m[1]);
 assert.ok(used.length >= 80, `expected the full copy wired up (found ${used.length})`);
 const unique = [...new Set(used)];
 for (const key of unique) {

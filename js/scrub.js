@@ -90,6 +90,22 @@
    */
   var TIMELINE_MS = { ch1: 2600, ch2: 2600, ch3: 2400, ch4: 1900, ch5: 1600, ch6: 2200, ch7: 2600 };
 
+  /**
+   * A settled chapter keeps the last frame its timeline painted. Switching
+   * language has to redraw that frame from the dictionary. A timeline that
+   * is still playing already reads the dictionary on its next tick.
+   * @param {string|null} currentId Chapter whose renderer is current.
+   * @param {Object} playing         In-flight timeline ids.
+   * @param {Function} render        Scene renderer, or missing.
+   * @returns {boolean} True when a settled frame was redrawn.
+   */
+  function repaintSettled(currentId, playing, render) {
+    if (!currentId || (playing && playing[currentId])) return false;
+    if (typeof render !== 'function') return false;
+    render(1);
+    return true;
+  }
+
   /* DOM wiring ------------------------------------------------------------- */
 
   function initScrub(doc, win) {
@@ -138,6 +154,12 @@
       if (id) play(id);
     });
 
+    /* data-i18n nodes update on their own. Scene text painted by a
+       finished timeline (the ch2 search query) does not, unless we redraw. */
+    doc.addEventListener('cv:langchange', function () {
+      repaintSettled(current, playing, renderer(current));
+    });
+
     /* A renderer can register after the pager already activated its
        chapter (first visit): start it right away. Without the pager
        (reduced motion, or JS paging off) scenes show their final frame. */
@@ -158,6 +180,7 @@
     sceneProgress: sceneProgress,
     viewProgress: viewProgress,
     band: band,
-    easeOutCubic: easeOutCubic
+    easeOutCubic: easeOutCubic,
+    repaintSettled: repaintSettled
   };
 }));
