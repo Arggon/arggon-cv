@@ -5,6 +5,8 @@
  */
 
 const assert = require('node:assert');
+const { readFileSync } = require('node:fs');
+const { join } = require('node:path');
 const scrub = require('../js/scrub.js');
 
 /* sceneProgress: 0 before the pin, linear inside, 1 after. */
@@ -50,3 +52,19 @@ assert.ok(Math.abs(scrub.viewProgress(1000, 800, 520) - 0.5) < 1e-9, 'halfway th
 assert.strictEqual(scrub.viewProgress(1000, 800, 760), 1, 'top at 30% of viewport is 1');
 assert.strictEqual(scrub.viewProgress(1000, 0, 0), 1, 'zero viewport is safe');
 console.log('viewProgress tests pass');
+
+/* A settled scene redraws its final frame when the language changes.
+   A timeline that is still playing is left alone: its next tick already
+   reads the dictionary. */
+let painted = null;
+assert.strictEqual(scrub.repaintSettled('ch2', {}, function (p) { painted = p; }), true);
+assert.strictEqual(painted, 1, 'settled chapter repaints at the final frame');
+assert.strictEqual(scrub.repaintSettled('ch2', { ch2: 1 }, function () {
+  throw new Error('a playing timeline must not be restarted');
+}), false);
+assert.strictEqual(scrub.repaintSettled(null, {}, function () { throw new Error('no chapter'); }), false);
+assert.strictEqual(scrub.repaintSettled('ch2', {}, null), false, 'missing renderer is a no-op');
+const scrubSrc = readFileSync(join(__dirname, '..', 'js', 'scrub.js'), 'utf8');
+assert.ok(scrubSrc.includes("addEventListener('cv:langchange'"),
+  'scrub listens for language changes and repaints the settled scene');
+console.log('lang repaint tests pass');

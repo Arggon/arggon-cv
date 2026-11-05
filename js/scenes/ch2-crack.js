@@ -3,9 +3,10 @@
  * Scroll-scrubbed: covers pop in with scroll, the search bar types the
  * curiosity-driven queries forward and backward (pure function of
  * progress), forum cards land last. Queries come from the i18n
- * dictionary, read every frame, so a language switch mid-scroll just
- * works. Nostalgia, not how-to. Reduced motion: everything shown,
- * static.
+ * dictionary, read every frame. The scrub engine redraws a settled
+ * frame on cv:langchange, so the query follows the language after the
+ * timeline has finished. Nostalgia, not how-to. Reduced motion: everything
+ * shown, static.
  */
 (function () {
   'use strict';
